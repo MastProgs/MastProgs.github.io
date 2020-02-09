@@ -3,10 +3,17 @@
     <head>
         <meta charset="utf-8" />
         <title>HTML5 게임 개발 테스트</title>
+        <script src="js/ImageExample.js"></script>
     </head>
     <body>
         <div style="position: absolute; top: 25px; left: 25px">
-          <button class="snake" type="button"> <<a href="snake.html">뱀 게임 하러가기</a>> </button>
+          <button class="snake" type="button" onclick="goToSnakeGame()"> 뱀 게임 하러가기 </button>
         </div>
+        <script type="text/javascript">
+          function goToSnakeGame()
+          {
+            location.href="snake.html";
+          }
+        </script>
     </body>
 </html>
