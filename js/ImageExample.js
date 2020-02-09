@@ -11,6 +11,8 @@ var state = true;
 var score = 0;
 var highscore = 0;
 
+var saveFileName = "snakeSave.txt";
+
 //var fso = new ActiveXObject("Scripting.FileSystemObject");
 //var filename = "score.txt"
 //if (!fso.FileExists(filename)) {
@@ -102,9 +104,19 @@ function scoring() {
 
 function highscoring() {
     var theScore = document.getElementById("high");
+    var playerName = "";
+    
+    if (highscore == 0) {
+        var fileObject = new ActiveXObject("Scripting.FileSystemObject");
+        if (fileObject.FileExists(saveFileName)) {
+            var fOpen = fileObject.OpenTextFile(saveFileName, 1);
+            highscore = fOpen.Readline();
+            playerName = fOpen.Readline();
+        }
+    }
 
     theScore.style.fontSize = "35px";
-    theScore.innerHTML = "High Score = " + highscore;
+    theScore.innerHTML = "High Score = " + highscore + ", The Player = " + playerName;
 }
 
 function clearCanvas() {
@@ -319,7 +331,7 @@ function main() {
 function restarting() {
     state = true;
     if (highscore < score) {
-        highscore = score;
+        highscore = score;        
     }
     score = 0;
     count = 0;
