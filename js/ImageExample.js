@@ -104,20 +104,21 @@ function scoring() {
 
 function highscoring() {
     var theScore = document.getElementById("high");
-    var playerName = "";
+    //var playerName = "";
     
-    if (highscore == 0) {
-        var fileObject = new ActiveXObject("Scripting.FileSystemObject");
-        if (fileObject.FileExists(saveFileName)) {
-            var fOpen = fileObject.OpenTextFile(saveFileName, 1);
-            highscore = fOpen.Readline();
-            playerName = fOpen.Readline();
-            fOpen.close();
-        }
-    }
+    //if (highscore == 0) {
+    //    var input = document.createElement("input");
+    //    input.type = "file";
+    //    input.accept = saveFileName;
+        
+    //    var reader = new FileReader();
+    //    reader.onload = function(){
+    //        output.innerText = reader.result;
+    //    };
+    //}
 
     theScore.style.fontSize = "35px";
-    theScore.innerHTML = "High Score = " + highscore + ", The Player = " + playerName;
+    theScore.innerHTML = "High Score = " + highscore;// + ", The Player = " + playerName;
 }
 
 function clearCanvas() {
