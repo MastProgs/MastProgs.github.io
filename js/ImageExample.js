@@ -112,6 +112,7 @@ function highscoring() {
             var fOpen = fileObject.OpenTextFile(saveFileName, 1);
             highscore = fOpen.Readline();
             playerName = fOpen.Readline();
+            fOpen.close();
         }
     }
 
