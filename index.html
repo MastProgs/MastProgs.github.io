@@ -1,44 +1,30 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="ko">
     <head>
         <meta charset="utf-8" />
-        <title>HTML5 게임 개발 테스트</title>
+        <title>HTML5 개발 테스트</title>
+        <link rel="stylesheet" href="css/bootstrap.css" />
         <style media="screen">
-          #snake_button{                /* 버튼 id 값이 css 기준 */
-            width:200px;                /* 버튼 넓이 */
-            background-color: #00cc66;  /* 버튼 뒷배경 */
-            border: none;
-            color:#ffffff;              /* 버튼 글씨 색상 */
-            padding: 20px 0;            /* 버튼 높이 */
-            text-align: center;         /* 글씨 정렬 */
-            text-decoration: none;
-            display: inline-block;
-            font-size: 18px;            /* 글씨 크기 */
-            margin: 10px;               /* 버튼 시작 위치 */
-            cursor: pointer;
-            border-radius:20px;         /* 버튼 테두리 라운딩 */
-          }
-          #snake_button:hover{
-            background-color: #ff6633;  /* 마우스 올렸을 때 버튼 색상 */
-          }
         </style>
     </head>
     <body>
         <div style="position: absolute; top: 25px; left: 25px">
-          <button id="snake_button" type="button" onclick="goToSnakeGame()"> 뱀 게임 하러가기 </button>
+          <button type="button" class="btn btn-outline-primary" onclick="goToSnakeGame()"> 뱀 게임 하러가기 </button>
         </div>
-        <div style="position: absolute; top: 25px; left: 25px">
-          <button id="my_intro_button" type="button" onclick="goToMyIntro()"> 이력서 보러가기 </button>
+        <div style="position: absolute; top: 25px; left: 200px">
+          <button type="button" class="btn btn-outline-success" onclick="goToMyIntro()"> 이력서 보러가기 </button>
         </div>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <script type="text/javascript" src="js/bootstrap.js"></script>
         <script type="text/javascript">
           function goToSnakeGame()
           {
             location.href="snake.html";
           }
-            
+
           function goToMyIntro()
           {
-            location.href="intro.html";
+            location.href="myintroduce/intro.html";
           }
         </script>
     </body>
