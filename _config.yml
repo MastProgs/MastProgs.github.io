@@ -1,1 +1,25 @@
-theme: jekyll-theme-cayman
+remote_theme : vvalchev/creative-theme-jekyll-new
+
+# Site settings
+title: Mastprogs Page
+description: > # this means to ignore newlines until "baseurl:"
+baseurl: "/blog/" # the subpath of your site, e.g. /blog/
+url: "https://Mastprogs.github.io" # the base hostname & protocol for your site
+author: Copyright &copy; 2019 - Start Bootstrap
+lang: en_US
+
+# Build settings
+safe: true # always trues on github-pages, disables _plugins/
+markdown: kramdown
+sass:
+  indentWidth: 4
+  style: compressed
+  precision: 10
+plugins:
+  - jekyll-sitemap
+  - jekyll-seo-tag
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - build-in-docker.sh
+  - README.md
