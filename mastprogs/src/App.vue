@@ -69,7 +69,7 @@
         </div>
         
         <div v-if="m_navVal === 1">
-          <h1>회사 경력(공사중)</h1>
+          <TimeLine/>
         </div>
         
         <div v-if="m_navVal === 2">
@@ -92,12 +92,14 @@
 
 <script>
 import Profile from './components/Profile';
+import TimeLine from './components/TimeLine';
 
 export default {
   name: 'App',
 
   components: {
     Profile,
+    TimeLine,
   },
 
   data: () => ({
