@@ -73,7 +73,7 @@
         </div>
         
         <div v-if="m_navVal === 2">
-          <h1>과거 작업내역(공사중)</h1>
+          <MyWork/>
         </div>
         
         <div v-if="m_navVal === 3">
@@ -93,6 +93,7 @@
 <script>
 import Profile from './components/Profile';
 import TimeLine from './components/TimeLine';
+import MyWork from './components/MyWork';
 
 export default {
   name: 'App',
@@ -100,6 +101,7 @@ export default {
   components: {
     Profile,
     TimeLine,
+    MyWork,
   },
 
   data: () => ({
