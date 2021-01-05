@@ -3,6 +3,31 @@
     <v-main>
       <v-container>
 
+        <h1>문서화 작업</h1>
+        <br>
+        <v-btn
+          class="ma-2"
+          dark
+        >
+          전체 서버 로직 문서화 일부
+        </v-btn>
+        <v-btn
+          class="ma-2"
+          dark
+        >
+          내부 로직 문서화 일부
+        </v-btn>
+        <v-btn
+          class="ma-2"
+          dark
+        >
+          작업한 컨텐츠 문서화 일부
+        </v-btn>
+
+        <br><br>
+        <v-divider/>
+        <br>
+
         <h1>주 구현 내용</h1>
         <br>
 
