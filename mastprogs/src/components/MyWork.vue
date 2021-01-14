@@ -3,7 +3,7 @@
     <v-main>
       <v-container>
 
-        <h1>문서화 작업</h1>
+        <h1>문서화 작업 (공사중)</h1>
         <br>
         <v-btn
           class="ma-2"

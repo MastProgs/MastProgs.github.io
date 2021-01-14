@@ -99,7 +99,7 @@
           <v-layout align-center justify-center>
             <v-img src="../assets/kpu.png" max-width="200" max-height="100"/>
           </v-layout>
-          <p><br>게임공학과 4년제 학사 졸업<br>2015.03.01 ~ 2018.02.28</p>
+          <p><br>게임공학과 4년제 학사 졸업<br>2015.03.01 ~ 2018.02.09</p>
         </v-col>
         <v-col cols="12" sm="6">
           <h1>군력</h1>
