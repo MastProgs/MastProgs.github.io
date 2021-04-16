@@ -2,28 +2,51 @@
   <v-app>
     <v-main>
       <v-container>
-
-        <h1>문서화 작업 (공사중)</h1>
+        <h1>개발망 전용 툴 구현</h1>
         <br>
-        <v-btn
-          class="ma-2"
-          dark
-        >
-          전체 서버 로직 문서화 일부
-        </v-btn>
-        <v-btn
-          class="ma-2"
-          dark
-        >
-          내부 로직 문서화 일부
-        </v-btn>
-        <v-btn
-          class="ma-2"
-          dark
-        >
-          작업한 컨텐츠 문서화 일부
-        </v-btn>
 
+        <v-btn
+          class="ma-2"
+          dark
+          @click="showDialog(11)"
+        >
+          개발망 클라 런처
+        </v-btn>
+        <v-dialog
+          max-width="800"
+          v-model="dialogsDataList[11].flag"
+        >
+          <my-dialog
+            header-title="개발망 클라 런처"
+            @submit="submitDialog(11)"
+          >
+            <template v-slot:body>
+              각 국가 버전별 실행 명령인자 값이 다르고, id pw ip port 등등 여러 정보를 매 실행마다 수동으로 입력하여 클라를 실행해야하는 시스템이라 불편했었습니다. 자동화 작업으로 버튼 몇 개만 누르면 입맛에 맞는 실행 명령을 입력하여 개발망 클라이언트를 구동시킬 수 있는 런처 툴을 제작하여 나눠드렸고, 개발 시간 단축에 힘을 보탰습니다.
+            </template>
+          </my-dialog>
+        </v-dialog>
+        
+        <v-btn
+          class="ma-2"
+          dark
+          @click="showDialog(10)"
+        >
+          개발망 아이템 지급 툴
+        </v-btn>
+        <v-dialog
+          max-width="800"
+          v-model="dialogsDataList[10].flag"
+        >
+          <my-dialog
+            header-title="개발망 아이템 지급 툴"
+            @submit="submitDialog(10)"
+          >
+            <template v-slot:body>
+              개발 과정 중에 필요한 아이템이나 캐릭터 셋팅에 필요한 부분들을 매번 서버 프로그래머에 요청하는 프로세스로 작업을 하기에 비효율적이었습니다. 자동화 작업으로 필요한 버튼 몇 개만 누르면 아이템 지급이나 캐릭터 상태에 대한 셋팅을 진행할 수 있도록 툴을 제작하여 나눠드렸고, 개발 시간 단축에 힘을 보탰습니다.
+            </template>
+          </my-dialog>
+        </v-dialog>
+        
         <br><br>
         <v-divider/>
         <br>
@@ -299,9 +322,9 @@ export default {
       { flag: false },  //  7
       { flag: false },  //  8
       { flag: false },  //  9
+      { flag: false },  //  10
+      { flag: false },  //  11
 
-      { flag: false },
-      { flag: false },
       { flag: false },
       { flag: false },
       { flag: false },
