@@ -10,7 +10,7 @@
         >
           <v-img
             max-width="500"
-            src="../assets/myface.png">
+            src="../assets/myface2.png">
             
           </v-img>
         </v-col>
@@ -94,14 +94,21 @@
       <v-divider></v-divider>
       <br>
       <v-row>
-        <v-col cols="12" sm="6">
-          <h1>학력</h1>
+        <v-col cols="12" sm="4">
+          <h1>대학교</h1>
           <v-layout align-center justify-center>
             <v-img src="../assets/kpu.png" max-width="200" max-height="100"/>
           </v-layout>
           <p><br>게임공학과 4년제 학사 졸업<br>2015.03.01 ~ 2018.02.09</p>
         </v-col>
-        <v-col cols="12" sm="6">
+        <v-col cols="12" sm="4">
+          <h1>대학원</h1>
+          <v-layout align-center justify-center>
+            <v-img src="../assets/kookmin.png" max-width="200" max-height="100"/>
+          </v-layout>
+          <p><br>인공지능과 석사 재학<br>2021.03.01 ~ (진행중)</p>
+        </v-col>
+        <v-col cols="12" sm="4">
           <h1>군력</h1>
           <v-layout align-center justify-center>
             <v-img src="../assets/airforce.png" max-width="200" max-height="100"/>

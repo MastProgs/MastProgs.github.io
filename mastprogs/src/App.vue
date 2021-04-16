@@ -57,7 +57,7 @@
 
     <v-app-bar app dark dense>
       <v-layout align-center justify-center>
-        <p>최신 업데이트 날짜 : 2021-01-14</p>
+        <p>최신 업데이트 날짜 : 2021-04-16</p>
       </v-layout>
     </v-app-bar>
 
