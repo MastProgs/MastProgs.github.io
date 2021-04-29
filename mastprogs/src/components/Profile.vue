@@ -31,6 +31,12 @@
           게임 분야 뿐 아니라 AI 및 빅데이터, 클라우드 같은 사회적 이슈 기술에 대해서도 많은 관심이 있습니다. 
           저와 같이 성장해 나갈 수 있는 회사를 관심 깊게 찾고 있습니다.</span>
 
+          <br>
+          <span>기타 정보 ( 
+            MBTI 성격 : <a href="https://www.16personalities.com/ko/%EC%84%B1%EA%B2%A9%EC%9C%A0%ED%98%95-intp">INTP</a>
+            , 취미 : <a href="https://soundcloud.com/uzchowall">편곡</a>
+          )</span>
+
         </v-col>
       </v-row>
     </div>
