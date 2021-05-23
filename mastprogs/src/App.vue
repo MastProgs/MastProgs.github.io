@@ -57,7 +57,7 @@
 
     <v-app-bar app dark dense>
       <v-layout align-center justify-center>
-        <p>최신 업데이트 날짜 : 2021-04-29</p>
+        <p>최신 업데이트 날짜 : 2021-05-23</p>
       </v-layout>
     </v-app-bar>
 
@@ -77,7 +77,7 @@
         </div>
         
         <div v-if="m_navVal === 3">
-          <h1>개인 프로젝트(공사중)</h1>
+          <MyPrivateProjects/>
         </div>
         
         <div v-if="m_navVal === 4">
@@ -94,6 +94,7 @@
 import Profile from './components/Profile';
 import TimeLine from './components/TimeLine';
 import MyWork from './components/MyWork';
+import MyPrivateProjects from './components/MyPrivateProjects';
 
 export default {
   name: 'App',
@@ -102,6 +103,7 @@ export default {
     Profile,
     TimeLine,
     MyWork,
+    MyPrivateProjects,
   },
 
   data: () => ({
