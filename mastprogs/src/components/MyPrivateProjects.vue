@@ -7,6 +7,8 @@
         <div>
             <h3>코인 자동 트레이딩</h3>
             <br>
+            <v-img src="../assets/auto_trading.png"></v-img>
+            <br>
             <div>
                 업비트 API 를 활용하여 자동으로 코인 트레이딩을 진행하여, 수익을 창출하는 프로그램입니다. 
             </div>
