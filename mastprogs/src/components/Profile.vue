@@ -38,6 +38,7 @@
     <div>
       <br>
       <v-row md-gutters>
+
         <v-col>
             <v-img src="../assets/cpp.png" max-width="75" max-height="75"/>
         </v-col>
@@ -48,7 +49,13 @@
             <v-img src="../assets/sql.png" max-width="75" max-height="75"/>
         </v-col>
         <v-col>
+            <v-img src="../assets/redis.jpg" max-width="75" max-height="75"/>
+        </v-col>
+        <v-col>
             <v-img src="../assets/js.png" max-width="75" max-height="75"/>
+        </v-col>
+        <v-col>
+            <v-img src="../assets/typescript.png" max-width="75" max-height="75"/>
         </v-col>
         <v-col>
             <v-img src="../assets/logo.png" max-width="75" max-height="75"/>

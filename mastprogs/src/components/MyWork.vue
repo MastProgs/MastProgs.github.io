@@ -2,6 +2,35 @@
   <v-app>
     <v-main>
       <v-container>
+        
+        <h1>서버 아키텍쳐 구현</h1>
+        <br>
+
+        <v-btn
+          class="ma-2"
+          dark
+          @click="showDialog(12)"
+        >
+          채팅 서버 구현
+        </v-btn>
+        <v-dialog
+          max-width="800"
+          v-model="dialogsDataList[12].flag"
+        >
+          <my-dialog
+            header-title="채팅 서버 구현"
+            @submit="submitDialog(12)"
+          >
+            <template v-slot:body>
+              MQTT 기술을 활용하여 Intagram / Facebook 와 같은 채팅 서버를 구현하였습니다. Broker 서버를 통해 채팅 메세지를 주고 받고, Redis 에 다양한 채팅 대화 및 방 생성 정보를 저장하며 활용하였습니다. 
+            </template>
+          </my-dialog>
+        </v-dialog>
+        
+        <br><br>
+        <v-divider/>
+        <br>
+
         <h1>개발망 전용 툴 구현</h1>
         <br>
 
@@ -324,8 +353,8 @@ export default {
       { flag: false },  //  9
       { flag: false },  //  10
       { flag: false },  //  11
+      { flag: false },  //  12
 
-      { flag: false },
       { flag: false },
       { flag: false },
       { flag: false },

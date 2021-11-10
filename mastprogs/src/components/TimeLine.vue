@@ -7,6 +7,111 @@
 
         <v-row justify="space-around">
             <v-card width="100%">
+                <!--v-carousel>
+                    <v-carousel-item src="../assets/joycity.jpg" reverse-transition="fade-transition" transition="fade-transition"/>
+                    <v-carousel-item src="../assets/freestyle_1.jpg" reverse-transition="fade-transition" transition="fade-transition"/>
+                </v-carousel-->
+                <v-app-bar
+                    flat
+                    color="rgba(0, 0, 0, 0)"
+                >
+                    <v-avatar size="50">
+                        <v-img src="../assets/wemade.png"/>
+                    </v-avatar>
+
+                    <v-toolbar-title class="title ml-4">Wemade Plus</v-toolbar-title>
+                </v-app-bar>
+                
+                <v-card-text>
+                    <div class="font-weight-bold ml-8 mb-2">
+                        프로젝트 정보
+                    </div>
+                    <div class="ml-8 mb-2">
+                        <v-simple-table class="text-left">
+                            <thead>
+                                <tr>
+                                    <th>분류</th>
+                                    <th>설명</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th>게임 이름</th>
+                                    <th>Nallary</th>
+                                </tr>
+                                <tr>
+                                    <th>게임 장르</th>
+                                    <th>Community App / NFT Wemix Coin Trading Platform</th>
+                                </tr>
+                                <tr>
+                                    <th>출시 플랫폼</th>
+                                    <th>Mobile</th>
+                                </tr>
+                                <tr>
+                                    <th>그래픽 뷰</th>
+                                    <th>Web Gallary / Ingame = 3D Full View</th>
+                                </tr>
+                            </tbody>
+                        </v-simple-table>
+                    </div>
+                </v-card-text>
+
+                <v-card-text>
+                    <div class="font-weight-bold ml-8 mb-2">
+                        사용 기술
+                    </div>
+                    <v-row class="ml-8">
+                        <v-img class="mb-2" src="../assets/typescript.png" max-width="50" max-height="50"/>
+                        <v-img class="ml-8 mb-2" src="../assets/sql.png" max-width="50" max-height="50"/>
+                        <v-img class="ml-8 mb-2" src="../assets/redis.jpg" max-width="50" max-height="50"/>
+                        <v-img class="ml-8 mb-2" src="../assets/aws.png" max-width="50" max-height="50"/>
+                    </v-row>
+                </v-card-text>
+
+                <v-card-text>
+                    <div class="font-weight-bold ml-8 mb-2">
+                        타임라인
+                    </div>
+
+                    <v-timeline
+                        align-top
+                        dense
+                    >
+                        <v-timeline-item
+                        v-for="message in cp_wemadePlus"
+                        :key="message.time"
+                        :color="message.color"
+                        small
+                        >
+                        <div>
+                            <div class="font-weight-normal">
+                            <strong>{{ message.time }} - {{ message.title }}</strong>
+                            </div>
+                            <div>{{ message.description }}</div>
+                        </div>
+                        </v-timeline-item>
+                    </v-timeline>
+                </v-card-text>
+
+                <v-card-text>
+                    <div class="font-weight-bold ml-8 mb-2">설명</div>
+                    <v-textarea
+                        class="ml-8 mb-2"
+                        filled
+                        auto-grow
+                        readonly
+                        value="NFT 코인 트레이딩 관련 게임 및 모바일 앱 개발 진행중입니다"
+                    />
+                </v-card-text>
+            </v-card>
+        </v-row>
+
+        <br><br>
+        <v-divider></v-divider>
+        <br><br>
+
+        <v-row justify="space-around">
+            <v-card width="100%">
                 <v-carousel>
                     <v-carousel-item src="../assets/joycity.jpg" reverse-transition="fade-transition" transition="fade-transition"/>
                     <v-carousel-item src="../assets/freestyle_1.jpg" reverse-transition="fade-transition" transition="fade-transition"/>
@@ -369,10 +474,16 @@
     data: () => ({
         timeline_data: [
             {
+                company: "위메이드 플러스",
+                description: "abcd",
+                color: "blue",
+                date:"2021.09.06 ~ XX.XX.XX"
+            },
+            {
                 company: "조이시티",
                 description: "abcd",
                 color: "orange",
-                date:"2020.09.07 ~ XX.XX.XX"
+                date:"2020.09.07 ~ 2021.04.30"
             },
             {
                 company: "한빛소프트",
@@ -442,6 +553,15 @@
                 title: "입사",
                 description: "조이시티 서버 프로그래머로 입사",
                 time: "2020.09.07",
+                color: "red",
+            },
+        ],
+        
+        cp_wemadePlus: [
+            {
+                title: "입사",
+                description: "위메이드 플러스 서버 프로그래머로 입사",
+                time: "2021.09.06",
                 color: "red",
             },
         ],
