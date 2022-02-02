@@ -85,12 +85,12 @@
           <v-text-field label="Email" value="_for@kakao.com" outlined readonly/>
         </v-col>        
         <v-col cols="12" sm="1">
-          <v-btn block fab href="https://github.com/MastProgs">
+          <v-btn block fab href="https://github.com/MastProgs" target="_blank">
             <v-img src="../assets/github.png" max-width="50" max-height="50"/>
           </v-btn>
         </v-col>        
         <v-col cols="12" sm="1">
-          <v-btn block fab href="https://post.naver.com/my/series/detail.nhn?seriesNo=370283&memberNo=559061">
+          <v-btn block fab href="https://post.naver.com/my/series/detail.nhn?seriesNo=370283&memberNo=559061" target="_blank">
             <v-img src="../assets/naverpost.png" max-width="50" max-height="50"/>
           </v-btn>
         </v-col>

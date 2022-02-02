@@ -36,12 +36,12 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <th>게임 이름</th>
+                                    <th>프로젝트 이름</th>
                                     <th>Nallary</th>
                                 </tr>
                                 <tr>
-                                    <th>게임 장르</th>
-                                    <th>Community App / NFT Wemix Coin Trading Platform</th>
+                                    <th>프로젝트 장르</th>
+                                    <th>Community SNS App, NFT Trading Platform</th>
                                 </tr>
                                 <tr>
                                     <th>출시 플랫폼</th>
@@ -49,7 +49,7 @@
                                 </tr>
                                 <tr>
                                     <th>그래픽 뷰</th>
-                                    <th>Web Gallary / Ingame = 3D Full View</th>
+                                    <th>Web Gallary, Ingame = 3D Full View</th>
                                 </tr>
                             </tbody>
                         </v-simple-table>
@@ -100,7 +100,7 @@
                         filled
                         auto-grow
                         readonly
-                        value="NFT 코인 트레이딩 관련 게임 및 모바일 앱 개발 진행중입니다"
+                        value="NFT 트레이딩 관련 게임 및 모바일 앱 개발 진행중입니다"
                     />
                 </v-card-text>
             </v-card>

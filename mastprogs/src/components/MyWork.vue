@@ -3,23 +3,23 @@
     <v-main>
       <v-container>
         
-        <h1>서버 아키텍쳐 구현</h1>
+        <h1>서버 아키텍쳐 설계 및 리펙토링 (위메이드플러스)</h1>
         <br>
 
         <v-btn
           class="ma-2"
           dark
-          @click="showDialog(12)"
+          @click="showDialog(14)"
         >
           채팅 서버 구현
         </v-btn>
         <v-dialog
           max-width="800"
-          v-model="dialogsDataList[12].flag"
+          v-model="dialogsDataList[14].flag"
         >
           <my-dialog
             header-title="채팅 서버 구현"
-            @submit="submitDialog(12)"
+            @submit="submitDialog(14)"
           >
             <template v-slot:body>
               MQTT 기술을 활용하여 Intagram / Facebook 와 같은 채팅 서버를 구현하였습니다. Broker 서버를 통해 채팅 메세지를 주고 받고, Redis 에 다양한 채팅 대화 및 방 생성 정보를 저장하며 활용하였습니다. 
@@ -27,11 +27,69 @@
           </my-dialog>
         </v-dialog>
         
+        <v-btn
+          class="ma-2"
+          dark
+          @click="showDialog(13)"
+        >
+          DBJob 프로세스 구현
+        </v-btn>
+        <v-dialog
+          max-width="800"
+          v-model="dialogsDataList[13].flag"
+        >
+          <my-dialog
+            header-title="DBJob 프로세스"
+            @submit="submitDialog(13)"
+          >
+            <template v-slot:body>
+              TypeORM 을 활용하여, Save / Update / Delete / Increase / Decrease 같은 DB에 요청해야하는 다중 쿼리문과 Redis 에 요청해야하는 다양한 request 들을 한번의 트랜잭션으로 묶어 요청할 수 있도록 코드로 구현하였습니다. 
+            </template>
+          </my-dialog>
+          <v-btn
+            dark
+            href="https://github.com/MastProgs/custom-codes/blob/main/DBJob.ts"
+            target="_blank"
+            >
+            <v-icon>mdi-github</v-icon>
+            DBJob 구현 코드 보기
+          </v-btn>
+        </v-dialog>
+        
+        <v-btn
+          class="ma-2"
+          dark
+          @click="showDialog(12)"
+        >
+          Pager 프로세스 구현
+        </v-btn>
+        <v-dialog
+          max-width="800"
+          v-model="dialogsDataList[12].flag"
+        >
+          <my-dialog
+            header-title="Pager 프로세스"
+            @submit="submitDialog(12)"
+          >
+            <template v-slot:body>
+              SNS 에서 스크롤링 및 페이지 형태로 데이터를 가져오는 기법인 Pagination 라이브러리를 훨씬 더 사용하기 쉽게 랩핑한 클래스입니다. TypeORM 의 Select 구문을 Pager 에 초기화 값으로 넣어주고, DB에서 읽은 책갈피 위치에 대한 Hash 값을 같이 넣고 실행시키면, 다음 위치의 Hash 값과 다음 data limit size 만큼 값을 반환하는 클래스 입니다.
+            </template>
+          </my-dialog>
+          <v-btn
+            dark
+            href="https://github.com/MastProgs/custom-codes/blob/main/Pager.ts"
+            target="_blank"
+            >
+            <v-icon>mdi-github</v-icon>
+            Pager 구현 코드 보기
+          </v-btn>
+        </v-dialog>
+        
         <br><br>
         <v-divider/>
         <br>
 
-        <h1>개발망 전용 툴 구현</h1>
+        <h1>개발망 전용 툴 구현 (조이시티)</h1>
         <br>
 
         <v-btn
@@ -80,7 +138,7 @@
         <v-divider/>
         <br>
 
-        <h1>주 구현 내용</h1>
+        <h1>컨텐츠 및 시스템 구현 내용 (모아이, 한빛)</h1>
         <br>
 
         <v-btn
@@ -354,9 +412,9 @@ export default {
       { flag: false },  //  10
       { flag: false },  //  11
       { flag: false },  //  12
+      { flag: false },  //  13
+      { flag: false },  //  14
 
-      { flag: false },
-      { flag: false },
       { flag: false },
       { flag: false },
       { flag: false },
