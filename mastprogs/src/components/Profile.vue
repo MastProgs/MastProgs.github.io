@@ -46,6 +46,9 @@
             <v-img src="../assets/cpppp.png" max-width="75" max-height="75"/>
         </v-col>
         <v-col>
+            <v-img src="../assets/golang.jpg" max-width="75" max-height="75"/>
+        </v-col>
+        <v-col>
             <v-img src="../assets/sql.png" max-width="75" max-height="75"/>
         </v-col>
         <v-col>

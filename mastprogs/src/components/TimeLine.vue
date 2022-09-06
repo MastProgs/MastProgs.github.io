@@ -61,7 +61,12 @@
                         사용 기술
                     </div>
                     <v-row class="ml-8">
-                        <v-img class="mb-2" src="../assets/typescript.png" max-width="50" max-height="50"/>
+                        <v-img class="ml-8 mb-2" src="../assets/cpp.png" max-width="50" max-height="50"/>
+                        <v-img class="ml-8 mb-2" src="../assets/cpppp.png" max-width="50" max-height="50"/>
+                        <v-img class="ml-8 mb-2" src="../assets/azure.jpg" max-width="50" max-height="50"/>
+                        <v-img class="ml-8 mb-2" src="../assets/python.png" max-width="50" max-height="50"/>
+                        <v-img class="ml-8 mb-2" src="../assets/golang.jpg" max-width="50" max-height="50"/>
+                        <v-img class="ml-8 mb-2" src="../assets/typescript.png" max-width="50" max-height="50"/>
                         <v-img class="ml-8 mb-2" src="../assets/sql.png" max-width="50" max-height="50"/>
                         <v-img class="ml-8 mb-2" src="../assets/redis.jpg" max-width="50" max-height="50"/>
                         <v-img class="ml-8 mb-2" src="../assets/aws.png" max-width="50" max-height="50"/>
