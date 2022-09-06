@@ -43,7 +43,7 @@
             @submit="submitDialog(13)"
           >
             <template v-slot:body>
-              TypeORM 을 활용하여, Save / Update / Delete / Increase / Decrease 같은 DB에 요청해야하는 다중 쿼리문과 Redis 에 요청해야하는 다양한 request 들을 한번의 트랜잭션으로 묶어 요청할 수 있도록 코드로 구현하였습니다. 
+              TypeORM 을 활용하여, Save / Update / Delete / Increase / Decrease 같은 DB에 요청해야하는 다중 쿼리문과 Redis 에 요청해야하는 다양한 request 들을 한번의 트랜잭션으로 묶어 요청할 수 있도록 코드로 구현하였습니다. ( Go언어의 경우 reflection 을 활용한 TypeORM을 직접 구현 )
             </template>
           </my-dialog>
           <v-btn
@@ -53,6 +53,14 @@
             >
             <v-icon>mdi-github</v-icon>
             DBJob 구현 코드 보기
+          </v-btn>
+          <v-btn
+            dark
+            href="https://github.com/MastProgs/custom-codes/blob/main/ezDB.go"
+            target="_blank"
+            >
+            <v-icon>mdi-github</v-icon>
+            GoLang 버전 코드 보기
           </v-btn>
         </v-dialog>
         
@@ -85,6 +93,56 @@
           </v-btn>
         </v-dialog>
         
+        <v-btn
+          class="ma-2"
+          dark
+          @click="showDialog(15)"
+        >
+          UWP 부하테스트 툴 구현
+        </v-btn>
+        <v-dialog
+          max-width="800"
+          v-model="dialogsDataList[15].flag"
+        >
+          <my-dialog
+            header-title="UWP 프로세스"
+            @submit="submitDialog(15)"
+          >
+            <template v-slot:body>
+              <v-row>
+                <v-img class="ml-4 mr-4" src="../assets/UwpStressTool.png" width="80%"/>
+              </v-row>
+              <v-textarea
+                filled
+                auto-grow
+                readonly
+                value="UWP & C# 을 활용하여 부하테스트 툴을 구현하였습니다. 특정 서버의 IP & Port, Thread, 반복, 딜레이 옵션등을 통해 특정 기능에 대한 부하테스트를 할 수 있는 툴입니다."
+              />              
+            </template>
+          </my-dialog>
+        </v-dialog>
+
+        <v-btn
+          class="ma-2"
+          dark
+          @click="showDialog(16)"
+        >
+          C++20 최신화
+        </v-btn>
+        <v-dialog
+          max-width="800"
+          v-model="dialogsDataList[16].flag"
+        >
+          <my-dialog
+            header-title="C++11 프로젝트를 C++20 으로 최신화"
+            @submit="submitDialog(16)"
+          >
+            <template v-slot:body>
+              과거 서비스 종료 했던 C++11 게임서버를 C++20 으로 다시 버전업을 하여, 최신 문법으로 포팅하는 작업을 하였습니다.
+            </template>
+          </my-dialog>
+        </v-dialog>
+
         <br><br>
         <v-divider/>
         <br>
@@ -414,8 +472,8 @@ export default {
       { flag: false },  //  12
       { flag: false },  //  13
       { flag: false },  //  14
+      { flag: false },  //  15
 
-      { flag: false },
       { flag: false },
       { flag: false },
       { flag: false },
