@@ -143,6 +143,35 @@
           </my-dialog>
         </v-dialog>
 
+        <v-btn
+          class="ma-2"
+          dark
+          @click="showDialog(17)"
+        >
+          Log Server 구현
+        </v-btn>
+        <v-dialog
+          max-width="800"
+          v-model="dialogsDataList[17].flag"
+        >
+          <my-dialog
+            header-title="Log Server 구현"
+            @submit="submitDialog(17)"
+          >
+            <template v-slot:body>
+              <v-row>
+                <v-img class="ml-4 mr-4" src="../assets/LogServerArchi.png" width="70%"/>
+              </v-row>
+              <v-textarea
+                filled
+                auto-grow
+                readonly
+                value="사업팀에서 필요로 하는 로그를 적재해야하는 요청이 있어서 구현하게 되었습니다. 게임서버에서 필요한 여러 객체들에 대한 정보를 합산하여 Json 화 시키고, 해당 Json 을 Log Server로 전송하면, Log Server 에서 DB 의 테이블 컬럼 정보를 가져와 검증 한 뒤, 필요한 정보들만 뽑아 쿼리로 만들어 DB 에 insert 하는 구조입니다. 이를 통해 게임서버에서는 정보를 남겨야 하는 시점에 필요한 객체들을 ToJson() 함수로 받아 합산하여 Log Server로 날리기만 하면 되었고, log DB Table 구조와는 상관없이 서버 배포도 자유롭고, 어떤 로그이건 동일한 프로세스 처리가 가능해 생산성에 좋았습니다."
+              />              
+            </template>
+          </my-dialog>
+        </v-dialog>
+
         <br><br>
         <v-divider/>
         <br>
@@ -473,9 +502,9 @@ export default {
       { flag: false },  //  13
       { flag: false },  //  14
       { flag: false },  //  15
+      { flag: false },  //  16
+      { flag: false },  //  17
 
-      { flag: false },
-      { flag: false },
       { flag: false },
       { flag: false },
     ]
