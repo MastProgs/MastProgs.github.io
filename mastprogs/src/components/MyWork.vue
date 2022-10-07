@@ -171,6 +171,101 @@
             </template>
           </my-dialog>
         </v-dialog>
+        
+        <v-btn
+          class="ma-2"
+          dark
+          @click="showDialog(18)"
+        >
+          Redis 핸들러 구현
+        </v-btn>
+        <v-dialog
+          max-width="800"
+          v-model="dialogsDataList[18].flag"
+        >
+          <my-dialog
+            header-title="Redis Handler 구현"
+            @submit="submitDialog(18)"
+          >
+            <template v-slot:body>
+              기존 구현되어있던 redis connector handler 가 문제가 많아서, 새로 구현하였습니다. cpp_redis 오픈 소스를 활용하여 좀 더 간편하게 활용가능하도록 변경하였습니다.
+            </template>
+          </my-dialog>
+          <v-btn
+            dark
+            href="https://github.com/MastProgs/None_boost_Asio#redis"
+            target="_blank"
+            >
+            <v-icon>mdi-github</v-icon>
+            Redis 핸들러 구현 설명
+          </v-btn>
+          <v-btn
+            dark
+            href="https://github.com/MastProgs/None_boost_Asio/tree/master/C%2B%2B20%20Asio/CoroutineAsioCpp20/Core/Redis"
+            target="_blank"
+            >
+            <v-icon>mdi-github</v-icon>
+            구현 코드
+          </v-btn>
+        </v-dialog>
+        
+        <v-btn
+          class="ma-2"
+          dark
+          @click="showDialog(19)"
+        >
+          문자열 변환 핸들러 구현
+        </v-btn>
+        <v-dialog
+          max-width="800"
+          v-model="dialogsDataList[19].flag"
+        >
+          <my-dialog
+            header-title="문자열 변환 핸들러 구현"
+            @submit="submitDialog(19)"
+          >
+            <template v-slot:body>
+              과거 코드에 Unicode, Multibyte, UTF-8, string, wstring, CString, CStringA 관련 문자열 문제가 많아서, 깨지고 변환해야 하는 이슈 때문에 통합하여 관리하기 위해 구현하게 되었습니다.
+            </template>
+          </my-dialog>
+          <v-btn
+            dark
+            href="https://github.com/MastProgs/None_boost_Asio/blob/master/C%2B%2B20%20Asio/CoroutineAsioCpp20/Common/String/ToStr.h"
+            target="_blank"
+            >
+            <v-icon>mdi-github</v-icon>
+            구현 코드
+          </v-btn>
+        </v-dialog>
+        
+        <v-btn
+          class="ma-2"
+          dark
+          @click="showDialog(20)"
+        >
+          날짜시간 통합 관리 구현
+        </v-btn>
+        <v-dialog
+          max-width="800"
+          v-model="dialogsDataList[20].flag"
+        >
+          <my-dialog
+            header-title="날짜시간 통합 관리 구현"
+            @submit="submitDialog(20)"
+          >
+            <template v-slot:body>
+              과거 코드는 local time 과 utc time 이 혼재되어 사용되어 있었고, 이를 통합하여 활용하기 위해 기본적으로 표준 utc 표준대로 통합하는 처리를 하였습니다. string, time_point 를 변환하거나, 필요한 시간 값들의 연산 및 추출하는 형태로 생산성을 향상시켰습니다. 추가로 주간 이벤트 시간 처리가 매번 기획자 분들께서 스크립트로 입력해주어야 하는 부분을, week_hh_mm_ss 라는 클래스를 구현하여 특정 요일의 시분초를 계산하는 클래스를 구현하였습니다. week_hh_mm_ss 클래스와 특정 시각을 조합하면, 해당 주차의 특정 요일의 시간분초 time_point 를 계산하여 가져오거나, week_hh_mm_ss 클래스를 서로 비교 연산하여 전후 시각을 알 수 있도록 구현해두어, 매주 이벤트 시간 관리에 편의성을 더했습니다.
+            </template>
+          </my-dialog>
+          <v-btn
+            dark
+            href="https://github.com/MastProgs/None_boost_Asio/blob/master/C%2B%2B20%20Asio/CoroutineAsioCpp20/Common/Datetime/Datetime.h"
+            target="_blank"
+            >
+            <v-icon>mdi-github</v-icon>
+            구현 코드
+          </v-btn>
+        </v-dialog>
 
         <br><br>
         <v-divider/>
@@ -504,7 +599,15 @@ export default {
       { flag: false },  //  15
       { flag: false },  //  16
       { flag: false },  //  17
+      { flag: false },  //  18
+      { flag: false },  //  19
+      { flag: false },  //  20
 
+      { flag: false },
+      { flag: false },
+      { flag: false },
+      { flag: false },
+      { flag: false },
       { flag: false },
       { flag: false },
     ]

@@ -24,7 +24,7 @@
                 
                 <v-card-text>
                     <div class="font-weight-bold ml-8 mb-2">
-                        프로젝트 정보
+                        첫번째 프로젝트 정보
                     </div>
                     <div class="ml-8 mb-2">
                         <v-simple-table class="text-left">
@@ -51,7 +51,38 @@
                                     <th>그래픽 뷰</th>
                                     <th>Web Gallary, Ingame = 3D Full View</th>
                                 </tr>
-                            </tbody>
+                            </tbody>                            
+                        </v-simple-table>
+                    </div>
+                    <div class="font-weight-bold ml-8 mb-2">
+                        두번째 프로젝트 정보
+                    </div>
+                    <div class="ml-8 mb-2">
+                        <v-simple-table class="text-left">
+                            <thead>
+                                <tr>
+                                    <th>분류</th>
+                                    <th>설명</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th>프로젝트 이름</th>
+                                    <th>Fishing Championship</th>
+                                </tr>
+                                <tr>
+                                    <th>프로젝트 장르</th>
+                                    <th>Fishing Game</th>
+                                </tr>
+                                <tr>
+                                    <th>출시 플랫폼</th>
+                                    <th>Mobile</th>
+                                </tr>
+                                <tr>
+                                    <th>그래픽 뷰</th>
+                                    <th>2D View</th>
+                                </tr>
+                            </tbody>                            
                         </v-simple-table>
                     </div>
                 </v-card-text>
@@ -72,7 +103,7 @@
                         <v-img class="ml-8 mb-2" src="../assets/aws.png" max-width="50" max-height="50"/>
                     </v-row>
                 </v-card-text>
-
+                
                 <v-card-text>
                     <div class="font-weight-bold ml-8 mb-2">
                         타임라인
@@ -567,6 +598,18 @@
                 title: "입사",
                 description: "위메이드 플러스 서버 프로그래머로 입사",
                 time: "2021.09.06",
+                color: "red",
+            },
+            {
+                title: "Nallary Drop",
+                description: "모바일 플랫폼 사의 NFT 정책으로 무기한 연기",
+                time: "2022.03.31",
+                color: "blue",
+            },
+            {
+                title: "Fishing Championship",
+                description: "과거 서비스 종료된 게임에 token 을 붙여, 재출시 준비 작업",
+                time: "2022.04.01",
                 color: "red",
             },
         ],
