@@ -25,7 +25,7 @@ class MyApp extends StatelessWidget {
                 fontSize: 18,
                 fontWeight: FontWeight.w600,
               ))),
-      home: const HomeScreen(),
+      home: HomeScreen(),
     );
   }
 }

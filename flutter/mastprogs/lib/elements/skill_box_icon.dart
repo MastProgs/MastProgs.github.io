@@ -15,32 +15,34 @@ class SkillBox extends StatelessWidget {
           decoration: BoxDecoration(
             color: Colors.white,
             borderRadius: const BorderRadius.all(Radius.circular(5)),
+
+            // border: Border.all(color: Colors.grey.shade500, width: 1),
+
             boxShadow: [
               BoxShadow(
-                color: Colors.grey.shade500,
+                color: Colors.grey.shade200,
                 offset: const Offset(2, 2),
-                blurRadius: 5.0,
+                blurRadius: 2.0,
                 spreadRadius: 1,
               ),
               const BoxShadow(
                 color: Colors.white,
                 offset: Offset(-2, -2),
-                blurRadius: 5.0,
+                blurRadius: 2.0,
                 spreadRadius: 1,
               ),
             ],
           ),
-          width: 75,
           child: Padding(
             padding: const EdgeInsets.all(8.0),
             child: Image.asset(
               imgUrl,
-              height: 61,
+              height: 40,
             ),
           ),
         ),
         const SizedBox(
-          width: 25,
+          width: 12,
         ),
       ],
     );

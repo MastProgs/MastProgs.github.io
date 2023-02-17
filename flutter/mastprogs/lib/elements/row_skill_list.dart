@@ -6,18 +6,20 @@ class RowSkillCard extends StatelessWidget {
   final String title;
   final double titleSize;
   final List<String> elemList;
+  final List<String> descList;
 
   const RowSkillCard({
     super.key,
     required this.title,
     required this.titleSize,
     required this.elemList,
+    required this.descList,
   });
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 25),
+      padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 25),
       child: Container(
         decoration: BoxDecoration(
             color: Colors.white,
@@ -26,23 +28,40 @@ class RowSkillCard extends StatelessWidget {
               width: 2,
               color: Colors.grey.shade300,
             )),
-        child: Column(
-          children: [
-            const SizedBox(height: 20),
-            TextTitle(msg: title, size: titleSize),
-            Container(
-              child: Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    for (String p in elemList) SkillBox(imgUrl: p),
-                  ],
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 50),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              const SizedBox(height: 20),
+              TextTitle(msg: title, size: titleSize, useDivider: false),
+              Container(
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Row(
+                    children: [
+                      for (String p in elemList) SkillBox(imgUrl: p),
+                    ],
+                  ),
                 ),
               ),
-            ),
-            const SizedBox(height: 20),
-          ],
+              Container(
+                child: Padding(
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 50, vertical: 20),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      for (String p in descList)
+                        Column(
+                          children: [Text(p), const SizedBox(height: 10)],
+                        ),
+                    ],
+                  ),
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );
