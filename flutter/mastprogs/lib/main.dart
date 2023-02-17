@@ -13,19 +13,25 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: ThemeData(
-          fontFamily: 'NotoSans',
-          primaryColor: const Color(0xFFE9435A),
-          scaffoldBackgroundColor: Colors.white,
-          appBarTheme: const AppBarTheme(
-              foregroundColor: Colors.white,
-              backgroundColor: Colors.black87,
-              elevation: 0,
-              titleTextStyle: TextStyle(
-                color: Colors.white,
-                fontSize: 18,
-                fontWeight: FontWeight.w600,
-              ))),
-      home: HomeScreen(),
+        fontFamily: 'NotoSans',
+        primaryColor: const Color(0xFFE9435A),
+        scaffoldBackgroundColor: Colors.white,
+        appBarTheme: const AppBarTheme(
+          foregroundColor: Colors.white,
+          backgroundColor: Colors.black87,
+          elevation: 0,
+          titleTextStyle: TextStyle(
+            fontFamily: 'HangeulNuri',
+            color: Colors.white,
+            fontSize: 18,
+            fontWeight: FontWeight.w600,
+          ),
+        ),
+      ),
+      home: DefaultTabController(
+        length: 4,
+        child: HomeScreen(),
+      ),
     );
   }
 }

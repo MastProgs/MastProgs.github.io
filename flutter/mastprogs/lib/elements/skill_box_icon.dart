@@ -2,9 +2,12 @@ import 'package:flutter/material.dart';
 
 class SkillBox extends StatelessWidget {
   final String imgUrl;
+  final double imgSize;
 
   const SkillBox({
+    super.key,
     required this.imgUrl,
+    required this.imgSize,
   });
 
   @override
@@ -37,7 +40,7 @@ class SkillBox extends StatelessWidget {
             padding: const EdgeInsets.all(8.0),
             child: Image.asset(
               imgUrl,
-              height: 40,
+              height: imgSize,
             ),
           ),
         ),
