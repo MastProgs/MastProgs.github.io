@@ -304,7 +304,7 @@ class IntroScreen extends StatelessWidget {
                   '[ C# ]',
                   'WPF 같은 윈도우 방식에 익숙한 툴 작업이 가능하고, 기본적인 문법과 reflection 기능을 활용한 코드 구현 설계가 가능합니다. WPF 를 활용하여 부하테스트 툴을 만들어 본 경험이 있으며, 운영툴 서버 기능도 현 언어를 활용하여 구현한 경험이 있습니다.',
                   '[ Flutter / Vue / Electron ]',
-                  '기본적인 웹 프론트엔드를 구현할 수 있고, 현재 보고 있는 웹 프로필 또한 Flutter 로 구현되어 다양한 형태의 웹 페이지, Desktop App 등을 구현할 수 있습니다.',
+                  '기본적인 웹 프론트엔드를 구현할 수 있고, 현재 보고 계신 웹 프로필 또한 Flutter 로 구현되어 다양한 형태의 웹 페이지, Desktop App 등을 구현할 수 있습니다.',
                 ],
               ),
               const RowSkillCard(
@@ -393,6 +393,38 @@ class IntroScreen extends StatelessWidget {
                       titleSize: 20,
                       desc:
                           '회사의 주 업무보다는 팀원의 생산성 향상에 기여하거나, 코드 리팩토링 작업을 통한 개선을 하는 등, 저 스스로의 목표를 세우고 원하는 목표를 달성하는 것을 선호합니다. 그러다 보니 라이브 서비스의 작업자로 들어가는 것 보다는 신규 개발팀에서 원하는 기능과 목표를 설계하여 개선하고, 도전적이며 새로운 업무들을 작업하면서, 함께 배우고 성장하길 원하는 팀을 선호합니다. 가끔 이런 분위기를 싫어하시거나 현재 상태를 최대한 바꾸지 않고 평상시의 상황을 유지하길 좋아하는 팀의 경우, 제가 회사에 기여할 수 있는 역할은 회사에서 업무가 할당된 주 컨텐츠 작업 등 밖에 없으므로 개인 퍼포먼스의 최대 효과를 낼 수 없기에, 모두가 함께 성장하고자 하는 회사를 선호합니다.',
+                    ),
+                  ],
+                ),
+              ),
+
+              const SizedBox(height: 50),
+
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: basicPaddingSize),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    const TextTitle(
+                      msg: '마지막 인사말',
+                      size: 45,
+                      useDivider: true,
+                    ),
+                    const SizedBox(height: 10),
+                    const DescriptionBox(
+                      title:
+                          '함께 일할 동료 분들 및 프로젝트 방향에 맞는 최적의 가치를 제공하기 위해 최선을 다하겠습니다',
+                      titleSize: 20,
+                      desc:
+                          '여러 프로젝트 경험과 꾸준한 자기계발을 기반으로, 저에게 요구되는 역할에 대해 최선을 다함으로써 최적의 가치를 제공할 것을 약속 드립니다. 더 나아가, 유기적인 협력과 확장성 있는 자세를 통해 신뢰할 수 있는 최고의 파트너가 될 수 있도록 노력하겠습니다. 끝까지 긴 글을 읽어 주셔서 감사드리며, 지속적인 관심과 지원을 당부드립니다. 고맙습니다.',
+                    ),
+                    const SizedBox(height: 5),
+                    Center(
+                      child: Image.asset(
+                        'assets/images/sign2.png',
+                        width: 650,
+                        fit: BoxFit.cover,
+                      ),
                     ),
                   ],
                 ),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import 'company_history_screen.dart';
 import 'intro_screen.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -71,14 +72,14 @@ class HomeScreen extends StatelessWidget {
                     Text(
                       '재직중 - 위메이드',
                       style: TextStyle(
-                        fontSize: 16,
+                        fontSize: 12,
                         fontWeight: FontWeight.w100,
                       ),
                     ),
                     Text(
                       '이직 관심 있음',
                       style: TextStyle(
-                        fontSize: 12,
+                        fontSize: 16,
                         fontWeight: FontWeight.w100,
                       ),
                     ),
@@ -108,6 +109,7 @@ class HomeScreen extends StatelessWidget {
                   style: TextStyle(
                     fontSize: 16,
                     fontWeight: FontWeight.w100,
+                    fontFamily: 'YouandiModernTR',
                   ),
                 ),
               ],
@@ -117,7 +119,7 @@ class HomeScreen extends StatelessWidget {
       ),
       body: TabBarView(children: [
         IntroScreen(),
-        const Text('data'),
+        const CompanyHistoryScreen(),
         const Text('data'),
         const Text('data'),
       ]),
