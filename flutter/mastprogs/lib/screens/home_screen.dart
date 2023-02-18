@@ -119,9 +119,9 @@ class HomeScreen extends StatelessWidget {
         ),
       ),
       body: TabBarView(children: [
-        const WorkHistory(),
         IntroScreen(),
         const CompanyHistoryScreen(),
+        const WorkHistory(),
         const Text('data'),
       ]),
     );
