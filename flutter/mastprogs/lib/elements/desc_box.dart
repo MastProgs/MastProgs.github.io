@@ -25,6 +25,7 @@ class DescriptionBox extends StatelessWidget {
           ),
           const SizedBox(height: 10),
           Container(
+            width: double.infinity,
             decoration: BoxDecoration(
               color: Colors.grey.shade200,
               borderRadius: const BorderRadius.all(Radius.circular(5)),
