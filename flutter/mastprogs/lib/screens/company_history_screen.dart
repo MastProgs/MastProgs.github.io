@@ -232,7 +232,7 @@ class CompanyHistoryScreen extends StatelessWidget {
                     lineSize: 90,
                     headMsg: '입사',
                     headDate: '2017.08.07',
-                    desc: '개발 초기 시점에 MMORPG 개발을 경험해고보 싶어서, 직접 지원하여 합류하게 되었습니다.',
+                    desc: '개발 초기 시점에 MMORPG 개발을 경험해보고 싶어서, 직접 지원하여 합류하게 되었습니다.',
                   ),
                   const CompanyHistoryPart(
                     icon: Icons.assistant_rounded,

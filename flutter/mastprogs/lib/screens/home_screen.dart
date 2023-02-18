@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mastprogs/screens/work_history_screen.dart';
 
 import 'company_history_screen.dart';
 import 'intro_screen.dart';
@@ -118,9 +119,9 @@ class HomeScreen extends StatelessWidget {
         ),
       ),
       body: TabBarView(children: [
+        const WorkHistory(),
         IntroScreen(),
         const CompanyHistoryScreen(),
-        const Text('data'),
         const Text('data'),
       ]),
     );
