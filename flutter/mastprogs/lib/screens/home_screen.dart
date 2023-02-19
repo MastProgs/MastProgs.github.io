@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mastprogs/screens/private_projects.dart';
 import 'package:mastprogs/screens/work_history_screen.dart';
 
 import 'company_history_screen.dart';
@@ -106,7 +107,7 @@ class HomeScreen extends StatelessWidget {
                   ),
                 ),
                 Text(
-                  '2023.02.16',
+                  '2023.02.19',
                   style: TextStyle(
                     fontSize: 16,
                     fontWeight: FontWeight.w100,
@@ -122,7 +123,7 @@ class HomeScreen extends StatelessWidget {
         IntroScreen(),
         const CompanyHistoryScreen(),
         const WorkHistory(),
-        const Text('data'),
+        const PrivateProject(),
       ]),
     );
   }

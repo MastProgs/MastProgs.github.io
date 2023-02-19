@@ -24,10 +24,84 @@ class WorkHistory extends StatelessWidget {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
+                        const WorkBoxBasic(
+                            w: 225,
+                            h: 225,
+                            backColor: Colors.white,
+                            headText: 'FastAPI 서버 구현',
+                            headSize: 22,
+                            bodyText:
+                                'Fast API 의 속도가 일반 Node.js 보다 훨씬 빠르며 Go 서버에 가까이 성능이 나온다는 사실을 확인하고, 최신 프레임워크를 실무에 적용했습니다.',
+                            children: [
+                              Spacer(),
+                              CardUrlButton(
+                                msg: 'Python',
+                                icon: Icons.code,
+                                color: Colors.cyan,
+                                url:
+                                    'https://github.com/MastProgs/fast-api-framework',
+                              ),
+                            ]),
                         WorkBoxBasic(
                           w: 225,
                           h: 225,
                           backColor: Colors.grey.shade200,
+                          headText: 'Code Generator',
+                          headSize: 22,
+                          bodyText:
+                              'xlsx 파일을 그대로 읽어서, 코드로 작성해주는 툴. 기획 데이터를 json 으로 수동으로 변환하여 서버에 올리는 복잡한 작업을 자동화했습니다. ',
+                          children: const [
+                            Spacer(),
+                            CardUrlButton(
+                              msg: 'Python',
+                              icon: Icons.code,
+                              color: Colors.cyan,
+                              url:
+                                  'https://github.com/MastProgs/fast-api-framework/blob/main/auto_code_generator.py',
+                            ),
+                          ],
+                        ),
+                        Container(
+                          width: 470,
+                          height: 225,
+                          decoration: BoxDecoration(
+                            borderRadius:
+                                const BorderRadius.all(Radius.circular(15)),
+                            border: Border.all(
+                              width: 1,
+                              color: Colors.grey.shade300,
+                            ),
+                            boxShadow: [
+                              BoxShadow(
+                                color: Colors.grey.shade200,
+                                offset: const Offset(2, 2),
+                                blurRadius: 2.0,
+                                spreadRadius: 1,
+                              ),
+                              const BoxShadow(
+                                color: Colors.white,
+                                offset: Offset(-2, -2),
+                                blurRadius: 2.0,
+                                spreadRadius: 1,
+                              ),
+                            ],
+                          ),
+                          child: const Icon(
+                            Icons.engineering,
+                            size: 200,
+                            color: Colors.grey,
+                          ),
+                        )
+                      ],
+                    ),
+                    const SizedBox(height: 20),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        WorkBoxBasic(
+                          w: 225,
+                          h: 225,
+                          backColor: Colors.grey.shade100,
                           headText: '채팅 서버 구현',
                           headSize: 22,
                           bodyText:
@@ -427,7 +501,7 @@ class WorkHistory extends StatelessWidget {
                           height: 225,
                         ),
                       ],
-                    )
+                    ),
                   ],
                 ),
               ),
