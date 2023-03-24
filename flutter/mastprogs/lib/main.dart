@@ -28,7 +28,7 @@ class MyApp extends StatelessWidget {
           ),
         ),
       ),
-      home: const DefaultTabController(
+      home: DefaultTabController(
         length: 4,
         child: HomeScreen(),
       ),

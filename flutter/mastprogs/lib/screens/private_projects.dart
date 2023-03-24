@@ -86,7 +86,7 @@ class PrivateProject extends StatelessWidget {
                 headSize: 64,
                 headTitleColor: Colors.white,
                 backColor: Colors.green.shade900,
-                icon: Icons.edit_document,
+                icon: Icons.edit,
                 iconColor: Colors.lime,
                 iconSize: 102,
                 url: 'https://naver.me/Fx40a9ii',
