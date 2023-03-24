@@ -1,7 +1,7 @@
 cd ./flutter
 cd ./mastprogs
 
-call flutter build web --web-renderer canvaskit --release
+call flutter build web --web-renderer html --release
 
 cd ..
 cd ..
