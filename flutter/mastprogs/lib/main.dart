@@ -21,10 +21,10 @@ class MyApp extends StatelessWidget {
           backgroundColor: Colors.black87,
           elevation: 0,
           titleTextStyle: TextStyle(
-            fontFamily: 'HangeulNuri',
+            fontFamily: 'YouandiModernTR',
             color: Colors.white,
             fontSize: 18,
-            fontWeight: FontWeight.w600,
+            fontWeight: FontWeight.w300,
           ),
         ),
       ),

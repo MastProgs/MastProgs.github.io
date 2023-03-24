@@ -24,10 +24,10 @@ class TextTitle extends StatelessWidget {
         Text(
           msg,
           style: TextStyle(
-              fontFamily: 'NanumMyeongjo',
-              fontSize: size,
-              fontWeight: FontWeight.w600,
-              color: color),
+            fontFamily: 'YouandiModernTR',
+            fontSize: size,
+            color: color,
+          ),
         ),
         if (useDivider == true)
           const Padding(
