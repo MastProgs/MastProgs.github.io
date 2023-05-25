@@ -79,7 +79,7 @@ class CompanyHistoryScreen extends StatelessWidget {
                   iconColor: Colors.lightBlue,
                   lineSize: 550,
                   headMsg: 'Fishing Tornado Championship',
-                  headDate: '2022.03.31',
+                  headDate: '2022.03.31 (Release 2023.05.25)',
                   tableDesc: [
                     'Fishing Game',
                     'Mobile',

@@ -107,7 +107,7 @@ class HomeScreen extends StatelessWidget {
                   ),
                 ),
                 Text(
-                  '2023.02.19',
+                  '2023.05.25',
                   style: TextStyle(
                     fontSize: 16,
                     fontWeight: FontWeight.w100,
