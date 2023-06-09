@@ -96,28 +96,28 @@ class CompanyHistoryScreen extends StatelessWidget {
                   desc:
                       '과거 서비스 종료된 게임에 token 을 붙여, 재출시 준비 작업을 진행 중에 있습니다. 과거 소스코드를 C++20 버전으로 포팅하고, 넷마블 퍼블리셔와 관련되어있던 코드를 제거하는 작업을 진행했었습니다. token 연동을 하기 위한 Golang 웹 서버를 통해 기타 token 관련한 컨텐츠들을 처리하는 담당했습니다. 로그를 파일로만 남기던 구조를 변경하여 Golang 서버를 통해 로그를 DB 로 적재하는 작업을 진행하고, 크래시가 날 경우 dump 파일을 남길 수 있는 시스템과 인코딩 문제로 문자열처리, Redis 연결 오류 같은 굵직한 이슈 등을 해결하였습니다. 서비스를 하기 위한 Azure 클라우드 서버 환경을 설정하고 환경설정을 다루는 작업들을 담당하였습니다.',
                 ),
-                const CompanyHistoryPart(
-                  icon: Icons.assistant_rounded,
-                  iconColor: Colors.lightBlue,
-                  lineSize: 500,
-                  headMsg: 'Derby',
-                  headDate: '2023.01.16',
-                  tableDesc: [
-                    'Casino Game',
-                    'PC',
-                    '2D View',
-                  ],
-                  skillPath: [
-                    'assets/images/python.png',
-                    'assets/images/mysql.png',
-                    'assets/images/mongo.png',
-                    'assets/images/redis.jpg',
-                    'assets/images/windows.png',
-                    'assets/images/azure.jpg',
-                  ],
-                  desc:
-                      '블록체인 재화를 연동한 해외 서비스 경마 게임을 개발중에 있습니다. Python 의 Fast API 를 활용하여 서버 프레임워크를 짜고, 그 위에 다양한 컨텐츠 처리를 작업하고 있습니다.',
-                ),
+                // const CompanyHistoryPart(
+                //   icon: Icons.assistant_rounded,
+                //   iconColor: Colors.lightBlue,
+                //   lineSize: 500,
+                //   headMsg: 'Derby',
+                //   headDate: '2023.01.16',
+                //   tableDesc: [
+                //     'Casino Game',
+                //     'PC',
+                //     '2D View',
+                //   ],
+                //   skillPath: [
+                //     'assets/images/python.png',
+                //     'assets/images/mysql.png',
+                //     'assets/images/mongo.png',
+                //     'assets/images/redis.jpg',
+                //     'assets/images/windows.png',
+                //     'assets/images/azure.jpg',
+                //   ],
+                //   desc:
+                //       '블록체인 재화를 연동한 해외 서비스 경마 게임을 개발중에 있습니다. Python 의 Fast API 를 활용하여 서버 프레임워크를 짜고, 그 위에 다양한 컨텐츠 처리를 작업하고 있습니다.',
+                // ),
               ]),
               const SizedBox(height: 50),
               CompanyBigCard(
