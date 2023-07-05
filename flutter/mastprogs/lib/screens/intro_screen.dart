@@ -404,28 +404,28 @@ class IntroScreen extends StatelessWidget {
                 padding: EdgeInsets.symmetric(horizontal: basicPaddingSize),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    const TextTitle(
+                  children: const [
+                    TextTitle(
                       msg: '마지막 인사말',
                       size: 45,
                       useDivider: true,
                     ),
-                    const SizedBox(height: 10),
-                    const DescriptionBox(
+                    SizedBox(height: 10),
+                    DescriptionBox(
                       title:
                           '함께 일할 동료 분들 및 프로젝트 방향에 맞는 최적의 가치를 제공하기 위해 최선을 다하겠습니다',
                       titleSize: 20,
                       desc:
                           '여러 프로젝트 경험과 꾸준한 자기계발을 기반으로, 저에게 요구되는 역할에 대해 최선을 다함으로써 최적의 가치를 제공할 것을 약속 드립니다. 더 나아가, 유기적인 협력과 확장성 있는 자세를 통해 신뢰할 수 있는 최고의 파트너가 될 수 있도록 노력하겠습니다. 끝까지 긴 글을 읽어 주셔서 감사드리며, 지속적인 관심과 지원을 당부드립니다. 고맙습니다.',
                     ),
-                    const SizedBox(height: 40),
-                    Center(
-                      child: Image.asset(
-                        'assets/images/sign2.png',
-                        width: 650,
-                        fit: BoxFit.cover,
-                      ),
-                    ),
+                    // const SizedBox(height: 40),
+                    // Center(
+                    //   child: Image.asset(
+                    //     'assets/images/sign2.png',
+                    //     width: 650,
+                    //     fit: BoxFit.cover,
+                    //   ),
+                    // ),
                   ],
                 ),
               ),

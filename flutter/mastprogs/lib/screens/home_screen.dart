@@ -72,7 +72,7 @@ class HomeScreen extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: const [
                     Text(
-                      '재직중 - 위메이드',
+                      '휴직중',
                       style: TextStyle(
                         fontSize: 12,
                         fontWeight: FontWeight.w100,
@@ -107,7 +107,7 @@ class HomeScreen extends StatelessWidget {
                   ),
                 ),
                 Text(
-                  '2023.05.25',
+                  '2023.07.05',
                   style: TextStyle(
                     fontSize: 16,
                     fontWeight: FontWeight.w100,
