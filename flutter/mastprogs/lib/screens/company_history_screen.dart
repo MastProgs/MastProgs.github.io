@@ -16,46 +16,46 @@ class CompanyHistoryScreen extends StatelessWidget {
           child: Column(
             children: [
               const SizedBox(height: 50),
-              CompanyBigCard(
-                children: [
-                  HistoryHeader(
-                    imgPath: 'assets/images/people.png',
-                    backColor: Colors.black87.withOpacity(0.85),
-                    msg: '창업 준비중',
-                    msgColor: Colors.white,
-                  ),
-                  Row(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: const [
-                      SizedBox(width: 20),
-                      Icon(
-                        Icons.badge_rounded,
-                        size: 50,
-                        color: Colors.red,
-                      ),
-                      SizedBox(width: 24),
-                      Text(
-                        '현재',
-                        style: TextStyle(
-                          color: Colors.red,
-                          fontSize: 28,
-                          fontWeight: FontWeight.w700,
-                        ),
-                      ),
-                    ],
-                  ),
-                  const SizedBox(height: 10),
-                  const CompanyHistoryPart(
-                    icon: Icons.assistant_rounded,
-                    iconColor: Colors.lightBlue,
-                    lineSize: 90,
-                    headMsg: '창업',
-                    headDate: '2020.07.01',
-                    desc: '만들고 싶은 서비스가 생겨 도전해보고자 시작하였습니다.',
-                  ),
-                ],
-              ),
-              const SizedBox(height: 50),
+              // CompanyBigCard(
+              //   children: [
+              //     HistoryHeader(
+              //       imgPath: 'assets/images/people.png',
+              //       backColor: Colors.black87.withOpacity(0.85),
+              //       msg: '창업 준비중',
+              //       msgColor: Colors.white,
+              //     ),
+              //     Row(
+              //       crossAxisAlignment: CrossAxisAlignment.center,
+              //       children: const [
+              //         SizedBox(width: 20),
+              //         Icon(
+              //           Icons.badge_rounded,
+              //           size: 50,
+              //           color: Colors.red,
+              //         ),
+              //         SizedBox(width: 24),
+              //         Text(
+              //           '현재',
+              //           style: TextStyle(
+              //             color: Colors.red,
+              //             fontSize: 28,
+              //             fontWeight: FontWeight.w700,
+              //           ),
+              //         ),
+              //       ],
+              //     ),
+              //     const SizedBox(height: 10),
+              //     const CompanyHistoryPart(
+              //       icon: Icons.assistant_rounded,
+              //       iconColor: Colors.lightBlue,
+              //       lineSize: 90,
+              //       headMsg: '창업',
+              //       headDate: '2020.07.01',
+              //       desc: '만들고 싶은 서비스가 생겨 도전해보고자 시작하였습니다.',
+              //     ),
+              //   ],
+              // ),
+              // const SizedBox(height: 50),
               CompanyBigCard(children: [
                 HistoryHeader(
                   imgPath: 'assets/images/wemade.png',
@@ -149,7 +149,7 @@ class CompanyHistoryScreen extends StatelessWidget {
                   headMsg: '퇴사',
                   headDate: '2023.06.30',
                   desc:
-                      '구현하고 싶은 서비스가 생겼는데, 여기에 조금 더 집중하고 싶어서 퇴사를 진행하였습니다. 평상시에는 천천히 사이드로 개발을 진행하다가 단순하게 구현했던 코어 시스템에 대해 장기간 동안 관찰하였더니 효과가 괜찮았고, 이를 정식 런칭 서비스에 도전해보고 싶었습니다. 회사 프로젝트의 경우 새로운 분이 입사를 하셨고, 제가 맡았던 기본 프레임워크와 전체적인 틀은 사실상 완성이 되어있었던 상황이다보니, 그 이후로는 컨텐츠 관련 작업들만 진행하면 되는 상황이었습니다. 인수인계 후 마무리를 하고 나와도 회사엔 큰 지장이 없다고 판단되어, 상위 관리자 분들과 팀원분들, 주변 실무진분들께 상황을 잘 설명드리고 퇴사를 하게 되었습니다.',
+                      '회사의 프로젝트를 여러개 진행하였지만, 현실적으로 프로젝트들의 성과가 저조했었고, 이러한 상황속에 작은 규모의 회사에서 지속적으로 투자를 받기에는 어려운 상황이었습니다. 그래서 회사의 경영진과 상의하여 퇴사를 진행하게 되었습니다.',
                 ),
               ]),
               const SizedBox(height: 50),
