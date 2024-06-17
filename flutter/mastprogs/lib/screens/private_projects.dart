@@ -25,7 +25,7 @@ class PrivateProject extends StatelessWidget {
                 iconColor: Colors.purple.shade900,
                 iconSize: 102,
                 url:
-                    'http://ggram.ipdisk.co.kr:80/dl/93a3b6d36baf60b15236875e27d4301a/63f1b2b7/657465726e616c3b706c61796578706f/tBHKe7Cvei0A1zqgXvsi0hfjH0Bgkim/%EC%A1%B8%EC%97%85_%EB%B0%9C%ED%91%9C%EC%9E%90%EB%A3%8C.pdf',
+                    'http://ggram.ipdisk.co.kr:80/dl/a2674a4d052c7cb0227ce38cbecf3654/66704ad4/657465726e616c3b706c61796578706f32/2O7x4Mi787y9M3EHZ18sLn1s0B1pT04/%EC%A1%B8%EC%97%85_%EB%B0%9C%ED%91%9C%EC%9E%90%EB%A3%8C.pdf',
               ),
               const SizedBox(height: 20),
               BigButton(

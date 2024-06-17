@@ -16,46 +16,68 @@ class CompanyHistoryScreen extends StatelessWidget {
           child: Column(
             children: [
               const SizedBox(height: 50),
-              // CompanyBigCard(
-              //   children: [
-              //     HistoryHeader(
-              //       imgPath: 'assets/images/people.png',
-              //       backColor: Colors.black87.withOpacity(0.85),
-              //       msg: '창업 준비중',
-              //       msgColor: Colors.white,
-              //     ),
-              //     Row(
-              //       crossAxisAlignment: CrossAxisAlignment.center,
-              //       children: const [
-              //         SizedBox(width: 20),
-              //         Icon(
-              //           Icons.badge_rounded,
-              //           size: 50,
-              //           color: Colors.red,
-              //         ),
-              //         SizedBox(width: 24),
-              //         Text(
-              //           '현재',
-              //           style: TextStyle(
-              //             color: Colors.red,
-              //             fontSize: 28,
-              //             fontWeight: FontWeight.w700,
-              //           ),
-              //         ),
-              //       ],
-              //     ),
-              //     const SizedBox(height: 10),
-              //     const CompanyHistoryPart(
-              //       icon: Icons.assistant_rounded,
-              //       iconColor: Colors.lightBlue,
-              //       lineSize: 90,
-              //       headMsg: '창업',
-              //       headDate: '2020.07.01',
-              //       desc: '만들고 싶은 서비스가 생겨 도전해보고자 시작하였습니다.',
-              //     ),
-              //   ],
-              // ),
-              // const SizedBox(height: 50),
+              CompanyBigCard(
+                children: [
+                  HistoryHeader(
+                    imgPath: 'assets/images/aleph.jpg',
+                    backColor: Colors.black87.withOpacity(0.85),
+                    msg: 'Aleph Research',
+                    msgColor: Colors.white,
+                  ),
+                  const Row(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      SizedBox(width: 20),
+                      Icon(
+                        Icons.badge_rounded,
+                        size: 50,
+                        color: Colors.orange,
+                      ),
+                      SizedBox(width: 24),
+                      Text(
+                        '현재',
+                        style: TextStyle(
+                          color: Colors.orange,
+                          fontSize: 28,
+                          fontWeight: FontWeight.w700,
+                        ),
+                      ),
+                    ],
+                  ),
+                  const SizedBox(height: 10),
+                  const CompanyHistoryPart(
+                    icon: Icons.assistant_rounded,
+                    iconColor: Colors.lightBlue,
+                    lineSize: 90,
+                    headMsg: '입사',
+                    headDate: '2024.04.15',
+                    desc:
+                        '블록체인 코어 시니어 개발자로 입사하였습니다. 스타트업 초창기 멤버로 합류하였으며, 자율적인 근무 분위기와 좋은 조건 제안으로, 개인 사업과 병행이 가능하다고 판단하여 같이 진행하게 되었습니다.',
+                  ),
+                ],
+              ),
+              const SizedBox(height: 50),
+              CompanyBigCard(
+                children: [
+                  HistoryHeader(
+                    imgPath: 'assets/images/people.png',
+                    backColor: Colors.black87.withOpacity(0.85),
+                    msg: '리치포켓',
+                    msgColor: Colors.white,
+                  ),
+                  const SizedBox(height: 10),
+                  const CompanyHistoryPart(
+                    icon: Icons.assistant_rounded,
+                    iconColor: Colors.lightBlue,
+                    lineSize: 90,
+                    headMsg: '창업',
+                    headDate: '2023.07.01 (사업자 2024.04.01)',
+                    desc:
+                        '만들고 싶은 SaaS 서비스가 생겨 도전해보고자 1인 창업으로 시작하였습니다. (계속 운영중)',
+                  ),
+                ],
+              ),
+              const SizedBox(height: 50),
               CompanyBigCard(children: [
                 HistoryHeader(
                   imgPath: 'assets/images/wemade.png',

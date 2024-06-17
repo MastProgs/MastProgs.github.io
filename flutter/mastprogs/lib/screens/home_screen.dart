@@ -13,11 +13,11 @@ class HomeScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         bottom: TabBar(
-          tabs: [
+          tabs: const [
             Tab(
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
-                children: const [
+                children: [
                   Icon(Icons.person),
                   SizedBox(width: 10),
                   Text('자기 소개')
@@ -27,7 +27,7 @@ class HomeScreen extends StatelessWidget {
             Tab(
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
-                children: const [
+                children: [
                   Icon(Icons.business),
                   SizedBox(width: 10),
                   Text('회사 경력')
@@ -37,7 +37,7 @@ class HomeScreen extends StatelessWidget {
             Tab(
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
-                children: const [
+                children: [
                   Icon(Icons.handyman_rounded),
                   SizedBox(width: 10),
                   Text('작업 내역')
@@ -47,7 +47,7 @@ class HomeScreen extends StatelessWidget {
             Tab(
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
-                children: const [
+                children: [
                   Icon(Icons.polyline_sharp),
                   SizedBox(width: 10),
                   Text('개인 프로젝트')
@@ -59,27 +59,28 @@ class HomeScreen extends StatelessWidget {
           indicatorColor: Colors.red,
           indicatorWeight: 5,
         ),
-        title: Row(
+        title: const Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Row(
               children: [
-                const Icon(Icons.hail_outlined),
-                const SizedBox(
+                //Icon(Icons.hail_outlined),
+                Icon(Icons.home_repair_service_rounded),
+                SizedBox(
                   width: 10,
                 ),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
-                  children: const [
+                  children: [
                     Text(
-                      '휴직중',
+                      '근무중',
                       style: TextStyle(
                         fontSize: 12,
                         fontWeight: FontWeight.w100,
                       ),
                     ),
                     Text(
-                      '이직 관심 있음',
+                      '이직 관심 없음',
                       style: TextStyle(
                         fontSize: 16,
                         fontWeight: FontWeight.w100,
@@ -89,7 +90,7 @@ class HomeScreen extends StatelessWidget {
                 )
               ],
             ),
-            const Text(
+            Text(
               '서버 프로그래머 - 김형준',
               style: TextStyle(
                 fontSize: 24,
@@ -98,7 +99,7 @@ class HomeScreen extends StatelessWidget {
             ),
             Column(
               crossAxisAlignment: CrossAxisAlignment.end,
-              children: const [
+              children: [
                 Text(
                   '최종 수정 날짜',
                   style: TextStyle(
@@ -107,7 +108,7 @@ class HomeScreen extends StatelessWidget {
                   ),
                 ),
                 Text(
-                  '2023.07.05',
+                  '2024.06.17',
                   style: TextStyle(
                     fontSize: 16,
                     fontWeight: FontWeight.w100,
