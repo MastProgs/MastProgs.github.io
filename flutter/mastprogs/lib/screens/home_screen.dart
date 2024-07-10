@@ -13,6 +13,10 @@ class HomeScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         bottom: TabBar(
+          labelColor: Colors.red,
+          unselectedLabelColor: Colors.grey.shade600,
+          indicatorColor: Colors.red,
+          indicatorWeight: 5,
           tabs: const [
             Tab(
               child: Row(
@@ -55,17 +59,14 @@ class HomeScreen extends StatelessWidget {
               ),
             ),
           ],
-          unselectedLabelColor: Colors.grey.shade600,
-          indicatorColor: Colors.red,
-          indicatorWeight: 5,
         ),
         title: const Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Row(
               children: [
-                //Icon(Icons.hail_outlined),
-                Icon(Icons.home_repair_service_rounded),
+                Icon(Icons.hail_outlined),
+                //Icon(Icons.home_repair_service_rounded),
                 SizedBox(
                   width: 10,
                 ),
@@ -73,14 +74,14 @@ class HomeScreen extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      '근무중',
+                      '구직중',
                       style: TextStyle(
                         fontSize: 12,
                         fontWeight: FontWeight.w100,
                       ),
                     ),
                     Text(
-                      '이직 관심 없음',
+                      '이직 관심 있음',
                       style: TextStyle(
                         fontSize: 16,
                         fontWeight: FontWeight.w100,

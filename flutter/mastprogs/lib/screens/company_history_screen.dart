@@ -16,12 +16,33 @@ class CompanyHistoryScreen extends StatelessWidget {
           child: Column(
             children: [
               const SizedBox(height: 50),
+              // CompanyBigCard(
+              //   children: [
+              //     HistoryHeader(
+              //       imgPath: 'assets/images/aleph.jpg',
+              //       backColor: Colors.black87.withOpacity(0.85),
+              //       msg: 'Aleph Research',
+              //       msgColor: Colors.white,
+              //     ),
+              //     const SizedBox(height: 10),
+              //     const CompanyHistoryPart(
+              //       icon: Icons.assistant_rounded,
+              //       iconColor: Colors.lightBlue,
+              //       lineSize: 90,
+              //       headMsg: '입사',
+              //       headDate: '2024.04.15',
+              //       desc:
+              //           '블록체인 코어 시니어 개발자로 입사하였습니다. 스타트업 초창기 멤버로 합류하였으며, 자율적인 근무 분위기와 좋은 조건 제안으로, 개인 사업과 병행이 가능하다고 판단하여 같이 진행하게 되었습니다.',
+              //     ),
+              //   ],
+              // ),
+              // const SizedBox(height: 50),
               CompanyBigCard(
                 children: [
                   HistoryHeader(
-                    imgPath: 'assets/images/aleph.jpg',
+                    imgPath: 'assets/images/people.png',
                     backColor: Colors.black87.withOpacity(0.85),
-                    msg: 'Aleph Research',
+                    msg: '리치포켓',
                     msgColor: Colors.white,
                   ),
                   const Row(
@@ -31,13 +52,13 @@ class CompanyHistoryScreen extends StatelessWidget {
                       Icon(
                         Icons.badge_rounded,
                         size: 50,
-                        color: Colors.orange,
+                        color: Colors.red,
                       ),
                       SizedBox(width: 24),
                       Text(
                         '현재',
                         style: TextStyle(
-                          color: Colors.orange,
+                          color: Colors.red,
                           fontSize: 28,
                           fontWeight: FontWeight.w700,
                         ),
@@ -49,31 +70,10 @@ class CompanyHistoryScreen extends StatelessWidget {
                     icon: Icons.assistant_rounded,
                     iconColor: Colors.lightBlue,
                     lineSize: 90,
-                    headMsg: '입사',
-                    headDate: '2024.04.15',
-                    desc:
-                        '블록체인 코어 시니어 개발자로 입사하였습니다. 스타트업 초창기 멤버로 합류하였으며, 자율적인 근무 분위기와 좋은 조건 제안으로, 개인 사업과 병행이 가능하다고 판단하여 같이 진행하게 되었습니다.',
-                  ),
-                ],
-              ),
-              const SizedBox(height: 50),
-              CompanyBigCard(
-                children: [
-                  HistoryHeader(
-                    imgPath: 'assets/images/people.png',
-                    backColor: Colors.black87.withOpacity(0.85),
-                    msg: '리치포켓',
-                    msgColor: Colors.white,
-                  ),
-                  const SizedBox(height: 10),
-                  const CompanyHistoryPart(
-                    icon: Icons.assistant_rounded,
-                    iconColor: Colors.lightBlue,
-                    lineSize: 90,
                     headMsg: '창업',
                     headDate: '2023.07.01 (사업자 2024.04.01)',
                     desc:
-                        '만들고 싶은 SaaS 서비스가 생겨 도전해보고자 1인 창업으로 시작하였습니다. (계속 운영중)',
+                        '만들고 싶은 SaaS 서비스가 생겨 도전해보고자 1인 창업으로 시작하였습니다. 부업 정도로 운영하고 있기 때문에, 본업에는 지장이 없을 예정입니다.',
                   ),
                 ],
               ),
@@ -82,7 +82,7 @@ class CompanyHistoryScreen extends StatelessWidget {
                 HistoryHeader(
                   imgPath: 'assets/images/wemade.png',
                   backColor: Colors.black87.withOpacity(0.85),
-                  msg: '위메이드 플러스',
+                  msg: '위메이드 플러스 [폐업]',
                   msgColor: Colors.white,
                 ),
                 const SizedBox(height: 10),
