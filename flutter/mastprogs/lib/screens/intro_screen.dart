@@ -132,11 +132,11 @@ class IntroScreen extends StatelessWidget {
                                   color: Colors.grey.shade300,
                                 ),
                               ),
-                              child: Padding(
-                                padding: const EdgeInsets.all(10),
+                              child: const Padding(
+                                padding: EdgeInsets.all(10),
                                 child: Row(
                                   mainAxisAlignment: MainAxisAlignment.center,
-                                  children: const [
+                                  children: [
                                     Text(
                                       '_ f o r  ',
                                       style: TextStyle(
@@ -239,9 +239,9 @@ class IntroScreen extends StatelessWidget {
               // 기타 외부 페이지
               Padding(
                 padding: EdgeInsets.all(basicPaddingSize),
-                child: Row(
+                child: const Row(
                   mainAxisAlignment: MainAxisAlignment.center,
-                  children: const [
+                  children: [
                     ImgButtonUrl(
                       imgPath: 'assets/images/github.png',
                       url: 'https://github.com/MastProgs',
@@ -258,7 +258,7 @@ class IntroScreen extends StatelessWidget {
                     ImgButtonUrl(
                       imgPath: 'assets/images/steam.png',
                       url:
-                          'https://steamdb.info/calculator/76561198025794435/?cc=kr',
+                          'https://steamdb.info/calculator/76561198025794435/?cc=kr&all_games',
                       imgSize: 50,
                     ),
                   ],
@@ -269,9 +269,9 @@ class IntroScreen extends StatelessWidget {
               // 주요 활용 가능 스킬
               Padding(
                 padding: EdgeInsets.symmetric(horizontal: basicPaddingSize),
-                child: Column(
+                child: const Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
-                  children: const [
+                  children: [
                     TextTitle(
                       msg: '주요 활용 가능 스킬',
                       size: 45,
@@ -351,9 +351,9 @@ class IntroScreen extends StatelessWidget {
               // 가치관
               Padding(
                 padding: EdgeInsets.symmetric(horizontal: basicPaddingSize),
-                child: Column(
+                child: const Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
-                  children: const [
+                  children: [
                     TextTitle(
                       msg: '가치관',
                       size: 45,
@@ -402,9 +402,9 @@ class IntroScreen extends StatelessWidget {
 
               Padding(
                 padding: EdgeInsets.symmetric(horizontal: basicPaddingSize),
-                child: Column(
+                child: const Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
-                  children: const [
+                  children: [
                     TextTitle(
                       msg: '마지막 인사말',
                       size: 45,
