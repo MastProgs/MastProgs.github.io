@@ -2,6 +2,7 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:mastprogs_v2/common/element/card_with_title.dart';
+import 'package:mastprogs_v2/common/element/skill_section.dart';
 import 'package:mastprogs_v2/common/element/url_button.dart';
 import 'package:mastprogs_v2/common/font_style.dart';
 
@@ -263,37 +264,66 @@ class _IntroduceScreenState extends State<IntroduceScreen> {
                   ),
                 ),
                 const SizedBox(height: 16),
-                const CardWithTitle(
-                  title: 'Activities',
+                _buildActivities(),
+                const SizedBox(height: 16),
+                CardWithTitle(
+                  title: 'Skills',
                   content: Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      UrlButton(
-                        imageAsset: 'assets/images/github.png',
-                        title: 'Github Codes',
-                        description: '다양한 서버 프레임 워크 및 작업 내용을 확인해 보실 수 있습니다.',
-                        url: 'https://github.com/mastprogs',
+                      Text(
+                        '프로그래밍 언어 및 기술',
+                        style: FontStyleNotoSans.getStyle(
+                          context: context,
+                          fontSize: 24,
+                        ),
                       ),
-                      SizedBox(height: 16),
-                      UrlButton(
-                        imageAsset: 'assets/images/naverpost.png',
-                        title: 'Naver Post',
-                        description: '코드 공부 및 개발 작업 과정을 컨텐츠로 확인해 볼 수 있습니다.',
-                        url:
-                            'https://post.naver.com/my/series/detail.nhn?seriesNo=370283&memberNo=559061',
+                      const SizedBox(height: 16),
+                      SkillsSection(
+                        allSkills: [
+                          Skill(
+                            'C++',
+                            3,
+                            'IOCP, Asio 서버 모델 같은 핵심 통신 알고리즘을 잘 이해하고 있고, 기본 프레임워크도 직접 개발 가능합니다. 최신 C++20 버전까지 활용 가능하며, format, ranges, string_view 등을 통해 구 C++11 버전 소스를 최적화 및 최신화하여 생산성을 극대화 한 경험이 있습니다. MMORPG 개발 경험이 있으며, 복잡한 시스템과 컨텐츠 구현 시, 가장 많이 사용했던 언어 입니다.',
+                            ['assets/images/cpp.png'],
+                          ),
+                          Skill(
+                            'Python',
+                            3,
+                            '생산성 향상을 위해 다양한 툴 제작 시 적극 활용하는 언어 이며, 툴 뿐만 아니라 Fast API 웹 서버 프레임워크를 직접 작성하고 서버를 만들어 서비스한 경험이 있습니다. 파이썬으로 만들어 본 툴은 SQL 문서 파일을 관리하는 매니징 툴이나, 기획 xlsx 파일을 기반으로 Data Script Code Generator 등을 구현한 경험이 있습니다. 대학원에서 AI 모델 학습 활용하는 경험에 있어서 파이썬을 주 언어로 많이 사용한 경험이 있습니다.',
+                            ['assets/images/python.png'],
+                          ),
+                          Skill(
+                            'Go',
+                            3,
+                            '언어의 활용 방식과 문법에 대해 잘 숙지하고 있으며, reflection 을 활용하여 orm 기능을 직접 구현할 정도로 구조와 내용을 잘 이해하고 있습니다. json 포멧 데이터를 go 언어로 된 log server 로 넘기면, 해당 데이터를 파싱하여 DB 테이블 데이터와 column 명을 검사 후, 올바른 데이터가 insert 되도록 핸들러를 구현한 경험이 있습니다. 추가로 DB 의 다양한 job 들을 go 언어 상에서 하나의 트랜젝션으로 묶어 처리를 보장하는 DBJob 의 기능을 구현한 경험도 있습니다.',
+                            ['assets/images/go.png'],
+                          ),
+                          Skill(
+                            'C#',
+                            2,
+                            'WPF 같은 윈도우 방식에 익숙한 툴 작업이 가능하고, 기본적인 문법과 reflection 기능을 활용한 코드 구현 설계가 가능합니다. WPF 를 활용하여 부하테스트 툴을 만들어 본 경험이 있으며, 운영툴의 .Net framework 를 기반으로 한 서버에서 MMORPG 운영 기능을 연동하여 구현한 경험이 있습니다.',
+                            ['assets/images/cpppp.png'],
+                          ),
+                          Skill(
+                            'TypeScript',
+                            2,
+                            '타입스크립트를 활용하여 웹 프레임워크를 직접 작성하고 Node.js 를 활용하여 운영툴 및 게임 서버를 서비스한 경험이 있습니다.',
+                            ['assets/images/ts.png', 'assets/images/js.png'],
+                          ),
+                          Skill(
+                            'Flutter',
+                            2,
+                            '플러터를 활용하여 웹 프론트 및 모바일 앱을 직접 작성하고 서비스한 경험이 있습니다. 현재 보고 계신 웹 프로필 또한 Flutter 로 구현되어 다양한 형태의 웹 페이지, Desktop App 등을 구현할 수 있습니다.',
+                            ['assets/images/flutter.png'],
+                          ),
+                        ],
                       ),
-                      SizedBox(height: 16),
-                      UrlButton(
-                        imageAsset: 'assets/images/steam.png',
-                        title: 'Steam',
-                        description:
-                            '어떠한 다양한 게임들을 오랜시간 즐겼는지 플레이 기록을 확인해 볼 수 있습니다.',
-                        url:
-                            'https://steamdb.info/calculator/76561198025794435/?cc=kr&all_games',
-                      ),
+                      const SizedBox(height: 16),
                     ],
                   ),
                 ),
-                const SizedBox(height: 16),
               ],
             ),
           ),
@@ -547,35 +577,7 @@ class _IntroduceScreenState extends State<IntroduceScreen> {
             ),
           ),
           const SizedBox(height: 16),
-          const CardWithTitle(
-            title: 'Activities',
-            content: Column(
-              children: [
-                UrlButton(
-                  imageAsset: 'assets/images/github.png',
-                  title: 'Github Codes',
-                  description: '다양한 서버 프레임 워크 및 작업 내용을 확인해 보실 수 있습니다.',
-                  url: 'https://github.com/mastprogs',
-                ),
-                SizedBox(height: 16),
-                UrlButton(
-                  imageAsset: 'assets/images/naverpost.png',
-                  title: 'Naver Post',
-                  description: '코드 공부 및 개발 작업 과정을 컨텐츠로 확인해 볼 수 있습니다.',
-                  url:
-                      'https://post.naver.com/my/series/detail.nhn?seriesNo=370283&memberNo=559061',
-                ),
-                SizedBox(height: 16),
-                UrlButton(
-                  imageAsset: 'assets/images/steam.png',
-                  title: 'Steam',
-                  description: '어떠한 다양한 게임들을 오랜시간 즐겼는지 플레이 기록을 확인해 볼 수 있습니다.',
-                  url:
-                      'https://steamdb.info/calculator/76561198025794435/?cc=kr&all_games',
-                ),
-              ],
-            ),
-          ),
+          _buildActivities(),
           const SizedBox(height: 16),
         ],
       ),
@@ -638,6 +640,38 @@ class _IntroduceScreenState extends State<IntroduceScreen> {
           ),
         ),
       ],
+    );
+  }
+
+  Widget _buildActivities() {
+    return const CardWithTitle(
+      title: 'Activities',
+      content: Column(
+        children: [
+          UrlButton(
+            imageAsset: 'assets/images/github.png',
+            title: 'Github Codes',
+            description: '다양한 서버 프레임 워크 및 작업 내용을 확인해 보실 수 있습니다.',
+            url: 'https://github.com/mastprogs',
+          ),
+          SizedBox(height: 16),
+          UrlButton(
+            imageAsset: 'assets/images/naverpost.png',
+            title: 'Naver Post',
+            description: '코드 공부 및 개발 작업 과정을 컨텐츠로 확인해 볼 수 있습니다.',
+            url:
+                'https://post.naver.com/my/series/detail.nhn?seriesNo=370283&memberNo=559061',
+          ),
+          SizedBox(height: 16),
+          UrlButton(
+            imageAsset: 'assets/images/steam.png',
+            title: 'Steam',
+            description: '어떠한 게임들을 다양하게 오랜시간 즐겼는지 플레이 기록을 확인해 볼 수 있습니다.',
+            url:
+                'https://steamdb.info/calculator/76561198025794435/?cc=kr&all_games',
+          ),
+        ],
+      ),
     );
   }
 }

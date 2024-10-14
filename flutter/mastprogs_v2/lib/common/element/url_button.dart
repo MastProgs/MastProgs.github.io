@@ -53,7 +53,7 @@ class _UrlButtonState extends State<UrlButton> {
     // 화면 너비 가져오기
     final screenWidth = MediaQuery.of(context).size.width;
     // 버튼 너비 계산 (예: 화면 너비에서 32px 뺀 값)
-    final buttonWidth = screenWidth > 900 ? 710.0 : screenWidth - 190;
+    final buttonWidth = screenWidth > 900 ? 710.0 : screenWidth - 185;
 
     return MouseRegion(
       onEnter: (_) => setState(() => _isHovering = true),
@@ -70,9 +70,9 @@ class _UrlButtonState extends State<UrlButton> {
                 borderRadius: BorderRadius.circular(12),
                 boxShadow: [
                   BoxShadow(
-                    color: theme.shadowColor.withOpacity(0.3),
-                    spreadRadius: 2,
-                    blurRadius: 5,
+                    color: theme.shadowColor.withOpacity(0.1),
+                    spreadRadius: 1,
+                    blurRadius: 3,
                     offset: const Offset(0, 3),
                   ),
                 ],
