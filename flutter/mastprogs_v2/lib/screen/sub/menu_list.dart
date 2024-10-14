@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mastprogs_v2/common/font_style.dart';
 
 Drawer buildDrawer(
     BuildContext context, int selectedIndex, Function(int) onIndexChanged) {
@@ -10,7 +11,23 @@ Drawer buildDrawer(
           decoration: BoxDecoration(
             color: Theme.of(context).scaffoldBackgroundColor,
           ),
-          child: const Text('Drawer Header'),
+          child: Column(
+            children: [
+              Text(
+                '서버 프로그래머',
+                style: FontStyleYouandiModernTR.getStyle(
+                  context: context,
+                  fontSize: 20,
+                ),
+              ),
+              const SizedBox(height: 10),
+              Text(
+                '김형준',
+                style: FontStyleYouandiModernTR.getStyle(
+                    context: context, fontSize: 36),
+              ),
+            ],
+          ),
         ),
         ListTile(
           title: const Row(

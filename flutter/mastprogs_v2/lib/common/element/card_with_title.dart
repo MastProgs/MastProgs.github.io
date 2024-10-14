@@ -18,7 +18,7 @@ class CardWithTitle extends StatelessWidget {
     final effectiveTitleStyle = titleStyle ??
         FontStyleYouandiModernTR.getStyle(
           context: context,
-          fontSize: 28,
+          fontSize: 32,
         );
 
     return Card(

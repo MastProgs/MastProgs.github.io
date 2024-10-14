@@ -1,9 +1,39 @@
 import 'package:flutter/material.dart';
+import 'package:mastprogs_v2/common/element/gradient_painter.dart';
 import 'package:mastprogs_v2/common/font_style.dart';
+import 'package:mastprogs_v2/common/provider.dart';
+import 'package:provider/provider.dart';
 
-class SkillsSection extends StatelessWidget {
+class SkillsSection extends StatefulWidget {
   final List<Skill> allSkills;
+
   const SkillsSection({super.key, required this.allSkills});
+
+  @override
+  State<SkillsSection> createState() => _SkillsSectionState();
+}
+
+class _SkillsSectionState extends State<SkillsSection>
+    with SingleTickerProviderStateMixin {
+  List<bool> _isHovering = [];
+  late AnimationController _controller;
+  Offset? _mousePosition;
+
+  @override
+  void initState() {
+    super.initState();
+    _isHovering = List<bool>.filled(widget.allSkills.length, false);
+    _controller = AnimationController(
+      vsync: this,
+      duration: const Duration(seconds: 3),
+    )..repeat(); // 애니메이션을 계속 반복
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -31,9 +61,10 @@ class SkillsSection extends StatelessWidget {
               crossAxisSpacing: 10,
               mainAxisSpacing: 10,
             ),
-            itemCount: allSkills.length,
+            itemCount: widget.allSkills.length,
             itemBuilder: (context, index) {
-              return _buildSkillCard(allSkills[index], context);
+              return _buildSkillCard(
+                  widget.allSkills[index], context, index); // 인덱스 전달
             },
           ),
         );
@@ -41,71 +72,121 @@ class SkillsSection extends StatelessWidget {
     );
   }
 
-  Widget _buildSkillCard(Skill skill, BuildContext context) {
-    return GestureDetector(
-      onTap: () => _showSkillDialog(context, skill),
-      child: Card(
-        elevation: 4,
-        margin: const EdgeInsets.symmetric(vertical: 8),
-        child: Padding(
-          padding: const EdgeInsets.all(16.0),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: skill.imageAssets.map((asset) {
-                  return Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 4.0),
-                    child: Image.asset(
-                      asset,
-                      fit: BoxFit.cover,
-                      width: 80,
-                      height: 80,
-                    ),
-                  );
-                }).toList(),
+  Widget _buildSkillCard(Skill skill, BuildContext context, int index) {
+    final themeProvider = Provider.of<ThemeProvider>(context);
+    final isDarkMode = themeProvider.themeMode == ThemeMode.dark;
+
+    return MouseRegion(
+      cursor: SystemMouseCursors.click,
+      onEnter: (event) {
+        setState(() {
+          _isHovering[index] = true;
+          _mousePosition = event.localPosition;
+        });
+      },
+      onHover: (event) {
+        setState(() {
+          _mousePosition = event.localPosition;
+        });
+      },
+      onExit: (_) {
+        setState(() {
+          _isHovering[index] = false;
+          _mousePosition = null;
+        });
+      },
+      child: GestureDetector(
+        onTap: () => _showSkillDialog(context, skill),
+        child: AnimatedBuilder(
+          animation: _controller,
+          builder: (context, child) {
+            return Card(
+              elevation: 4,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(12),
               ),
-              const SizedBox(height: 16),
-              Text(
-                skill.name,
-                style: FontStyleNotoSans.getStyle(
-                  context: context,
-                  fontSize: 18,
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(12),
+                child: Stack(
+                  children: [
+                    CustomPaint(
+                      painter: GradientPainter(
+                        isHovering: _isHovering[index],
+                        mousePosition: _mousePosition,
+                        animation: _controller,
+                        isDarkMode: isDarkMode,
+                      ),
+                      child: const SizedBox(
+                        width: double.infinity,
+                        height: double.infinity,
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.all(16.0),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: skill.imageAssets.map((asset) {
+                              return Padding(
+                                padding:
+                                    const EdgeInsets.symmetric(horizontal: 4.0),
+                                child: Image.asset(
+                                  asset,
+                                  fit: BoxFit.cover,
+                                  width: 80,
+                                  height: 80,
+                                ),
+                              );
+                            }).toList(),
+                          ),
+                          const SizedBox(height: 16),
+                          Text(
+                            skill.name,
+                            style: FontStyleNotoSans.getStyle(
+                              context: context,
+                              fontSize: 18,
+                            ),
+                          ),
+                          const SizedBox(height: 8),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              _buildStarRating(skill.proficiency),
+                              const SizedBox(width: 8),
+                              Text(
+                                _getProficiencyText(skill.proficiency),
+                                style: FontStyleNotoSans.getStyle(
+                                  context: context,
+                                  fontSize: 14,
+                                ),
+                              ),
+                            ],
+                          ),
+                          const SizedBox(height: 8),
+                          Flexible(
+                            child: Text(
+                              skill.description,
+                              maxLines: 2,
+                              overflow: TextOverflow.ellipsis,
+                              style: FontStyleNotoSans.getStyle(
+                                context: context,
+                                fontSize: 14,
+                                lightColor: Colors.grey.shade600,
+                                darkColor: Colors.grey,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
                 ),
               ),
-              const SizedBox(height: 8),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  _buildStarRating(skill.proficiency),
-                  const SizedBox(width: 8),
-                  Text(
-                    _getProficiencyText(skill.proficiency),
-                    style: FontStyleNotoSans.getStyle(
-                      context: context,
-                      fontSize: 14,
-                    ),
-                  ),
-                ],
-              ),
-              const SizedBox(height: 8),
-              Flexible(
-                child: Text(
-                  skill.description,
-                  maxLines: 2,
-                  overflow: TextOverflow.ellipsis,
-                  style: FontStyleNotoSans.getStyle(
-                    context: context,
-                    fontSize: 14,
-                    lightColor: Colors.grey.shade600,
-                    darkColor: Colors.grey,
-                  ),
-                ),
-              ),
-            ],
-          ),
+            );
+          },
         ),
       ),
     );

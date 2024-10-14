@@ -39,16 +39,26 @@ class _UrlButtonState extends State<UrlButton> {
     final theme = Theme.of(context);
 
     // 기본 색상과 호버 색상 정의
-    final baseColor = theme.cardColor;
+    //final baseColor = theme.cardColor;
     final hoverColor = isDarkMode
-        ? HSLColor.fromColor(baseColor)
-            .withLightness(
-                (HSLColor.fromColor(baseColor).lightness + 0.1).clamp(0.0, 1.0))
-            .toColor()
-        : HSLColor.fromColor(baseColor)
-            .withLightness(
-                (HSLColor.fromColor(baseColor).lightness - 0.1).clamp(0.0, 1.0))
-            .toColor();
+        ? LinearGradient(
+            colors: [
+              Colors.purple.shade900,
+              Colors.blue.shade900,
+              Colors.red.shade900,
+            ],
+            begin: Alignment.topLeft,
+            end: Alignment.bottomRight,
+          )
+        : LinearGradient(
+            colors: [
+              Colors.lightBlue.shade100,
+              Colors.lightGreen.shade100,
+              Colors.pink.shade100,
+            ],
+            begin: Alignment.topLeft,
+            end: Alignment.bottomRight,
+          );
 
     // 화면 너비 가져오기
     final screenWidth = MediaQuery.of(context).size.width;
@@ -56,6 +66,7 @@ class _UrlButtonState extends State<UrlButton> {
     final buttonWidth = screenWidth > 900 ? 710.0 : screenWidth - 185;
 
     return MouseRegion(
+      cursor: SystemMouseCursors.click,
       onEnter: (_) => setState(() => _isHovering = true),
       onExit: (_) => setState(() => _isHovering = false),
       child: GestureDetector(
@@ -63,10 +74,11 @@ class _UrlButtonState extends State<UrlButton> {
         child: LayoutBuilder(
           builder: (context, constraints) {
             return AnimatedContainer(
-              duration: const Duration(milliseconds: 200),
+              duration: const Duration(milliseconds: 300),
               curve: Curves.easeOut,
               decoration: BoxDecoration(
-                color: _isHovering ? hoverColor : baseColor,
+                gradient: _isHovering ? hoverColor : null, // 그라데이션 적용
+                //color: !_isHovering ? baseColor : null, // 기본 색상 적용
                 borderRadius: BorderRadius.circular(12),
                 boxShadow: [
                   BoxShadow(
