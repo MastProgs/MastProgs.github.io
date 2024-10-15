@@ -7,7 +7,7 @@ void main() {
   runApp(
     MultiProvider(
       providers: [
-        ChangeNotifierProvider(create: (context) => ThemeProvider()),
+        ChangeNotifierProvider(create: (context) => ThemeProvider(context)),
         // 필요한 만큼 프로바이더를 추가할 수 있습니다
       ],
       child: const MyApp(),

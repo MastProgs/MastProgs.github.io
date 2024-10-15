@@ -1,3 +1,5 @@
+import 'dart:ui'; // PlatformDispatcher를 사용하기 위한 import
+
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -6,8 +8,9 @@ class ThemeProvider extends ChangeNotifier {
 
   ThemeMode get themeMode => _themeMode;
 
-  ThemeProvider() {
-    loadTheme(); // 생성자에서 테마 로드
+  ThemeProvider(BuildContext context) {
+    // BuildContext 추가
+    loadTheme(context); // 생성자에서 테마 로드
   }
 
   void toggleTheme() {
@@ -17,7 +20,8 @@ class ThemeProvider extends ChangeNotifier {
     saveTheme(); // 테마 변경 시 저장
   }
 
-  void loadTheme() async {
+  void loadTheme(BuildContext context) async {
+    // BuildContext 추가
     SharedPreferences prefs = await SharedPreferences.getInstance();
     String? savedTheme = prefs.getString('theme');
 
@@ -25,10 +29,10 @@ class ThemeProvider extends ChangeNotifier {
       _themeMode = savedTheme == 'dark' ? ThemeMode.dark : ThemeMode.light;
     } else {
       // 시스템의 현재 테마 상태를 확인하여 초기화
-      _themeMode =
-          WidgetsBinding.instance.window.platformBrightness == Brightness.dark
-              ? ThemeMode.dark
-              : ThemeMode.light;
+      _themeMode = PlatformDispatcher.instance.platformBrightness ==
+              Brightness.dark // 변경된 부분
+          ? ThemeMode.dark
+          : ThemeMode.light;
     }
     notifyListeners(); // UI 업데이트
   }
