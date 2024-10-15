@@ -16,12 +16,13 @@ class _CompanyScreenState extends State<CompanyScreen> {
       Job(
         '입사',
         '2021.01.01',
-        'Flutter 앱 개발',
+        skills: ['cpp.png', 'flutter.png'],
+        description: 'Flutter 앱 개발',
       ),
       Job(
         '디자이너',
         '2020.01.01',
-        'UI/UX 디자인',
+        description: 'UI/UX 디자인',
         isFinal: true,
       ),
     ]),
@@ -29,12 +30,12 @@ class _CompanyScreenState extends State<CompanyScreen> {
       Job(
         '개발자',
         '2021.01.01',
-        'Flutter 앱 개발',
+        description: 'Flutter 앱 개발',
       ),
       Job(
         '디자이너',
         '2020.01.01',
-        'UI/UX 디자인',
+        description: 'UI/UX 디자인',
         isFinal: true,
       ),
     ]),
@@ -42,7 +43,7 @@ class _CompanyScreenState extends State<CompanyScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final themeProvider = Provider.of<ThemeProvider>(context);
+    //final themeProvider = Provider.of<ThemeProvider>(context);
     return Center(
       child: Padding(
         // Padding 위젯 추가
@@ -75,10 +76,21 @@ class Company {
 class Job {
   final String title;
   final String date;
-  final String description;
+  final List<String>? skills;
+  final String? description;
   final bool isFinal;
 
-  Job(this.title, this.date, this.description, {this.isFinal = false});
+  Job(
+    this.title,
+    this.date, {
+    this.skills,
+    this.description,
+    this.isFinal = false,
+  });
+
+  List<String> get skillsImagePaths {
+    return skills?.map((skill) => 'assets/images/$skill').toList() ?? [];
+  }
 }
 
 class CompanyCard extends StatefulWidget {
@@ -95,12 +107,12 @@ class _CompanyCardState extends State<CompanyCard> {
 
   @override
   Widget build(BuildContext context) {
+    final themeProvider = Provider.of<ThemeProvider>(context);
     return Card(
       child: Column(
         children: [
           ListTile(
             title: GestureDetector(
-              // GestureDetector를 ListTile의 title로 이동
               onTap: () {
                 setState(() {
                   _isExpanded = !_isExpanded;
@@ -115,18 +127,16 @@ class _CompanyCardState extends State<CompanyCard> {
                     Expanded(
                       child: Container(
                         decoration: BoxDecoration(
-                          color: Provider.of<ThemeProvider>(context)
-                                      .themeMode ==
-                                  ThemeMode.light
+                          color: themeProvider.themeMode == ThemeMode.light
                               ? Colors.grey.shade300
-                              : Colors.grey.shade900, // 다크 모드와 라이트 모드에 따라 색상 설정
+                              : Colors.grey.shade900,
                           borderRadius: const BorderRadius.all(
-                            Radius.circular(10), // 오른쪽 위 둥글게
+                            Radius.circular(10),
                           ),
                         ),
                         child: Padding(
                           padding: const EdgeInsets.symmetric(
-                              horizontal: 10, vertical: 5),
+                              horizontal: 15, vertical: 5),
                           child: Text(widget.company.name,
                               style: FontStyleYouandiModernTR.getStyle(
                                   context: context, fontSize: 28)),
@@ -137,98 +147,190 @@ class _CompanyCardState extends State<CompanyCard> {
                 ),
               ),
             ),
-            trailing: IconButton(
-              icon: Icon(_isExpanded ? Icons.expand_less : Icons.expand_more),
-              onPressed: () {
-                setState(() {
-                  _isExpanded = !_isExpanded;
-                });
-              },
+            trailing: AnimatedRotation(
+              duration: const Duration(milliseconds: 300),
+              turns: _isExpanded ? 0.5 : 0,
+              child: IconButton(
+                icon: const Icon(Icons.expand_more),
+                onPressed: () {
+                  setState(() {
+                    _isExpanded = !_isExpanded;
+                  });
+                },
+              ),
             ),
           ),
-          if (_isExpanded)
-            Column(
-              children: widget.company.jobs.map((job) {
-                return ListTile(
-                  title: Padding(
-                    padding: const EdgeInsets.only(left: 10.0),
-                    child: Row(
-                      children: [
-                        const Icon(Icons.assistant,
-                            size: 28, color: Colors.blue),
-                        const SizedBox(width: 10),
-                        Text(job.title,
-                            style: FontStyleNotoSans.getStyle(
-                                context: context, fontSize: 18)),
-                        const SizedBox(width: 10),
-                        Column(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            const SizedBox(height: 8),
-                            Text(job.date,
-                                style: FontStyleYouandiModernTR.getStyle(
-                                    context: context,
-                                    fontSize: 14,
-                                    lightColor: Colors.grey.shade700,
-                                    darkColor: Colors.grey)),
-                          ],
-                        ),
-                      ],
-                    ),
-                  ),
-                  subtitle: LayoutBuilder(
-                    builder:
-                        (BuildContext context, BoxConstraints constraints) {
-                      return IntrinsicHeight(
-                        child: Padding(
-                          padding: const EdgeInsets.only(top: 12.0),
-                          child: Row(
-                            crossAxisAlignment: CrossAxisAlignment.stretch,
+          ClipRect(
+            child: AnimatedAlign(
+              alignment:
+                  _isExpanded ? Alignment.topCenter : Alignment.bottomCenter,
+              duration: const Duration(milliseconds: 1000),
+              curve: Curves.bounceOut,
+              heightFactor: _isExpanded ? 1 : 0,
+              child: Column(
+                children: widget.company.jobs.map((job) {
+                  return ListTile(
+                    title: Padding(
+                      padding: const EdgeInsets.only(left: 10.0),
+                      child: Row(
+                        children: [
+                          const Icon(Icons.assistant,
+                              size: 28, color: Colors.blue),
+                          const SizedBox(width: 10),
+                          Text(job.title,
+                              style: FontStyleNotoSans.getStyle(
+                                  context: context, fontSize: 18)),
+                          const SizedBox(width: 10),
+                          Column(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
-                              if (!job.isFinal)
-                                Padding(
-                                  padding: const EdgeInsets.symmetric(
-                                      horizontal: 23.5),
-                                  child: Container(
-                                    width: 2.5,
-                                    color: Colors.grey,
-                                  ),
-                                )
-                              else
-                                Padding(
-                                  padding: const EdgeInsets.symmetric(
-                                      horizontal: 23.5),
-                                  child: Container(
-                                    width: 2.5,
-                                    color: Colors.transparent,
-                                  ),
-                                ),
-                              Expanded(
-                                child: Padding(
-                                  padding: const EdgeInsets.symmetric(
-                                      horizontal: 5, vertical: 10),
-                                  child: Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      Text(job.description),
-                                      Text(job.date),
-                                      Text(job.description),
-                                      Text(job.description),
-                                      Text(job.description),
-                                    ],
-                                  ),
-                                ),
-                              ),
+                              const SizedBox(height: 8),
+                              Text(job.date,
+                                  style: FontStyleYouandiModernTR.getStyle(
+                                      context: context,
+                                      fontSize: 14,
+                                      lightColor: Colors.grey.shade700,
+                                      darkColor: Colors.grey)),
                             ],
                           ),
-                        ),
-                      );
-                    },
-                  ),
-                );
-              }).toList(),
+                        ],
+                      ),
+                    ),
+                    subtitle: LayoutBuilder(
+                      builder:
+                          (BuildContext context, BoxConstraints constraints) {
+                        return IntrinsicHeight(
+                          child: Padding(
+                            padding: const EdgeInsets.only(top: 12.0),
+                            child: Row(
+                              crossAxisAlignment: CrossAxisAlignment.stretch,
+                              children: [
+                                if (!job.isFinal)
+                                  Padding(
+                                    padding: const EdgeInsets.symmetric(
+                                        horizontal: 23.5),
+                                    child: Container(
+                                      width: 2.5,
+                                      color: Colors.grey,
+                                    ),
+                                  )
+                                else
+                                  Padding(
+                                    padding: const EdgeInsets.symmetric(
+                                        horizontal: 23.5),
+                                    child: Container(
+                                      width: 2.5,
+                                      color: Colors.transparent,
+                                    ),
+                                  ),
+                                Expanded(
+                                  child: Padding(
+                                    padding: const EdgeInsets.symmetric(
+                                        horizontal: 5, vertical: 10),
+                                    child: Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        if (job.skillsImagePaths.isNotEmpty)
+                                          Padding(
+                                            padding: const EdgeInsets.only(
+                                                bottom: 30),
+                                            child: Column(
+                                              crossAxisAlignment:
+                                                  CrossAxisAlignment.start,
+                                              children: [
+                                                Text('사용 기술',
+                                                    style: FontStyleNotoSans
+                                                        .getStyle(
+                                                            context: context,
+                                                            fontSize: 14)),
+                                                const SizedBox(height: 10),
+                                                Wrap(
+                                                  spacing: 8,
+                                                  runSpacing: 8,
+                                                  children: job.skillsImagePaths
+                                                      .map((skill) {
+                                                    return Tooltip(
+                                                      message: skill
+                                                          .split('/')
+                                                          .last
+                                                          .split('.')
+                                                          .first,
+                                                      child: Container(
+                                                        padding:
+                                                            const EdgeInsets
+                                                                .all(6),
+                                                        decoration:
+                                                            BoxDecoration(
+                                                          color: themeProvider
+                                                                      .themeMode ==
+                                                                  ThemeMode
+                                                                      .light
+                                                              ? Colors
+                                                                  .grey.shade200
+                                                              : Colors.grey
+                                                                  .shade800,
+                                                          borderRadius:
+                                                              BorderRadius
+                                                                  .circular(8),
+                                                          boxShadow: [
+                                                            BoxShadow(
+                                                              color: Colors
+                                                                  .black
+                                                                  .withOpacity(
+                                                                      0.1),
+                                                              blurRadius: 2,
+                                                              offset:
+                                                                  const Offset(
+                                                                      0, 1),
+                                                            ),
+                                                          ],
+                                                        ),
+                                                        child: Image.asset(
+                                                          skill,
+                                                          width: 50,
+                                                          height: 50,
+                                                        ),
+                                                      ),
+                                                    );
+                                                  }).toList(),
+                                                ),
+                                              ],
+                                            ),
+                                          ),
+                                        if (job.description != null)
+                                          Container(
+                                            width: double
+                                                .infinity, // 가로 길이를 끝까지 채우기
+                                            decoration: BoxDecoration(
+                                              color: themeProvider.themeMode ==
+                                                      ThemeMode.light
+                                                  ? Colors.grey.shade200
+                                                  : Colors
+                                                      .grey.shade800, // 배경색 설정
+                                              borderRadius:
+                                                  BorderRadius.circular(
+                                                      10), // 모서리 둥글게
+                                            ),
+                                            padding: const EdgeInsets.all(
+                                                20.0), // 내부 여백
+                                            child: Text(job.description!),
+                                          ),
+                                      ],
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        );
+                      },
+                    ),
+                  );
+                }).toList(),
+              ),
             ),
+          ),
         ],
       ),
     );
