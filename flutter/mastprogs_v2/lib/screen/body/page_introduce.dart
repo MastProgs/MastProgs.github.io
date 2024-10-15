@@ -661,46 +661,102 @@ class _IntroduceScreenState extends State<IntroduceScreen> {
           SkillsSection(
             allSkills: [
               Skill(
-                'C++',
-                3,
-                'IOCP, Asio 서버 모델 같은 핵심 통신 알고리즘을 잘 이해하고 있고, 기본 프레임워크도 직접 개발 가능합니다. 최신 C++20 버전까지 활용 가능하며, format, ranges, string_view 등을 통해 구 C++11 버전 소스를 최적화 및 최신화하여 생산성을 극대화 한 경험이 있습니다. MMORPG 개발 경험이 있으며, 복잡한 시스템과 컨텐츠 구현 시, 가장 많이 사용했던 언어 입니다.',
-                ['assets/images/cpp.png'],
+                name: 'C++',
+                proficiency: 3,
+                description:
+                    'IOCP, Asio 서버 모델 같은 핵심 통신 알고리즘을 잘 이해하고 있고, 기본 프레임워크도 직접 개발 가능합니다. 최신 C++20 버전까지 활용 가능하며, format, ranges, string_view 등을 통해 구 C++11 버전 소스를 최적화 및 최신화하여 생산성을 극대화 한 경험이 있습니다. MMORPG 개발 경험이 있으며, 복잡한 시스템과 컨텐츠 구현 시, 가장 많이 사용했던 언어 입니다.',
+                imageAssets: ['assets/images/cpp.png'],
+                links: [
+                  Link(
+                      url:
+                          'https://github.com/MastProgs/Cpp_IOCP_Server_And_Client_Basic_Framework',
+                      text: 'IOCP'),
+                  Link(
+                      url: 'https://github.com/MastProgs/None_boost_Asio',
+                      text: 'Asio'),
+                  Link(
+                      url:
+                          'https://github.com/MastProgs/Multithreads/tree/master/multiThread',
+                      text: 'Lock Free Algorithm'),
+                ],
               ),
               Skill(
-                'Python',
-                3,
-                '생산성 향상을 위해 다양한 툴 제작 시 적극 활용하는 언어 이며, 툴 뿐만 아니라 Fast API 웹 서버 프레임워크를 직접 작성하고 서버를 만들어 서비스한 경험이 있습니다. 파이썬으로 만들어 본 툴은 SQL 문서 파일을 관리하는 매니징 툴이나, 기획 xlsx 파일을 기반으로 Data Script Code Generator 등을 구현한 경험이 있습니다. 대학원에서 AI 모델 학습 활용하는 경험에 있어서 파이썬을 주 언어로 많이 사용한 경험이 있습니다.',
-                ['assets/images/python.png'],
+                name: 'Python',
+                proficiency: 3,
+                description:
+                    '생산성 향상을 위해 다양한 툴 제작 시 적극 활용하는 언어 이며, 툴 뿐만 아니라 Fast API 웹 서버 프레임워크를 직접 작성하고 서버를 만들어 서비스한 경험이 있습니다. 파이썬으로 만들어 본 툴은 SQL 문서 파일을 관리하는 매니징 툴이나, 기획 xlsx 파일을 기반으로 Data Script Code Generator 등을 구현한 경험이 있습니다. 대학원에서 AI 모델 학습 활용하는 경험에 있어서 파이썬을 주 언어로 많이 사용한 경험이 있습니다.',
+                imageAssets: ['assets/images/python.png'],
+                links: [
+                  Link(
+                      url: 'https://github.com/MastProgs/fast-api-framework',
+                      text: 'Fast API'),
+                  Link(
+                      url:
+                          'https://github.com/MastProgs/Sample-AI-projects/blob/main/Animation_Recommend_System/animation_recommand_system.ipynb',
+                      text: 'Animation Recommend System'),
+                  Link(
+                      url:
+                          'https://github.com/MastProgs/Sample-AI-projects/blob/main/Bitcoin_Data_Analysis/15_main.py',
+                      text: 'Bitcoin Data Analysis'),
+                ],
               ),
               Skill(
-                'Go',
-                3,
-                '언어의 활용 방식과 문법에 대해 잘 숙지하고 있으며, reflection 을 활용하여 orm 기능을 직접 구현할 정도로 구조와 내용을 잘 이해하고 있습니다. json 포멧 데이터를 go 언어로 된 log server 로 넘기면, 해당 데이터를 파싱하여 DB 테이블 데이터와 column 명을 검사 후, 올바른 데이터가 insert 되도록 핸들러를 구현한 경험이 있습니다. 추가로 DB 의 다양한 job 들을 go 언어 상에서 하나의 트랜젝션으로 묶어 처리를 보장하는 DBJob 의 기능을 구현한 경험도 있습니다.',
-                ['assets/images/go.png'],
+                name: 'Go',
+                proficiency: 3,
+                description:
+                    '언어의 활용 방식과 문법에 대해 잘 숙지하고 있으며, reflection 을 활용하여 orm 기능을 직접 구현할 정도로 구조와 내용을 잘 이해하고 있습니다. json 포멧 데이터를 go 언어로 된 log server 로 넘기면, 해당 데이터를 파싱하여 DB 테이블 데이터와 column 명을 검사 후, 올바른 데이터가 insert 되도록 핸들러를 구현한 경험이 있습니다. 추가로 DB 의 다양한 job 들을 go 언어 상에서 하나의 트랜젝션으로 묶어 처리를 보장하는 DBJob 의 기능을 구현한 경험도 있습니다.',
+                imageAssets: ['assets/images/go.png'],
+                links: [
+                  Link(
+                      url: 'https://github.com/MastProgs/go_server_framework',
+                      text: 'Go Web Server'),
+                  Link(
+                      url:
+                          'https://github.com/MastProgs/custom-codes/blob/main/ezDB.go',
+                      text: 'Go ORM'),
+                ],
               ),
               Skill(
-                'C#',
-                2,
-                'WPF 같은 윈도우 방식에 익숙한 툴 작업이 가능하고, 기본적인 문법과 reflection 기능을 활용한 코드 구현 설계가 가능합니다. WPF 를 활용하여 부하테스트 툴을 만들어 본 경험이 있으며, 운영툴의 .Net framework 를 기반으로 한 서버에서 MMORPG 운영 기능을 연동하여 구현한 경험이 있습니다.',
-                ['assets/images/cpppp.png'],
+                name: 'C#',
+                proficiency: 2,
+                description:
+                    'WPF 같은 윈도우 방식에 익숙한 툴 작업이 가능하고, 기본적인 문법과 reflection 기능을 활용한 코드 구현 설계가 가능합니다. WPF 를 활용하여 부하테스트 툴을 만들어 본 경험이 있으며, 운영툴의 .Net framework 를 기반으로 한 서버에서 MMORPG 운영 기능을 연동하여 구현한 경험이 있습니다.',
+                imageAssets: ['assets/images/cpppp.png'],
               ),
               Skill(
-                'TypeScript',
-                2,
-                '타입스크립트를 활용하여 웹 프레임워크를 직접 작성하고 Node.js 를 활용하여 운영툴 및 게임 서버를 서비스한 경험이 있습니다.',
-                ['assets/images/ts.png', 'assets/images/js.png'],
+                name: 'TypeScript',
+                proficiency: 2,
+                description:
+                    '타입스크립트를 활용하여 웹 프레임워크를 직접 작성하고 Node.js 를 활용하여 운영툴 및 게임 서버를 서비스한 경험이 있습니다.',
+                imageAssets: ['assets/images/ts.png', 'assets/images/js.png'],
+                links: [
+                  Link(
+                      url: 'https://github.com/MastProgs/custom-codes',
+                      text: 'DBJob'),
+                ],
               ),
               Skill(
-                'Flutter',
-                2,
-                '플러터를 활용하여 웹 프론트 및 모바일 앱을 직접 작성하고 서비스한 경험이 있습니다. 현재 보고 계신 웹 프로필 또한 Flutter 로 구현되어 다양한 형태의 웹 페이지, Desktop App 등을 구현할 수 있습니다.',
-                ['assets/images/flutter.png'],
+                name: 'Flutter',
+                proficiency: 2,
+                description:
+                    '플러터를 활용하여 웹 프론트 및 모바일 앱을 직접 작성하고 서비스한 경험이 있습니다. 현재 보고 계신 웹 프로필 또한 Flutter 로 구현되어 다양한 형태의 웹 페이지, Desktop App 등을 구현할 수 있습니다.',
+                imageAssets: ['assets/images/flutter.png'],
+                links: [
+                  Link(
+                      url:
+                          'https://play.google.com/store/apps/details?id=com.stockmaster.richpocket',
+                      text: '주식마스터'),
+                ],
               ),
               Skill(
-                'Vue, Electron',
-                1,
-                'Vue 를 활용하여 웹 프론트를 구현할 수 있으며, Electron 을 활용하여 Desktop App 을 개인 프로젝트 형태로 구현한 경험이 있습니다.',
-                ['assets/images/vue.png', 'assets/images/electron.png'],
+                name: 'Vue, Electron',
+                proficiency: 1,
+                description:
+                    'Vue 를 활용하여 웹 프론트를 구현할 수 있으며, Electron 을 활용하여 Desktop App 을 개인 프로젝트 형태로 구현한 경험이 있습니다.',
+                imageAssets: [
+                  'assets/images/vue.png',
+                  'assets/images/electron.png'
+                ],
               ),
             ],
           ),
@@ -716,22 +772,28 @@ class _IntroduceScreenState extends State<IntroduceScreen> {
           SkillsSection(
             allSkills: [
               Skill(
-                'MSSQL, MySQL',
-                3,
-                '관계형 데이터베이스를 활용하여 MMORPG 게임 서버를 구현한 경험이 있으며, 많은 게임에서 익숙하게 활용한 경험이 있습니다. 테이블 설계 및 쿼리, 프로시저 작성 등 기본적인 사용법을 잘 이해하고 있습니다. 힌트 및 인덱스 등을 활용하여 최적화 하는 방법에 대한 이해가 있습니다.',
-                ['assets/images/mssql.png', 'assets/images/mysql.png'],
+                name: 'MSSQL, MySQL',
+                proficiency: 3,
+                description:
+                    '관계형 데이터베이스를 활용하여 MMORPG 게임 서버를 구현한 경험이 있으며, 많은 게임에서 익숙하게 활용한 경험이 있습니다. 테이블 설계 및 쿼리, 프로시저 작성 등 기본적인 사용법을 잘 이해하고 있습니다. 힌트 및 인덱스 등을 활용하여 최적화 하는 방법에 대한 이해가 있습니다.',
+                imageAssets: [
+                  'assets/images/mssql.png',
+                  'assets/images/mysql.png'
+                ],
               ),
               Skill(
-                'Redis',
-                3,
-                '관계형 데이터베이스 보다 더 빠른 응답속도를 받기 위해 활용하였으며, 분~시간 단위 랭킹 시스템, SNS 팔로잉 팔로우, 캐싱, 채팅 컨텐츠 Pub/Sub 모델을 활용한 경험이 있습니다.',
-                ['assets/images/redis.png'],
+                name: 'Redis',
+                proficiency: 3,
+                description:
+                    '관계형 데이터베이스 보다 더 빠른 응답속도를 받기 위해 활용하였으며, 분~시간 단위 랭킹 시스템, SNS 팔로잉 팔로우, 캐싱, 채팅 컨텐츠 Pub/Sub 모델을 활용한 경험이 있습니다.',
+                imageAssets: ['assets/images/redis.png'],
               ),
               Skill(
-                'MongoDB',
-                2,
-                '휘발되어도 괜찮은 데이터를 기반으로 가볍게 사용하기 위해 활용한 경험이 있으며, 캐싱, 로그 데이터 적재, 채팅 데이터 적재 형태로 활용한 경험이 있습니다.',
-                ['assets/images/mongodb.png'],
+                name: 'MongoDB',
+                proficiency: 2,
+                description:
+                    '휘발되어도 괜찮은 데이터를 기반으로 가볍게 사용하기 위해 활용한 경험이 있으며, 캐싱, 로그 데이터 적재, 채팅 데이터 적재 형태로 활용한 경험이 있습니다.',
+                imageAssets: ['assets/images/mongodb.png'],
               ),
             ],
           ),
@@ -747,22 +809,28 @@ class _IntroduceScreenState extends State<IntroduceScreen> {
           SkillsSection(
             allSkills: [
               Skill(
-                'VS, VSCode',
-                3,
-                'C++ 및 C# 개발시 Visual Studio 를 많이 사용했으며, 기타 언어 작업 시 VSCode 를 사용한 경험이 있습니다.',
-                ['assets/images/vs.png', 'assets/images/vsc.png'],
+                name: 'VS, VSCode',
+                proficiency: 3,
+                description:
+                    'C++ 및 C# 개발시 Visual Studio 를 많이 사용했으며, 기타 언어 작업 시 VSCode 를 사용한 경험이 있습니다.',
+                imageAssets: ['assets/images/vs.png', 'assets/images/vsc.png'],
               ),
               Skill(
-                'Windows, Linux',
-                3,
-                'Windows 환경에서 주로 개발한 경험이 많으며, MMORPG 의 경우 Windows Server 에서 서비스 한 경험이 있습니다. 나머지 서버 개발은 특별한 경우가 아니라면 Linux 환경에서 서비스를 한 경험이 많습니다.',
-                ['assets/images/windows.png', 'assets/images/linux.png'],
+                name: 'Windows, Linux',
+                proficiency: 3,
+                description:
+                    'Windows 환경에서 주로 개발한 경험이 많으며, MMORPG 의 경우 Windows Server 에서 서비스 한 경험이 있습니다. 나머지 서버 개발은 특별한 경우가 아니라면 Linux 환경에서 서비스를 한 경험이 많습니다.',
+                imageAssets: [
+                  'assets/images/windows.png',
+                  'assets/images/linux.png'
+                ],
               ),
               Skill(
-                'Git, SVN',
-                2,
-                '소스 코드 관리를 위해 많이 사용한 경험이 있으며, 협업 시 소스 코드 관리를 위해 많이 사용한 경험이 있습니다.',
-                ['assets/images/git.png', 'assets/images/svn.png'],
+                name: 'Git, SVN',
+                proficiency: 2,
+                description:
+                    '소스 코드 관리를 위해 많이 사용한 경험이 있으며, 협업 시 소스 코드 관리를 위해 많이 사용한 경험이 있습니다.',
+                imageAssets: ['assets/images/git.png', 'assets/images/svn.png'],
               ),
             ],
           ),
@@ -778,28 +846,35 @@ class _IntroduceScreenState extends State<IntroduceScreen> {
           SkillsSection(
             allSkills: [
               Skill(
-                'Cloud Workers/Pages',
-                2,
-                'release 할 github 소스 코드를 web frontend 페이지로 배포하기 위해, cloudflare workers 를 통해 배포 자동화한 경험이 있고, 각종 이메일 발송에 대한 정보를 slack 으로 보내는 것을 구현한 경험이 있습니다.',
-                ['assets/images/cloudflare.png'],
+                name: 'Cloud Workers/Pages',
+                proficiency: 2,
+                description:
+                    'release 할 github 소스 코드를 web frontend 페이지로 배포하기 위해, cloudflare workers 를 통해 배포 자동화한 경험이 있고, 각종 이메일 발송에 대한 정보를 slack 으로 보내는 것을 구현한 경험이 있습니다.',
+                imageAssets: ['assets/images/cloudflare.png'],
               ),
               Skill(
-                'GitHub Actions',
-                2,
-                '작업했던 소스 코드를 Github actions 를 통해 웹 사이트 자동 배포 및 Android aab 및 apk 파일 생성 등을 직접 구현한 경험이 있습니다.',
-                ['assets/images/github_actions.png'],
+                name: 'GitHub Actions',
+                proficiency: 2,
+                description:
+                    '작업했던 소스 코드를 Github actions 를 통해 웹 사이트 자동 배포 및 Android aab 및 apk 파일 생성 등을 직접 구현한 경험이 있습니다.',
+                imageAssets: ['assets/images/github_actions.png'],
               ),
               Skill(
-                'Jenkins',
-                2,
-                '회사에서 사용하는 프로젝트의 CI/CD 파이프라인을 만들고 각종 빌드 및 배포 작업에 대한 스크립트를 작성한 경험이 있습니다.',
-                ['assets/images/jenkins.png'],
+                name: 'Jenkins',
+                proficiency: 2,
+                description:
+                    '회사에서 사용하는 프로젝트의 CI/CD 파이프라인을 만들고 각종 빌드 및 배포 작업에 대한 스크립트를 작성한 경험이 있습니다.',
+                imageAssets: ['assets/images/jenkins.png'],
               ),
               Skill(
-                'Docker/Kubernetes',
-                1,
-                '도커에 대한 개념과 활용성에 대해서 이해하고 있으나, 현업에서 직접 사용한 경험은 없습니다.',
-                ['assets/images/docker.png', 'assets/images/kubernetes.png'],
+                name: 'Docker/Kubernetes',
+                proficiency: 1,
+                description:
+                    '도커에 대한 개념과 활용성에 대해서 이해하고 있으나, 현업에서 직접 사용한 경험은 없습니다.',
+                imageAssets: [
+                  'assets/images/docker.png',
+                  'assets/images/kubernetes.png'
+                ],
               ),
             ],
           ),
@@ -815,30 +890,32 @@ class _IntroduceScreenState extends State<IntroduceScreen> {
           SkillsSection(
             allSkills: [
               Skill(
-                'AWS',
-                2,
-                'AWS 의 활용성에 대해서 이해하고 있고, EC2, RDS, S3, Lambda, GameLift 등의 서비스를 활용한 경험이 있습니다.',
-                ['assets/images/aws.png'],
+                name: 'AWS',
+                proficiency: 2,
+                description:
+                    'AWS 의 활용성에 대해서 이해하고 있고, EC2, RDS, S3, Lambda, GameLift 등의 서비스를 활용한 경험이 있습니다.',
+                imageAssets: ['assets/images/aws.png'],
               ),
               Skill(
-                'Azure',
-                2,
-                'Azure 의 활용성에 대해서 이해하고 있으며, 단순 컴퓨팅 서비스와 데이터베이스 서비스를 활용한 경험이 있습니다.',
-                ['assets/images/azure.png'],
+                name: 'Azure',
+                proficiency: 2,
+                description:
+                    'Azure 의 활용성에 대해서 이해하고 있으며, 단순 컴퓨팅 서비스와 데이터베이스 서비스를 활용한 경험이 있습니다.',
+                imageAssets: ['assets/images/azure.png'],
               ),
               Skill(
-                'Firebase',
-                2,
-                'Firebase 의 활용성에 대해서 이해하고 있고, 로그인 회원가입 등을 작업할 때, front 와 backend 를 직접 구현한 경험이 있습니다.',
-                ['assets/images/firebase.png'],
+                name: 'Firebase',
+                proficiency: 2,
+                description:
+                    'Firebase 의 활용성에 대해서 이해하고 있고, 로그인 회원가입 등을 작업할 때, front 와 backend 를 직접 구현한 경험이 있습니다.',
+                imageAssets: ['assets/images/firebase.png'],
               ),
               Skill(
-                'Naver Cloud Platform',
-                2,
-                'Naver Cloud Platform 는 개인 프로젝트를 진행할 때, 서비스를 이용한 경험이 있습니다.',
-                [
-                  'assets/images/naver_cloud_platform.png',
-                ],
+                name: 'Naver Cloud Platform',
+                proficiency: 2,
+                description:
+                    'Naver Cloud Platform 는 개인 프로젝트를 진행할 때, 서비스를 이용한 경험이 있습니다.',
+                imageAssets: ['assets/images/naver_cloud_platform.png'],
               ),
             ],
           ),

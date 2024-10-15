@@ -3,6 +3,7 @@ import 'package:mastprogs_v2/common/element/gradient_painter.dart';
 import 'package:mastprogs_v2/common/font_style.dart';
 import 'package:mastprogs_v2/common/provider.dart';
 import 'package:provider/provider.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class SkillsSection extends StatefulWidget {
   final List<Skill> allSkills;
@@ -206,11 +207,34 @@ class _SkillsSectionState extends State<SkillsSection>
               children: [
                 Text(skill.description),
                 const SizedBox(height: 16),
-                ElevatedButton(
-                  onPressed: () {
-                    // 외부 URL로 연결하는 로직 추가
-                  },
-                  child: const Text('Learn More'),
+                Wrap(
+                  spacing: 8, // 버튼 사이의 간격
+                  runSpacing: 8, // 버튼 사이의 간격
+                  children: skill.links.map((link) {
+                    return Padding(
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 4.0), // 버튼 사이에 간격 추가
+                      child: ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: Colors.transparent,
+                          elevation: 0,
+                        ),
+                        onPressed: () {
+                          // 외부 URL로 연결하는 로직 추가
+                          launchUrl(Uri.parse(link.url));
+                        },
+                        child: Row(
+                          mainAxisSize: MainAxisSize.min, // 버튼 크기를 내용에 맞게 조정
+                          children: [
+                            Icon(link.icon),
+                            const SizedBox(width: 8),
+                            Text(link.text),
+                            const SizedBox(width: 8),
+                          ],
+                        ),
+                      ),
+                    );
+                  }).toList(),
                 ),
               ],
             ),
@@ -252,11 +276,26 @@ class _SkillsSectionState extends State<SkillsSection>
   }
 }
 
+class Link {
+  final String url;
+  final String text;
+  IconData icon;
+
+  Link({required this.url, required this.text, this.icon = Icons.link});
+}
+
 class Skill {
   final String name;
   final int proficiency;
   final String description;
   final List<String> imageAssets;
+  List<Link> links; // Link 클래스를 사용
 
-  Skill(this.name, this.proficiency, this.description, this.imageAssets);
+  Skill({
+    required this.name,
+    required this.proficiency,
+    required this.description,
+    required this.imageAssets,
+    this.links = const [], // 기본값을 빈 리스트로 설정
+  });
 }
