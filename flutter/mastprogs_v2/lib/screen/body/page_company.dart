@@ -16,7 +16,23 @@ class _CompanyScreenState extends State<CompanyScreen> {
       Job(
         '입사',
         '2021.01.01',
-        skills: ['cpp.png', 'flutter.png'],
+        projectInfo: {
+          '프로젝트명': '모바일 앱 개발',
+          '기간': '2021.01 - 2021.06',
+          '역할': '프론트엔드 개발자',
+          '사용 기술': 'Flutter, Dart',
+          '주요 성과': '사용자 경험 20% 향상',
+        },
+        skills: [
+          'cpp.png',
+          'flutter.png',
+          'python.png',
+          'cpppp.png',
+          'unreal.png',
+          'ts.png',
+          'linux.png',
+          'mssql.png'
+        ],
         description: 'Flutter 앱 개발',
       ),
       Job(
@@ -79,6 +95,7 @@ class Job {
   final List<String>? skills;
   final String? description;
   final bool isFinal;
+  final Map<String, String>? projectInfo; // 프로젝트 정보 추가
 
   Job(
     this.title,
@@ -86,6 +103,7 @@ class Job {
     this.skills,
     this.description,
     this.isFinal = false,
+    this.projectInfo,
   });
 
   List<String> get skillsImagePaths {
@@ -231,10 +249,37 @@ class _CompanyCardState extends State<CompanyCard> {
                                       crossAxisAlignment:
                                           CrossAxisAlignment.start,
                                       children: [
+                                        if (job.projectInfo != null &&
+                                            job.projectInfo!.isNotEmpty)
+                                          Padding(
+                                            padding: const EdgeInsets.only(
+                                                bottom: 20),
+                                            child: Column(
+                                              crossAxisAlignment:
+                                                  CrossAxisAlignment.stretch,
+                                              children: [
+                                                Padding(
+                                                  padding:
+                                                      const EdgeInsets.only(
+                                                          bottom: 10),
+                                                  child: Text(
+                                                    '프로젝트 정보',
+                                                    style: FontStyleNotoSans
+                                                        .getStyle(
+                                                            context: context,
+                                                            fontSize: 14),
+                                                  ),
+                                                ),
+                                                ProjectInfoTable(
+                                                    projectInfo:
+                                                        job.projectInfo!),
+                                              ],
+                                            ),
+                                          ),
                                         if (job.skillsImagePaths.isNotEmpty)
                                           Padding(
                                             padding: const EdgeInsets.only(
-                                                bottom: 30),
+                                                bottom: 10),
                                             child: Column(
                                               crossAxisAlignment:
                                                   CrossAxisAlignment.start,
@@ -288,8 +333,8 @@ class _CompanyCardState extends State<CompanyCard> {
                                                         ),
                                                         child: Image.asset(
                                                           skill,
-                                                          width: 50,
-                                                          height: 50,
+                                                          width: 60,
+                                                          height: 60,
                                                         ),
                                                       ),
                                                     );
@@ -332,6 +377,69 @@ class _CompanyCardState extends State<CompanyCard> {
             ),
           ),
         ],
+      ),
+    );
+  }
+}
+
+class ProjectInfoTable extends StatelessWidget {
+  final Map<String, String> projectInfo;
+
+  const ProjectInfoTable({super.key, required this.projectInfo});
+
+  @override
+  Widget build(BuildContext context) {
+    final themeProvider = Provider.of<ThemeProvider>(context);
+    final isDarkMode = themeProvider.themeMode == ThemeMode.dark;
+
+    return Card(
+      margin: EdgeInsets.zero, // 추가
+      shape: RoundedRectangleBorder(
+        // 추가
+        borderRadius: BorderRadius.circular(8),
+      ),
+      color: isDarkMode ? Colors.grey.shade800 : Colors.grey.shade200,
+      child: Padding(
+        padding:
+            const EdgeInsets.symmetric(horizontal: 16.0, vertical: 6.0), // 수정
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: projectInfo.entries.map((entry) {
+            return Padding(
+              padding: const EdgeInsets.symmetric(vertical: 8.0), // 수정
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Expanded(
+                    flex: 1,
+                    child: Text(
+                      entry.key,
+                      style: FontStyleNotoSans.getStyle(
+                        context: context,
+                        fontSize: 14,
+                        fontWeight: FontWeight.bold,
+                        lightColor: Colors.black87,
+                        darkColor: Colors.white70,
+                      ),
+                    ),
+                  ),
+                  Expanded(
+                    flex: 2,
+                    child: Text(
+                      entry.value,
+                      style: FontStyleNotoSans.getStyle(
+                        context: context,
+                        fontSize: 14,
+                        lightColor: Colors.black54,
+                        darkColor: Colors.white54,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            );
+          }).toList(),
+        ),
       ),
     );
   }
