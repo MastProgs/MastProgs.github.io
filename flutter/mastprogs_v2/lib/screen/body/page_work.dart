@@ -23,6 +23,16 @@ class WorkScreen extends StatelessWidget {
                   ),
                 ),
                 const Divider(),
+                Padding(
+                  padding: const EdgeInsets.all(20.0),
+                  child: SizedBox(
+                    width: double.infinity,
+                    child: Image.asset(
+                      'assets/images/stockmaster-flowchart.png',
+                      fit: BoxFit.fitWidth,
+                    ),
+                  ),
+                ),
               ],
             ),
           ),
