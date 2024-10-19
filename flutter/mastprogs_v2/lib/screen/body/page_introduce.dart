@@ -856,7 +856,7 @@ class _IntroduceScreenState extends State<IntroduceScreen> {
                 name: 'GitHub Actions',
                 proficiency: 2,
                 description:
-                    '작업했던 소스 코드를 Github actions 를 통해 웹 사이트 자동 배포 및 Android aab 및 apk 파일 생성 등을 직접 구현한 경험이 있습니다.',
+                    '작업했던 소스 코드를 Github actions 를 통해 웹 사이트 자동 배포, Android aab 및 apk 파일 release 빌드 생성 등을 직접 구현한 경험이 있습니다.',
                 imageAssets: ['assets/images/github_actions.png'],
               ),
               Skill(

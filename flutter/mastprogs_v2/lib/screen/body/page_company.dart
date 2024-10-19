@@ -58,7 +58,7 @@ class _CompanyScreenState extends State<CompanyScreen> {
         isFinal: true,
       ),
     ]),
-    Company('위메이드플러스 (폐업)', 'assets/images/wemade.png', [
+    Company('위메이드플러스', 'assets/images/wemade.png', [
       Job(
         '입사',
         '2021.09.06',
@@ -129,6 +129,33 @@ class _CompanyScreenState extends State<CompanyScreen> {
         '2023.06.30',
         description:
             '회사의 프로젝트를 여러개 진행하였지만, 현실적으로 프로젝트들의 성과가 저조했었고, 이러한 상황속에 작은 규모의 회사에서 지속적으로 투자를 받기에는 어려운 상황이었습니다. 그래서 회사의 경영진과 상의하여 퇴사를 진행하게 되었습니다.',
+        isFinal: true,
+      ),
+    ]),
+    Company('조이시티', 'assets/images/joycity.png', [
+      Job(
+        '입사',
+        '2020.09.07',
+        description:
+            '게임 전체적으로 리뉴얼 작업을 진행해야하는 상황에서, 회사측 제의를 받아 입사를 진행하였습니다. 일손이 부족한 리뉴얼 작업을 담당했었고, 그와 함께 필요한 각종 이벤트 및 컨텐츠 작업들도 같이 작업하며 리뉴얼 업무를 했던 회사입니다.',
+      ),
+      Job(
+        '프리스타일',
+        '2020.09.07',
+        projectInfo: {
+          '장르': '아케이드',
+          '플랫폼': 'PC',
+          '그래픽': '3D Top View',
+        },
+        skills: ['cpp.png', 'mssql.png', 'windows.png', 'svn.png'],
+        description:
+            '오랫동안 라이브 서비스를 하던 게임에 다양한 컨텐츠 작업 및 구조적 리뉴얼 작업을 단행했습니다. 프로젝트 특성상 너무 낡고 오래되어, 생산성을 위한 개선 작업 툴을 만들거나 코드 리펙토링을 하기 위해 많은 노력을 기울였습니다.',
+      ),
+      Job(
+        '퇴사',
+        '2021.04.13',
+        description:
+            '특별히 불화가 있거나 문제가 있었던 부분은 없었지만, 준비하고 있었던 대학원과 병행하기에는 야근이 너무 많았었고, 어느 정도 큰 업무 처리들은 잘 마무리가 되었다고 판단되어, 퇴사를 진행하게 되었습니다.',
         isFinal: true,
       ),
     ]),

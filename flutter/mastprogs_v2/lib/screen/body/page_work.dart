@@ -1,15 +1,33 @@
 import 'package:flutter/material.dart';
+import 'package:mastprogs_v2/common/font_style.dart';
 
-class WorkScreen extends StatefulWidget {
+class WorkScreen extends StatelessWidget {
   const WorkScreen({super.key});
 
   @override
-  State<WorkScreen> createState() => _WorkScreenState();
-}
-
-class _WorkScreenState extends State<WorkScreen> {
-  @override
   Widget build(BuildContext context) {
-    return const Center(child: Text('작업 내역'));
+    return SingleChildScrollView(
+      child: Center(
+        child: Padding(
+          padding: const EdgeInsets.only(top: 20.0, bottom: 20.0),
+          child: Container(
+            constraints: const BoxConstraints(maxWidth: 900),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  '리치포켓',
+                  style: FontStyleNotoSans.getStyle(
+                    context: context,
+                    fontSize: 20,
+                  ),
+                ),
+                const Divider(),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
   }
 }

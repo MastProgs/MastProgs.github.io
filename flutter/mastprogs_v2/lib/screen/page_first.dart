@@ -18,9 +18,9 @@ class _FirstPageState extends State<FirstPage> {
   final List<int> _pageHistory = [0];
 
   final List<Widget> _pages = [
+    const WorkScreen(),
     const IntroduceScreen(),
     const CompanyScreen(),
-    const WorkScreen(),
     const ProjectScreen(),
   ];
 
