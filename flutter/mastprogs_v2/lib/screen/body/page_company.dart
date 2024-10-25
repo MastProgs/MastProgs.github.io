@@ -24,6 +24,23 @@ class _CompanyScreenState extends State<CompanyScreen> {
                 '만들고 싶은 SaaS 서비스가 생겨 도전해보고자 1인 창업으로 시작했습니다. 부업 정도로 운영하면서 작업하고 있기 때문에, 본업에는 지장이 없을 예정 입니다.',
           ),
           Job(
+            'MoneyCV 자동트레이딩',
+            '2024.08.19',
+            projectInfo: {
+              '장르': '자산 관리 서비스',
+              '플랫폼': 'web',
+            },
+            skills: [
+              'flutter.png',
+              'python.png',
+              'linux.png',
+              'naver_cloud_platform.png',
+              'git.png',
+            ],
+            description:
+                '장기투자자도 쉽게 투자 전략을 세울 수 있도록 도와주는 서비스를 만들고자 출시했습니다. 웹 사이트로 서비스 중입니다.',
+          ),
+          Job(
             '주식마스터',
             '2024.10.15',
             projectInfo: {

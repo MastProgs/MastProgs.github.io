@@ -261,6 +261,7 @@ class _WorkScreenState extends State<WorkScreen> {
     '위메이드_플러스_log_로직_설계',
     '한빛소프트_매치메이킹_구현',
   };
+  final ScrollController _scrollController = ScrollController();
 
   @override
   void initState() {
@@ -280,9 +281,37 @@ class _WorkScreenState extends State<WorkScreen> {
     });
   }
 
+  Widget _buildBottomButton(BuildContext context) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      children: [
+        // 맨 위로 가는 버튼 추가
+        ElevatedButton(
+          onPressed: () {
+            // 페이지의 맨 위로 스크롤
+            _scrollController.animateTo(
+              0,
+              duration: const Duration(milliseconds: 500),
+              curve: Curves.easeInOut,
+            );
+          },
+          child: const Text('맨 위로'),
+        ),
+        // 다음 화면 보기 버튼 추가
+        ElevatedButton(
+          onPressed: () {
+            Scaffold.of(context).openDrawer();
+          },
+          child: const Text('다른 페이지'),
+        ),
+      ],
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
+      controller: _scrollController,
       child: Center(
         child: Padding(
           padding: const EdgeInsets.all(20.0),
@@ -700,6 +729,9 @@ fmt.Println(arr, err)
                   getExpandedState: _getExpandedState,
                   toggleExpandedState: _toggleExpandedState,
                 ),
+                const SizedBox(height: 16),
+                _buildBottomButton(context),
+                const SizedBox(height: 250),
               ],
             ),
           ),

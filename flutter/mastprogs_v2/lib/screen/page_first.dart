@@ -21,7 +21,7 @@ class _FirstPageState extends State<FirstPage> {
     const IntroduceScreen(),
     const CompanyScreen(),
     const WorkScreen(),
-    const ProjectScreen(),
+    ProjectScreen(),
   ];
 
   void _onItemTapped(int index) {
