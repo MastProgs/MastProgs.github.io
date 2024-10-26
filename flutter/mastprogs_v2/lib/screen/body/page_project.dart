@@ -18,6 +18,11 @@ class ProjectScreen extends StatelessWidget {
 
   final List<Project> projects = [
     Project(
+      title: "SNS 자동 글 쓰기",
+      description: "실시간 트렌드를 기반으로 내용을 요약하여 자동으로 SNS에 글을 쓰는 프로세스를 구축하였습니다.",
+      url: "https://naver.me/5bV09fiw",
+    ),
+    Project(
       title: "분류 모델 AI 차트 분석",
       description:
           "대학원에서 졸업 논문 연구 주제로 진행한 프로젝트입니다. 코인 차트를 분류 모델을 통해 구분하고, 이에 대한 예측을 하는 연구 자료 입니다.",
