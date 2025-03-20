@@ -628,7 +628,7 @@ class _IntroduceScreenState extends State<IntroduceScreen> {
             title: 'Naver Post',
             description: '코드 공부 및 개발 작업 과정을 컨텐츠로 확인해 볼 수 있습니다.',
             url:
-                'https://post.naver.com/my/series/detail.nhn?seriesNo=370283&memberNo=559061',
+                'https://blog.naver.com/PostList.naver?blogId=khjkhj2804&from=postList&categoryNo=86&currentPage=1&userTopListOpen=true&userTopListCount=30',
           ),
           SizedBox(height: 16),
           UrlButton(
