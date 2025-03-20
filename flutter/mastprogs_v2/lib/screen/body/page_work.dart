@@ -410,44 +410,55 @@ class _WorkScreenState extends State<WorkScreen> {
                           description:
                               'Go 언어로 직접 TypeORM 을 구현하였습니다. 기존에 구현했던 내용은 MySQL 과 string 쿼리로 소통하는 방식이었지만, 유지보수와 확장성을 위해 Go 언어에 새롭게 업데이트 된 Generic reflection 기능을 활용하여, TypeORM 을 구현 및 트랜젝션 보장 기능까지 구현하였습니다.',
                           codeSnippet: '''
-var dbjob DBJob
-{
- 	var tbl_insert tbl_account
- 	tbl_insert.PlayerKey = "dbjob_test"
- 	tbl_insert.UserUUID = 900
- 	tbl_insert.ConnectIP = "127.0.0.1"
- 	tbl_insert.ConnectTime = time.Now().UTC()
- 	tbl_insert.CreateTime = time.Now().UTC()
- 	tbl_insert.GameDBID = 899
- 	tbl_insert.SnsID = "dbjob"
- 	tbl_insert.PlatformIdx = 99
- 	AddJob(&dbjob, SQL_INSERT, tbl_insert)
-
- 	var tbl_where tbl_account
- 	DB_InitTable(&tbl_insert, &tbl_where)
- 	tbl_insert.UserUUID = 953
- 	tbl_where.PlayerKey = "dbjob_test"
- 	AddJob(&dbjob, SQL_UPDATE, tbl_insert, tbl_where)
-
- 	tbl_insert.PlayerKey = "dbjob_test"
- 	tbl_insert.UserUUID = 333
- 	tbl_insert.ConnectIP = "127.0.0.1"
- 	tbl_insert.ConnectTime = time.Now().UTC()
- 	tbl_insert.CreateTime = time.Now().UTC()
- 	tbl_insert.GameDBID = 777
- 	tbl_insert.SnsID = "dbjob"
- 	tbl_insert.PlatformIdx = 97
- 	AddJob(&dbjob, SQL_UPSERT, tbl_insert)
-
- 	DB_InitTable(&tbl_insert)
- 	tbl_insert.PlatformIdx = 0
- 	AddJob(&dbjob, SQL_INCRESE, tbl_insert, tbl_where)
- 	AddJob(&dbjob, SQL_INCRESE, tbl_insert, tbl_where)
+// 테이블 정의
+type TblTest struct {
+	Id        int64     `pk:"true" auto:"true"`
+	Name      string    `default:"" length:"100"`
+	Value     float64   `default:"0.0"`
+	Active    bool      `default:"1"`
+	CreatedAt time.Time `default:"CURRENT_TIMESTAMP"`
+	UpdatedAt time.Time `default:"CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP"`
+	UserEmail string    `default:"" length:"100"`
 }
-arr, err := dbjob.Run(db)
-fmt.Println(arr, err)
+
+// INSERT 예제
+newRecord := TblTest{
+  Name:   "테스트 데이터",
+  Value:  123.45,
+  Active: true,
+}
+id, err := repo.InsertStruct(newRecord)
+
+// UPDATE 예제
+var result TblTest
+result.Name = "수정된 이름"
+result.Value = 987.65
+result.UpdatedAt = time.Now()
+affected, err := repo.UpdateStruct(result, map[string]interface{}{"id": 1})
+
+// UPSERT 예제
+upsertRecord := TblTest{
+  Name:      "UPSERT 테스트",
+  Value:     555.55,
+  Active:    true,
+  CreatedAt: time.Now(),
+}
+upsertID, err := repo.UpsertStruct(upsertRecord)
+
+// SELECT 예제
+selectedUser := TblTest{}
+err = repo.Find(&selectedUser, &FindOptions{
+  Where:   map[string]interface{}{"id": id},
+  Columns: []string{"id", "name"},
+})
 ''',
                           language: 'go',
+                        ),
+                        ContentItem(
+                          buttonText: '더 업그레이드 된 최신 Go ORM 구현',
+                          url:
+                              'https://github.com/MastProgs/go_server_framework/blob/main/database/example.go',
+                          icon: Icons.code,
                         ),
                         ContentItem(
                           buttonText: 'TypeORM 코드',
