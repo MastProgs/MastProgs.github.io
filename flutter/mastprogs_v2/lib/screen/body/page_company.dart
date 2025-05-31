@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:mastprogs_v2/common/font_style.dart';
 import 'package:mastprogs_v2/common/provider.dart';
 import 'package:provider/provider.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class CompanyScreen extends StatefulWidget {
   const CompanyScreen({super.key});
@@ -55,7 +56,28 @@ class _CompanyScreenState extends State<CompanyScreen> {
               'git.png',
             ],
             description:
-                '초보자 들도 쉽게 특정 주식 종목을 분석할 수 있는 서비스를 만들고자 출시했습니다. 구글 플레이스토 및 웹 사이트로 서비스 중입니다.',
+                '초보자 들도 쉽게 특정 주식 종목을 분석할 수 있는 서비스를 만들고자 출시했습니다. 구글 플레이스토어 및 웹 사이트로 서비스 중입니다.',
+            url:
+                'https://play.google.com/store/apps/details?id=com.stockmaster.richpocket',
+          ),
+          Job(
+            '로또커스텀',
+            '2025.05.30',
+            projectInfo: {
+              '장르': '로또 분석 서비스',
+              '플랫폼': 'Android',
+            },
+            skills: [
+              'flutter.png',
+              'go.png',
+              'linux.png',
+              'naver_cloud_platform.png',
+              'git.png',
+            ],
+            description:
+                '로또 당첨 확률이 높은 조합을 추천해주는 서비스를 만들고자 출시했습니다. 구글 플레이스토어에서 서비스 중입니다.',
+            url:
+                'https://play.google.com/store/apps/details?id=com.richpocket.lottomaster',
             isFinal: true,
           ),
         ],
@@ -326,6 +348,7 @@ class Job {
   final Map<String, String>? projectInfo;
   final List<String>? skills;
   final String? description;
+  final String? url;
   final bool isFinal;
 
   Job(
@@ -334,6 +357,7 @@ class Job {
     this.projectInfo,
     this.skills,
     this.description,
+    this.url,
     this.isFinal = false,
   });
 
@@ -448,21 +472,74 @@ class _CompanyCardState extends State<CompanyCard> {
                               Expanded(
                                 child: Padding(
                                   padding: const EdgeInsets.only(left: 7.0),
-                                  child: Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
+                                  child: Row(
                                     children: [
-                                      Text(job.title,
-                                          style: FontStyleNotoSans.getStyle(
-                                              context: context, fontSize: 18)),
-                                      Text(job.date,
-                                          style:
-                                              FontStyleYouandiModernTR.getStyle(
+                                      Column(
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        children: [
+                                          Text(job.title,
+                                              style: FontStyleNotoSans.getStyle(
                                                   context: context,
-                                                  fontSize: 14,
-                                                  lightColor:
-                                                      Colors.grey.shade700,
-                                                  darkColor: Colors.grey)),
+                                                  fontSize: 18)),
+                                          Text(job.date,
+                                              style: FontStyleYouandiModernTR
+                                                  .getStyle(
+                                                      context: context,
+                                                      fontSize: 14,
+                                                      lightColor:
+                                                          Colors.grey.shade700,
+                                                      darkColor: Colors.grey)),
+                                        ],
+                                      ),
+                                      const SizedBox(width: 5),
+                                      if (job.url != null)
+                                        Padding(
+                                          padding:
+                                              const EdgeInsets.only(left: 8.0),
+                                          child: GestureDetector(
+                                            onTap: () async {
+                                              final Uri url =
+                                                  Uri.parse(job.url!);
+                                              if (!await launchUrl(url,
+                                                  mode: LaunchMode
+                                                      .externalApplication)) {
+                                                if (context.mounted) {
+                                                  ScaffoldMessenger.of(context)
+                                                      .showSnackBar(
+                                                    const SnackBar(
+                                                      content: Text(
+                                                          'URL을 열 수 없습니다.'),
+                                                    ),
+                                                  );
+                                                }
+                                              }
+                                            },
+                                            child: MouseRegion(
+                                              cursor: SystemMouseCursors.click,
+                                              child: Container(
+                                                padding:
+                                                    const EdgeInsets.all(6),
+                                                decoration: BoxDecoration(
+                                                  color: Colors.blue
+                                                      .withOpacity(0.1),
+                                                  borderRadius:
+                                                      BorderRadius.circular(6),
+                                                  border: Border.all(
+                                                    color: Colors.blue
+                                                        .withOpacity(0.3),
+                                                    width: 1,
+                                                  ),
+                                                ),
+                                                child: const Icon(
+                                                  Icons.open_in_new,
+                                                  size: 20,
+                                                  color: Colors.blue,
+                                                ),
+                                              ),
+                                            ),
+                                          ),
+                                        ),
                                     ],
                                   ),
                                 ),

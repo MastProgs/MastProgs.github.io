@@ -628,7 +628,7 @@ class _IntroduceScreenState extends State<IntroduceScreen> {
             title: 'Naver Post',
             description: '코드 공부 및 개발 작업 과정을 컨텐츠로 확인해 볼 수 있습니다.',
             url:
-                'https://blog.naver.com/PostList.naver?blogId=khjkhj2804&from=postList&categoryNo=86&currentPage=1&userTopListOpen=true&userTopListCount=30',
+                'https://m.blog.naver.com/PostList.naver?blogId=khjkhj2804&categoryNo=86&currentPage=1&from=postList&tab=1&userTopListCount=30&userTopListOpen=true',
           ),
           SizedBox(height: 16),
           UrlButton(
@@ -750,6 +750,10 @@ class _IntroduceScreenState extends State<IntroduceScreen> {
                       url:
                           'https://play.google.com/store/apps/details?id=com.stockmaster.richpocket',
                       text: '주식마스터'),
+                  Link(
+                      url:
+                          'https://play.google.com/store/apps/details?id=com.richpocket.lottomaster',
+                      text: '로또커스텀'),
                 ],
               ),
               Skill(

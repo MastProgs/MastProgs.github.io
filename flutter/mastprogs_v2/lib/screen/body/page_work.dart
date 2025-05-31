@@ -324,6 +324,24 @@ class _WorkScreenState extends State<WorkScreen> {
                   title: '리치포켓',
                   cardData: [
                     {
+                      'title': '로또커스텀 구현',
+                      'contentItems': [
+                        ContentItem(
+                          description:
+                              'Github 에서 코드를 관리하고 있으며, 커밋되는 시점에 Github Actions 를 통해 자동 빌드 작업이 이루어집니다. 안드로이드 앱 빌드는 Actions 를 통해 aab 파일 생성 후, 구글 플레이콘솔에 프로덕션으로 배포됩니다.',
+                        ),
+                        ContentItem(
+                          description:
+                              '데이터 분석 및 적재에는 MySQL 을 활용하고 있으며, 실시간 확률 분석은 Go 서버에서 진행됩니다.',
+                        ),
+                        ContentItem(
+                          buttonText: '로또커스텀 App',
+                          url:
+                              'https://play.google.com/store/apps/details?id=com.richpocket.lottomaster&pcampaignid=web_share',
+                        ),
+                      ],
+                    },
+                    {
                       'title': '주식마스터 구현',
                       'id': '리치포켓_주식마스터_구현',
                       'contentItems': [

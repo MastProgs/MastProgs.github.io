@@ -13,7 +13,7 @@ class FrontAppBar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     const bool isJobSeeking = true;
-    const String lastModified = '25.03.20';
+    const String lastModified = '25.05.31';
 
     return AppBar(
       elevation: 0,
