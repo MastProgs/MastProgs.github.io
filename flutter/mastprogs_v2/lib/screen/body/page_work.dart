@@ -255,6 +255,7 @@ class WorkScreen extends StatefulWidget {
 class _WorkScreenState extends State<WorkScreen> {
   final Map<String, bool> _expandedStates = {};
   final Set<String> _initiallyExpandedCards = {
+    '리치포켓_코드리뷰_자동화_구현',
     '리치포켓_주식마스터_구현',
     '위메이드_플러스_typeorm_구현',
     '위메이드_플러스_부하테스트_툴_구현',
@@ -323,6 +324,22 @@ class _WorkScreenState extends State<WorkScreen> {
                 WorkSection(
                   title: '리치포켓',
                   cardData: [
+                    {
+                      'title': '코드리뷰 자동화 구현',
+                      'id': '리치포켓_코드리뷰_자동화_구현',
+                      'contentItems': [
+                        ContentItem(
+                          description:
+                              'Github Actions 를 활용하여, 자동으로 코드리뷰를 작성하는 기능을 구현하였습니다.',
+                          imagePath: 'assets/images/code_review.png',
+                        ),
+                        ContentItem(
+                          buttonText: '상세 구현 설명',
+                          url:
+                              'https://m.blog.naver.com/khjkhj2804/223942160739',
+                        ),
+                      ],
+                    },
                     {
                       'title': '로또커스텀 구현',
                       'contentItems': [
