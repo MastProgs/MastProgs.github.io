@@ -18,6 +18,12 @@ class ProjectScreen extends StatelessWidget {
 
   final List<Project> projects = [
     Project(
+      title: "게임 개발부터 QA까지 자동화 프로세스 구축",
+      description:
+          "nanoclaw 를 기반으로 여러 AI 모델을 협업시켜 게임 개발부터 QA까지 자동화 프로세스를 구축하였습니다.",
+      url: "https://blog.naver.com/khjkhj2804/224241614658",
+    ),
+    Project(
       title: "SNS 자동 글 쓰기",
       description: "실시간 트렌드를 기반으로 내용을 요약하여 자동으로 SNS에 글을 쓰는 프로세스를 구축하였습니다.",
       url: "https://naver.me/5bV09fiw",
