@@ -15,6 +15,17 @@ class _CompanyScreenState extends State<CompanyScreen> {
   final ScrollController _scrollController = ScrollController();
   final List<Company> companies = [
     Company(
+        'ILLTAKU',
+        'assets/images/richpocket.png',
+        [
+          Job(
+            '입사',
+            '2026.03.23 (CTO 겸임)',
+            description: 'AI 대화형 언어 학습 앱 ILLTAKU 를 개발하는 스타트업에 CTO로 입사했습니다.',
+          ),
+        ],
+        isCurrent: true),
+    Company(
         '리치포켓',
         'assets/images/richpocket.png',
         [
