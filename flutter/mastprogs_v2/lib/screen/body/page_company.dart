@@ -15,7 +15,7 @@ class _CompanyScreenState extends State<CompanyScreen> {
   final ScrollController _scrollController = ScrollController();
   final List<Company> companies = [
     Company(
-        'ILLTAKU',
+        '엠퍼센트',
         'assets/images/richpocket.png',
         [
           Job(
