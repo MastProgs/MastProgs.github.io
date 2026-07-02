@@ -29,15 +29,18 @@ class GradientPainter extends CustomPainter {
         radius: animationValue * 2.5,
         colors: isDarkMode
             ? [
-                Colors.purple.shade900.withOpacity(0.3 * (1 - animationValue)),
-                Colors.blue.shade900.withOpacity(0.2 * (1 - animationValue)),
-                Colors.red.shade900.withOpacity(0.1 * (1 - animationValue)),
+                Colors.purple.shade900
+                    .withValues(alpha: 0.3 * (1 - animationValue)),
+                Colors.blue.shade900
+                    .withValues(alpha: 0.2 * (1 - animationValue)),
+                Colors.red.shade900
+                    .withValues(alpha: 0.1 * (1 - animationValue)),
                 Colors.transparent,
               ]
             : [
-                Colors.blue.withOpacity(0.3 * (1 - animationValue)),
-                Colors.green.withOpacity(0.2 * (1 - animationValue)),
-                Colors.pink.withOpacity(0.1 * (1 - animationValue)),
+                Colors.blue.withValues(alpha: 0.3 * (1 - animationValue)),
+                Colors.green.withValues(alpha: 0.2 * (1 - animationValue)),
+                Colors.pink.withValues(alpha: 0.1 * (1 - animationValue)),
                 Colors.transparent,
               ],
         stops: const [0.0, 0.3, 0.6, 1.0],

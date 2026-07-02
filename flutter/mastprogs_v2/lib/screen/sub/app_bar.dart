@@ -12,8 +12,7 @@ class FrontAppBar extends StatelessWidget implements PreferredSizeWidget {
 
   @override
   Widget build(BuildContext context) {
-    const bool isJobSeeking = true;
-    const String lastModified = '25.05.31';
+    const String lastModified = '26.07.02';
 
     return AppBar(
       elevation: 0,
@@ -31,7 +30,7 @@ class FrontAppBar extends StatelessWidget implements PreferredSizeWidget {
                 },
               ),
               Icon(
-                isJobSeeking ? Icons.hail_outlined : Icons.home_repair_service,
+                Icons.hail_outlined,
                 color: ColorStyle.getColor(context),
               ),
               const SizedBox(width: 4),
@@ -39,14 +38,14 @@ class FrontAppBar extends StatelessWidget implements PreferredSizeWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    isJobSeeking ? '구직중' : '재직중',
+                    '구직중',
                     style: FontStyleNotoSans.getStyle(
                       context: context,
                       fontSize: 12,
                     ),
                   ),
                   Text(
-                    isJobSeeking ? '연락주세요' : '안녕하세요',
+                    '연락주세요',
                     style: FontStyleNotoSans.getStyle(
                       context: context,
                       fontSize: 14,

@@ -78,6 +78,25 @@ class _CompanyScreenState extends State<CompanyScreen> {
                 '로또 당첨 확률이 높은 조합을 추천해주는 서비스를 만들고자 출시했습니다. 구글 플레이스토어에서 서비스 중입니다.',
             url:
                 'https://play.google.com/store/apps/details?id=com.richpocket.lottomaster',
+          ),
+          Job(
+            '한국콜마 협력',
+            '2026.05 ~ 현재',
+            projectInfo: {
+              '협력사': '한국콜마',
+              '역할': '웹 페이지 유지 보수, IT 인프라 관리, 기능 관리 구현',
+              '서버': 'Java, Tomcat, MySQL',
+              '인프라': 'Cafe24, Cloudflare',
+            },
+            skills: [
+              'java.png',
+              'mysql.png',
+              'cafe24.png',
+              'cloudflare.png',
+              'git.png',
+            ],
+            description:
+                '리치포켓은 현재 한국콜마와 협력사로 함께 작업을 진행 중입니다. 웹 페이지 유지 보수, IT 인프라 관리, 기능 관리 구현을 담당하고 있습니다.',
             isFinal: true,
           ),
         ],
@@ -372,7 +391,7 @@ class CompanyCard extends StatefulWidget {
   const CompanyCard({super.key, required this.company});
 
   @override
-  _CompanyCardState createState() => _CompanyCardState();
+  State<CompanyCard> createState() => _CompanyCardState();
 }
 
 class _CompanyCardState extends State<CompanyCard> {
@@ -522,12 +541,12 @@ class _CompanyCardState extends State<CompanyCard> {
                                                     const EdgeInsets.all(6),
                                                 decoration: BoxDecoration(
                                                   color: Colors.blue
-                                                      .withOpacity(0.1),
+                                                      .withValues(alpha: 0.1),
                                                   borderRadius:
                                                       BorderRadius.circular(6),
                                                   border: Border.all(
                                                     color: Colors.blue
-                                                        .withOpacity(0.3),
+                                                        .withValues(alpha: 0.3),
                                                     width: 1,
                                                   ),
                                                 ),
@@ -661,8 +680,9 @@ class _CompanyCardState extends State<CompanyCard> {
                                                                 BoxShadow(
                                                                   color: Colors
                                                                       .black
-                                                                      .withOpacity(
-                                                                          0.1),
+                                                                      .withValues(
+                                                                          alpha:
+                                                                              0.1),
                                                                   blurRadius: 2,
                                                                   offset:
                                                                       const Offset(

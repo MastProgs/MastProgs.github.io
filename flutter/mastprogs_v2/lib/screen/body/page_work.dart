@@ -249,12 +249,13 @@ class WorkScreen extends StatefulWidget {
   const WorkScreen({super.key});
 
   @override
-  _WorkScreenState createState() => _WorkScreenState();
+  State<WorkScreen> createState() => _WorkScreenState();
 }
 
 class _WorkScreenState extends State<WorkScreen> {
   final Map<String, bool> _expandedStates = {};
   final Set<String> _initiallyExpandedCards = {
+    'AI_오케스트레이션_구현',
     '리치포켓_코드리뷰_자동화_구현',
     '리치포켓_주식마스터_구현',
     '위메이드_플러스_typeorm_구현',
@@ -324,6 +325,32 @@ class _WorkScreenState extends State<WorkScreen> {
                 WorkSection(
                   title: '리치포켓',
                   cardData: [
+                    {
+                      'title': 'AI 오케스트레이션 구현',
+                      'id': 'AI_오케스트레이션_구현',
+                      'contentItems': [
+                        ContentItem(
+                          description:
+                              'NanoClaw 를 기반으로 AI 끼리 서로 소통하며, [디렉터]-[기획]-[디자인기획]-[TaskManager]=(다중task시작 : [디렉터]-[프로그래밍 & 코드리뷰]-[QA])=[task 머지 검수]-[wiki] 이러한 프로세스로 업무 범위에 따라, 유동적으로 완전 AI 오케스트레이션을 활용할 수 있는 프로세스를 구축하였습니다.',
+                          imagePath: 'assets/images/ai-process-logic.png',
+                        ),
+                        ContentItem(
+                          description:
+                              '작업 중간 과정과 내용 공유는 디스코드를 통해 업무 지시와 작업 진행과정을 확인할 수 있는 구조로 되어있으며',
+                          imagePath: 'assets/images/ai-process-logic2.png',
+                        ),
+                        ContentItem(
+                          description:
+                              '프론트 및 클라이언트의 상황과 로직 절차 순서 등을 검증하는 QA 과정, 디자인 검수 과정 또한 모두 캡쳐하여 보고하는 형태로 구현되어있습니다.',
+                          imagePath: 'assets/images/ai-process-logic3.png',
+                        ),
+                        ContentItem(
+                          buttonText: '상세 구현 설명',
+                          url:
+                              'https://m.blog.naver.com/khjkhj2804/224241614658',
+                        ),
+                      ],
+                    },
                     {
                       'title': '코드리뷰 자동화 구현',
                       'id': '리치포켓_코드리뷰_자동화_구현',

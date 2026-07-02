@@ -26,7 +26,7 @@ class UrlButton extends StatefulWidget {
   });
 
   @override
-  _UrlButtonState createState() => _UrlButtonState();
+  State<UrlButton> createState() => _UrlButtonState();
 }
 
 class _UrlButtonState extends State<UrlButton> {
@@ -82,7 +82,7 @@ class _UrlButtonState extends State<UrlButton> {
                 borderRadius: BorderRadius.circular(12),
                 boxShadow: [
                   BoxShadow(
-                    color: theme.shadowColor.withOpacity(0.1),
+                    color: theme.shadowColor.withValues(alpha: 0.1),
                     spreadRadius: 1,
                     blurRadius: 3,
                     offset: const Offset(0, 3),
