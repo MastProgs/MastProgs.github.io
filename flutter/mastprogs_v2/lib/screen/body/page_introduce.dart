@@ -651,6 +651,46 @@ class _IntroduceScreenState extends State<IntroduceScreen> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
+            'AI',
+            style: FontStyleNotoSans.getStyle(
+              context: context,
+              fontSize: 24,
+            ),
+          ),
+          const SizedBox(height: 16),
+          SkillsSection(
+            allSkills: [
+              Skill(
+                name: 'Codex, Claude',
+                proficiency: 3,
+                description:
+                    'Codex와 Claude를 활용해 코드 작성, 리뷰, 문서화, 자동화 작업을 설계하고, 다양한 오케스트레이션을 통한 통합 구축 시스템을 만든 경험이 있습니다.',
+                imageAssets: [
+                  'assets/images/ai_openai.png',
+                  'assets/images/ai_claude.png'
+                ],
+              ),
+              Skill(
+                name: 'OpenClaw, NanoClaw',
+                proficiency: 3,
+                description:
+                    'OpenClaw와 NanoClaw의 활용 방법을 숙지하고 있으며, 목적별 에이전트 구성과 작업 흐름을 묶어 반복 가능한 자동화 환경을 구축한 경험이 있습니다.',
+                imageAssets: ['assets/images/ai_claw_lobster.png'],
+              ),
+              Skill(
+                name: 'ADK, CrewAI',
+                proficiency: 3,
+                description:
+                    'ADK와 CrewAI를 활용해 역할 기반 에이전트 워크플로우를 구성하고, 다중 에이전트 협업 구조로 코드 생성, 검증, 리포팅 과정을 연결한 경험이 있습니다.',
+                imageAssets: [
+                  'assets/images/ai_google_adk.png',
+                  'assets/images/ai_crewai.png'
+                ],
+              ),
+            ],
+          ),
+          const SizedBox(height: 24),
+          Text(
             '프로그래밍 언어 및 기술',
             style: FontStyleNotoSans.getStyle(
               context: context,
@@ -741,7 +781,7 @@ class _IntroduceScreenState extends State<IntroduceScreen> {
               ),
               Skill(
                 name: 'Flutter',
-                proficiency: 2,
+                proficiency: 3,
                 description:
                     '플러터를 활용하여 웹 프론트 및 모바일 앱을 직접 작성하고 서비스한 경험이 있습니다. 현재 보고 계신 웹 프로필 또한 Flutter 로 구현되어 다양한 형태의 웹 페이지, Desktop App 등을 구현할 수 있습니다.',
                 imageAssets: ['assets/images/flutter.png'],
@@ -855,21 +895,21 @@ class _IntroduceScreenState extends State<IntroduceScreen> {
             allSkills: [
               Skill(
                 name: 'Cloud Workers/Pages',
-                proficiency: 2,
+                proficiency: 3,
                 description:
                     'release 할 github 소스 코드를 web frontend 페이지로 배포하기 위해, cloudflare workers 를 통해 배포 자동화한 경험이 있고, 각종 이메일 발송에 대한 정보를 slack 으로 보내는 것을 구현한 경험이 있습니다.',
                 imageAssets: ['assets/images/cloudflare.png'],
               ),
               Skill(
                 name: 'GitHub Actions',
-                proficiency: 2,
+                proficiency: 3,
                 description:
                     '작업했던 소스 코드를 Github actions 를 통해 웹 사이트 자동 배포, Android aab 및 apk 파일 release 빌드 생성 등을 직접 구현한 경험이 있습니다.',
                 imageAssets: ['assets/images/github_actions.png'],
               ),
               Skill(
                 name: 'Jenkins',
-                proficiency: 2,
+                proficiency: 3,
                 description:
                     '회사에서 사용하는 프로젝트의 CI/CD 파이프라인을 만들고 각종 빌드 및 배포 작업에 대한 스크립트를 작성한 경험이 있습니다.',
                 imageAssets: ['assets/images/jenkins.png'],
@@ -899,28 +939,28 @@ class _IntroduceScreenState extends State<IntroduceScreen> {
             allSkills: [
               Skill(
                 name: 'AWS',
-                proficiency: 2,
+                proficiency: 3,
                 description:
                     'AWS 의 활용성에 대해서 이해하고 있고, EC2, RDS, S3, Lambda, GameLift 등의 서비스를 활용한 경험이 있습니다.',
                 imageAssets: ['assets/images/aws.png'],
               ),
               Skill(
                 name: 'Azure',
-                proficiency: 2,
+                proficiency: 3,
                 description:
                     'Azure 의 활용성에 대해서 이해하고 있으며, 단순 컴퓨팅 서비스와 데이터베이스 서비스를 활용한 경험이 있습니다.',
                 imageAssets: ['assets/images/azure.png'],
               ),
               Skill(
                 name: 'Firebase',
-                proficiency: 2,
+                proficiency: 3,
                 description:
                     'Firebase 의 활용성에 대해서 이해하고 있고, 로그인 회원가입 등을 작업할 때, front 와 backend 를 직접 구현한 경험이 있습니다.',
                 imageAssets: ['assets/images/firebase.png'],
               ),
               Skill(
                 name: 'Naver Cloud Platform',
-                proficiency: 2,
+                proficiency: 3,
                 description:
                     'Naver Cloud Platform 는 개인 프로젝트를 진행할 때, 서비스를 이용한 경험이 있습니다.',
                 imageAssets: ['assets/images/naver_cloud_platform.png'],
