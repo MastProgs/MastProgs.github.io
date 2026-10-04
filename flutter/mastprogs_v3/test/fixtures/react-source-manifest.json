@@ -1,0 +1,77 @@
+{
+  "baseline": "fcdfc01",
+  "sources": [
+    {
+      "path": "demo/src/content/site.js",
+      "sha256": "7949bce1509a02ce4040d6df0a6a1b5779b375f4ca5f35b60f2353dfd9dc91ad"
+    },
+    {
+      "path": "demo/src/content/resume.js",
+      "sha256": "4326b7dc77136de9a0e9aacc5a251779ce3175792edbb5f668700e4154cd2b0c"
+    },
+    {
+      "path": "demo/src/content/pixelStudio.js",
+      "sha256": "51abcde94b744b3d5a282c5af2f3bacaba5daa7c30c362696e6b977222c07bf3"
+    },
+    {
+      "path": "demo/src/content/subtitles.js",
+      "sha256": "dde969c6ec88a21badcc907428b28981ea0b21815ac5d83b22284c687085d260"
+    },
+    {
+      "path": "demo/src/content/workflowDetail.js",
+      "sha256": "7a0fa22c2795760139f497aceb7c69263843f5c492657595629e4d0865faaadd"
+    },
+    {
+      "path": "demo/src/workflow-detail/model.js",
+      "sha256": "6e45ae1d62f0660165036842a0d7012a58db008d0e335fddcdff1f7805850151"
+    },
+    {
+      "path": "demo/src/workflow-detail/records.js",
+      "sha256": "7d5466a97479ea2784db835856613ac6107548eeb6531e5b64b3af562cfdab56"
+    },
+    {
+      "path": "demo/src/workflow-detail/reducer.js",
+      "sha256": "6fa644911e973b26320fc1ff7ef95b1414fc3381405b4431f00dc0c5ab0179a6"
+    },
+    {
+      "path": "demo/src/workflow-detail/frames.js",
+      "sha256": "fb2ba289040126e96dc77ee0427c4e9b0af751716485ceb157d159e03fec746d"
+    },
+    {
+      "path": "demo/src/subtitles/model.js",
+      "sha256": "300aba7bc51c894ee73b7f2c837a83373bc283acde711ad68d41bb00076a4614"
+    },
+    {
+      "path": "demo/src/pixel/layers.js",
+      "sha256": "ee84a5529629c646ff34fbf5acf54e07d21f4c05ee4f43de815a7e5e13d798bf"
+    },
+    {
+      "path": "demo/src/pixel/palette.js",
+      "sha256": "487a4e4d69ee357be45a1010eec1157b4e4e8d08e7a485904d9186d6ea9dae6c"
+    },
+    {
+      "path": "demo/src/pixel/paletteSets.js",
+      "sha256": "7b82e5d982e24a176880af9ae113b7137c8925bbbd6b891f39a396469028fe87"
+    },
+    {
+      "path": "demo/src/pixel/rig.js",
+      "sha256": "d4b1e1214273d0487c96343c5dac3aa21c46abf1c6c41707dc8975661a6e43ab"
+    },
+    {
+      "path": "demo/src/pixel/timeline.js",
+      "sha256": "3aab58ed0f7a3f740e7a235a0e1a7038b9b00082f0a0c6142a43d88a90ac0b1a"
+    },
+    {
+      "path": "demo/src/pixel/studio.js",
+      "sha256": "e90b7a4cdd86f9533d3ccf215f8363e250287184bf621818f9489b04b26cd40a"
+    },
+    {
+      "path": "demo/src/pixel/playback.js",
+      "sha256": "7e50306214da89cda7a8d2b535bcaac51b2c4110b48e8ff0ff0fdf3d037f919e"
+    },
+    {
+      "path": "demo/src/hooks/usePixelPreview.js",
+      "sha256": "1c2528f57a36536b436f9d4a4efa4b7b0511e4438da67a24695da8e2c201a620"
+    }
+  ]
+}

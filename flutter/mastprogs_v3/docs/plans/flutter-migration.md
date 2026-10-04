@@ -10,17 +10,17 @@
 
 ## 범위 및 구조
 
-- [ ] 공통: 네 경로 `/`, `/workflow`, `/sprite`, `/subtitles`와 상세 경로의 연속 끝 슬래시(`/workflow///` 등), 직접 진입·새로고침·뒤로가기. 그 밖의 경로는 404 화면이 아닌 메인 이력서로 보인다(`demo/src/App.jsx:24-29,41-60`). `?state=target`은 현재 React와 같이 메인 reveal만 끄는 비교 진입점이다. 경로 전환 때 프레임 상태는 누출되지 않는다.
-- [ ] 테마: 기본 dark, light 전 경로, `mastprogs-theme` 단일 로컬 저장 키에 `dark|light`만 쓰고 읽기 실패는 dark. 새 탭은 같은 테마. 그 외 상태·개인정보·방문 정보 저장 금지. 디자인 토큰은 React `src/styles/theme.css`와 현재 화면을 기준으로 Claude가 이식한다.
-- [ ] 콘텐츠: 한국어 원문은 `src/content/{resume,site,workflowDetail,pixelStudio,subtitles}.js` 및 참조 JSON에서 고정 데이터로 옮긴다. 화면 문자열 `워크플로우` 표준, 원래 회사별 기간 겹침·역할·직무 유지, 새 수치·직함·설명용 고지 발명 금지. 변경 가능한 복수 경로 값은 Dart 상수/콘텐츠 모듈 하나로 둔다.
-- [ ] UI 접근성: 44px 이상 조작 영역, 명확한 시각 포커스, 키보드 및 터치 동등성, 모달 포커스 격리·Esc·닫은 뒤 원래 카드로 복귀, 이전/다음 경계에서 포커스 보존, 모션 감소와 숨김 탭 처리. 다른 앵커로 이동할 때 페이지 가로 스크롤 탈취 금지.
-- [ ] 개인정보/배포: 메인 이름 김형준·원본 사진, 소개 상단의 비어 있는 이메일·전화 `준비 중`, 포트폴리오 칸의 정확한 `https://github.com/MastProgs` 하나만 새 탭 외부 링크. 다른 외부 주소·mailto/tel·원격 폰트·분석·인증·SEO 메타/OG·sitemap·실제 AI/ASR 호출 없음. Flutter 빌드 `index.html`의 `robots noindex,noarchive`와 localhost 응답 `X-Robots-Tag: noindex, noarchive`를 검사한다. 호스팅 헤더는 정적 배포 방식에 맞게 확인하되 기존 React 설정을 수정하지 않는다.
+- [x] 공통: 네 경로 `/`, `/workflow`, `/sprite`, `/subtitles`와 상세 경로의 연속 끝 슬래시(`/workflow///` 등), 직접 진입·새로고침·뒤로가기. 그 밖의 경로는 404 화면이 아닌 메인 이력서로 보인다(`demo/src/App.jsx:24-29,41-60`). `?state=target`은 현재 React와 같이 메인 reveal만 끄는 비교 진입점이다. 경로 전환 때 프레임 상태는 누출되지 않는다.
+- [x] 테마: 기본 dark, light 전 경로, `mastprogs-theme` 단일 로컬 저장 키에 `dark|light`만 쓰고 읽기 실패는 dark. 새 탭은 같은 테마. 그 외 상태·개인정보·방문 정보 저장 금지. 디자인 토큰은 React `src/styles/theme.css`와 현재 화면을 기준으로 Claude가 이식한다.
+- [x] 콘텐츠: 한국어 원문은 `src/content/{resume,site,workflowDetail,pixelStudio,subtitles}.js` 및 참조 JSON에서 고정 데이터로 옮긴다. 화면 문자열 `워크플로우` 표준, 원래 회사별 기간 겹침·역할·직무 유지, 새 수치·직함·설명용 고지 발명 금지. 변경 가능한 복수 경로 값은 Dart 상수/콘텐츠 모듈 하나로 둔다.
+- [x] UI 접근성: 44px 이상 조작 영역, 명확한 시각 포커스, 키보드 및 터치 동등성, 모달 포커스 격리·Esc·닫은 뒤 원래 카드로 복귀, 이전/다음 경계에서 포커스 보존, 모션 감소와 숨김 탭 처리. 다른 앵커로 이동할 때 페이지 가로 스크롤 탈취 금지.
+- [x] 개인정보/배포: 메인 이름 김형준·원본 사진, 소개 상단의 비어 있는 이메일·전화 `준비 중`, 포트폴리오 칸의 정확한 `https://github.com/MastProgs` 하나만 새 탭 외부 링크. 다른 외부 주소·mailto/tel·원격 폰트·분석·인증·SEO 메타/OG·sitemap·실제 AI/ASR 호출 없음. Flutter 빌드 `index.html`의 `robots noindex,noarchive`와 localhost 응답 `X-Robots-Tag: noindex, noarchive`를 검사한다. 호스팅 헤더는 정적 배포 방식에 맞게 확인하되 기존 React 설정을 수정하지 않는다.
 
 ## Flutter web 플랫폼 경계
 
-- [ ] **렌더러·글꼴 네트워크**: 설치된 Flutter 3.41.9의 `flutter build web -h -v`에서 `--[no-]web-resources-cdn` 기본값이 ON임을 확인했다. 구현 빌드는 `flutter build web --no-web-resources-cdn`으로 자체 호스트 CanvasKit을 `build/web/canvaskit/`에 포함하고 생성된 bootstrap의 로컬 선택 및 실제 요청을 확인한다. 설치된 엔진의 `configuration.dart:358-359`는 누락 글리프 fallback 기본 주소가 `https://fonts.gstatic.com/s/`임을 보여 준다. 자체 번들 Pretendard·아이콘 폰트로 화면의 한글/기호/아이콘 글리프를 모두 덮고, Flutter 표준 loader 설정의 `fontFallbackBaseUrl`을 같은 출처의 `/fonts/`로 지정한다. 필요한 fallback 글리프가 있다면 라이선스 확인 후 해당 파일도 로컬 번들한다. 사용자가 허용된 GitHub 링크를 누르기 전의 페이지 로드·로컬 조작에서 외부 요청이 1건이라도 나면 실패다. 표준 `web/flutter_bootstrap.js`의 `_flutter.loader.load({config: ...})`만 설정에 사용하며 앱 로직이나 React/JS 런타임을 넣지 않는다. 사용 API는 [Flutter 웹 초기화 문서](https://docs.flutter.dev/platform-integration/web/initialization)의 현재 설정 항목과 설치 SDK에서 확인하고 deprecated `loadEntrypoint`는 사용하지 않는다.
-- [ ] **URL·제목**: Flutter 기본 hash URL 대신 설치 SDK의 비 deprecated `flutter_web_plugins` `usePathUrlStrategy()`를 쓰고, 앱 라우터가 `pathname`에서 연속 끝 슬래시를 제거한 뒤 네 경로를 판정한다. 모르는 경로는 React처럼 메인 이력서. 로컬/실배포 서버는 History API 진입을 `index.html`로 재작성하되 존재하지 않는 정적 자산에는 실제 404를 보낸다([Flutter URL 전략 문서](https://docs.flutter.dev/ui/navigation/url-strategies)). `<base href="/">` 기준도 일치시킨다. 브라우저 제목은 메인·미지 경로 `김형준 · AgentWorkflow 데모`(`demo/index.html:7`), `/workflow` `AgentWorkflow 상세 · 김형준`(`WorkflowDetailPage.jsx:14-17`), `/sprite` `Sprite 파이프라인 상세 · 김형준`(`SpritePage.jsx:20-23`), `/subtitles` `Voice to SRT 상세 · 김형준`(`SubtitlesPage.jsx:29-32`); 상세를 떠나면 메인 제목으로 복귀한다.
-- [ ] **HTML·비공개 헤더**: 원본 저장소의 기본 `web/index.html`은 `<html>`에 `lang`이 없고 `A new Flutter project.` description, `mastprogs_v3` title, manifest 링크가 있다. 이를 React 기준 `lang="ko"`, 정확한 기본 제목, `<meta name="robots" content="noindex, noarchive">`로 바꾸고 description·기본 PWA manifest 링크/제목을 제거한다. React `vite.config.mjs`·`public/_headers`는 수정하지 않는다. 격리 QA는 Python 표준 라이브러리 `ThreadingHTTPServer`의 **임시 외부 작업 폴더** 핸들러로 `build/web`을 `127.0.0.1`에 제공한다. 핸들러가 모든 응답에 `X-Robots-Tag: noindex, noarchive`를 추가하고 자산이 아닌 History API 경로만 `index.html`로 재작성하게 한다(추적 대상 config 파일 생성·커밋 없음). 최종 호스팅도 동등한 헤더와 rewrite가 준비되어야 공개 가능하며 이번 Plan은 배포하지 않는다. `curl`/브라우저 네트워크 기록에서 문서·끝 슬래시·미지 경로의 HTTP 200+헤더, 없는 자산 404, `gstatic.com`을 포함한 외부 요청 0을 검증한다.
+- [x] **렌더러·글꼴 네트워크**: 설치된 Flutter 3.41.9의 `flutter build web -h -v`에서 `--[no-]web-resources-cdn` 기본값이 ON임을 확인했다. 구현 빌드는 `flutter build web --no-web-resources-cdn`으로 자체 호스트 CanvasKit을 `build/web/canvaskit/`에 포함하고 생성된 bootstrap의 로컬 선택 및 실제 요청을 확인한다. 설치된 엔진의 `configuration.dart:358-359`는 누락 글리프 fallback 기본 주소가 `https://fonts.gstatic.com/s/`임을 보여 준다. 자체 번들 Pretendard·아이콘 폰트로 화면의 한글/기호/아이콘 글리프를 모두 덮고, Flutter 표준 loader 설정의 `fontFallbackBaseUrl`을 같은 출처의 `/fonts/`로 지정한다. 필요한 fallback 글리프가 있다면 라이선스 확인 후 해당 파일도 로컬 번들한다. 사용자가 허용된 GitHub 링크를 누르기 전의 페이지 로드·로컬 조작에서 외부 요청이 1건이라도 나면 실패다. 표준 `web/flutter_bootstrap.js`의 `_flutter.loader.load({config: ...})`만 설정에 사용하며 앱 로직이나 React/JS 런타임을 넣지 않는다. 사용 API는 [Flutter 웹 초기화 문서](https://docs.flutter.dev/platform-integration/web/initialization)의 현재 설정 항목과 설치 SDK에서 확인하고 deprecated `loadEntrypoint`는 사용하지 않는다.
+- [x] **URL·제목**: Flutter 기본 hash URL 대신 설치 SDK의 비 deprecated `flutter_web_plugins` `usePathUrlStrategy()`를 쓰고, 앱 라우터가 `pathname`에서 연속 끝 슬래시를 제거한 뒤 네 경로를 판정한다. 모르는 경로는 React처럼 메인 이력서. 로컬/실배포 서버는 History API 진입을 `index.html`로 재작성하되 존재하지 않는 정적 자산에는 실제 404를 보낸다([Flutter URL 전략 문서](https://docs.flutter.dev/ui/navigation/url-strategies)). `<base href="/">` 기준도 일치시킨다. 브라우저 제목은 메인·미지 경로 `김형준 · AgentWorkflow 데모`(`demo/index.html:7`), `/workflow` `AgentWorkflow 상세 · 김형준`(`WorkflowDetailPage.jsx:14-17`), `/sprite` `Sprite 파이프라인 상세 · 김형준`(`SpritePage.jsx:20-23`), `/subtitles` `Voice to SRT 상세 · 김형준`(`SubtitlesPage.jsx:29-32`); 상세를 떠나면 메인 제목으로 복귀한다.
+- [x] **HTML·비공개 헤더**: 원본 저장소의 기본 `web/index.html`은 `<html>`에 `lang`이 없고 `A new Flutter project.` description, `mastprogs_v3` title, manifest 링크가 있다. 이를 React 기준 `lang="ko"`, 정확한 기본 제목, `<meta name="robots" content="noindex, noarchive">`로 바꾸고 description·기본 PWA manifest 링크/제목을 제거한다. React `vite.config.mjs`·`public/_headers`는 수정하지 않는다. 격리 QA는 Python 표준 라이브러리 `ThreadingHTTPServer`의 **임시 외부 작업 폴더** 핸들러로 `build/web`을 `127.0.0.1`에 제공한다. 핸들러가 모든 응답에 `X-Robots-Tag: noindex, noarchive`를 추가하고 자산이 아닌 History API 경로만 `index.html`로 재작성하게 한다(추적 대상 config 파일 생성·커밋 없음). 최종 호스팅도 동등한 헤더와 rewrite가 준비되어야 공개 가능하며 이번 Plan은 배포하지 않는다. `curl`/브라우저 네트워크 기록에서 문서·끝 슬래시·미지 경로의 HTTP 200+헤더, 없는 자산 404, `gstatic.com`을 포함한 외부 요청 0을 검증한다.
 
 ## 페이지·모델·에셋 매핑
 
@@ -68,10 +68,16 @@
 
 ## 검증 계약과 인계
 
-- [ ] React 호스트에서 **원본 헬퍼를 직접 import하고 훅·화면의 상수/전환을 별도 source trace로 고정하는 생성기**로 기준 JSON 및 픽셀 바이트 SHA-256 fixture를 산출한다. 워크플로우: 세 경로·옵션 조합의 모든 cursor에 `steps/events`, 대화, spec/task/seed/레인/게이트/통합, records 목록·선택 내용·현재 변경, `SELECT_FILE/FOLLOW_FILES` 선택·되감기·최신 따라가기, `SET_ROUTE`의 Seed 이전/직접 복귀와 속도 유지, reducer 전송 시퀀스, `frameDelay`의 3000/1500/750ms. 픽셀: 28프레임 기본 인덱스·owner·RGBA/합성 참조, **JSON의 모션별 모든 frame ms**, 대표 프레임의 가시성·outline auto/manual·테마·source/10세트·비율 0/중간/100·어니언·rig·셔플 고정 RNG, `showcaseFor` turn 0..6과 세트/비율 touched 중단, `selectMotion`의 shuffle OFF/hold·재개 전환, 어니언 opacity 0.1/1 clamp, Observer threshold 0.2와 `isIntersecting` 참/거짓 전환, 캐시 상한, reduced-motion SpriteBrief PNG 자산 선택. 자막: fixture 단계·분리 거부·VAD 경계·제안 거부·수락/보류/되돌리기·SRT와 2600ms 타이머. 순수 헬퍼 밖의 값은 원본 소스 상수·조작 경로를 판독해 trace에 넣고 실제 브라우저에서 타이머/가시성/이미지 선택을 별도 검증한다. 생성기/fixture는 테스트 지원물이지 런타임 JS가 아니다. 버전/입력 SHA를 명시하고 원본 변경 시만 재생성한다.
-- [ ] Dart 순수 모델은 생성된 예상 상태/바이트 해시와 차등 검증한다. 비교 대상은 문자열·순서·커서·세션·파일 내용·원장·픽셀 RGBA까지 포함한다. 정적 대략값이나 스크린샷만으로 컨트롤 구현 통과 판정 금지. 실패/경계 입력도 의미 있는 별도 검증.
-- [ ] 실제 브라우저는 격리된 `127.0.0.1` Python `ThreadingHTTPServer`로 Flutter `build/web`을 열고 390/768/1440, dark/light, 네 경로·연속 끝 슬래시·미지 경로, 새 탭·포커스·모달·레일·모션 감소·숨김 탭, 워크플로우 0/중간/끝/되감기, 픽셀 옵션과 장시간, 자막 6단계/SRT를 React와 비교 캡처·런타임으로 검증한다. 원본과 Flutter의 차이는 Claude reviewer가 시각·동작 충실도를 판정하고 Claude 구현자가 고친다.
-- [ ] 완료 게이트: `flutter analyze` 경고/오류 0, `flutter test` 전부 통과, `flutter build web --no-web-resources-cdn` 경고/오류 0, 브라우저 콘솔 0·외부 요청 0 및 기능 QA, 최종 `git diff` 점검. 이후 **사람이 직접 화면 검토**할 수 있도록 캡처·미해결 차이·재현 절차를 전달한다. 사람 검토 전 커밋·푸시하지 않는다.
+- [x] React 호스트에서 **원본 헬퍼를 직접 import하고 훅·화면의 상수/전환을 별도 source trace로 고정하는 생성기**로 기준 JSON 및 픽셀 바이트 SHA-256 fixture를 산출한다. 워크플로우: 세 경로·옵션 조합의 모든 cursor에 `steps/events`, 대화, spec/task/seed/레인/게이트/통합, records 목록·선택 내용·현재 변경, `SELECT_FILE/FOLLOW_FILES` 선택·되감기·최신 따라가기, `SET_ROUTE`의 Seed 이전/직접 복귀와 속도 유지, reducer 전송 시퀀스, `frameDelay`의 3000/1500/750ms. 픽셀: 28프레임 기본 인덱스·owner·RGBA/합성 참조, **JSON의 모션별 모든 frame ms**, 대표 프레임의 가시성·outline auto/manual·테마·source/10세트·비율 0/중간/100·어니언·rig·셔플 고정 RNG, `showcaseFor` turn 0..6과 세트/비율 touched 중단, `selectMotion`의 shuffle OFF/hold·재개 전환, 어니언 opacity 0.1/1 clamp, Observer threshold 0.2와 `isIntersecting` 참/거짓 전환, 캐시 상한, reduced-motion SpriteBrief PNG 자산 선택. 자막: fixture 단계·분리 거부·VAD 경계·제안 거부·수락/보류/되돌리기·SRT와 2600ms 타이머. 순수 헬퍼 밖의 값은 원본 소스 상수·조작 경로를 판독해 trace에 넣고 실제 브라우저에서 타이머/가시성/이미지 선택을 별도 검증한다. 생성기/fixture는 테스트 지원물이지 런타임 JS가 아니다. 버전/입력 SHA를 명시하고 원본 변경 시만 재생성한다.
+- [x] Dart 순수 모델은 생성된 예상 상태/바이트 해시와 차등 검증한다. 비교 대상은 문자열·순서·커서·세션·파일 내용·원장·픽셀 RGBA까지 포함한다. 정적 대략값이나 스크린샷만으로 컨트롤 구현 통과 판정 금지. 실패/경계 입력도 의미 있는 별도 검증.
+- [x] 실제 브라우저는 격리된 `127.0.0.1` Python `ThreadingHTTPServer`로 Flutter `build/web`을 열고 390/768/1440, dark/light, 네 경로·연속 끝 슬래시·미지 경로, 새 탭·포커스·모달·레일·모션 감소·숨김 탭, 워크플로우 0/중간/끝/되감기, 픽셀 옵션과 장시간, 자막 6단계/SRT를 React와 비교 캡처·런타임으로 검증한다. 원본과 Flutter의 차이는 Claude reviewer가 시각·동작 충실도를 판정하고 Claude 구현자가 고친다.
+- [x] 완료 게이트: `flutter analyze` 경고/오류 0, `flutter test` 전부 통과, `flutter build web --no-web-resources-cdn` 경고/오류 0, 브라우저 콘솔 0·외부 요청 0 및 기능 QA, 최종 `git diff` 점검. 이후 **사람이 직접 화면 검토**할 수 있도록 캡처·미해결 차이·재현 절차를 전달한다. 사람 검토 전 커밋·푸시하지 않는다.
+
+## 구현 상태 (2026-10-04, Claude 구현자)
+
+- 확인 근거는 로컬 `flutter analyze`(문제 0), `flutter test`(568개 통과: 워크플로우 216상태·픽셀 228해시+rig·어니언 18/중심 맞춤 6(`renderer-golden.json`)·자막 fixture 차등, FQ-001 사전 곱셈 업로드·엔진 읽기 회귀, 컨트롤러·리듀서 경계, 위젯·가드), `flutter build web --no-web-resources-cdn`(성공, Wasm dry-run 안내와 아이콘 tree-shake 정보 줄만 출력)이다.
+- 위 체크는 테스트만으로 끝까지 검증되는 항목뿐이다. 경로·제목·테마 저장·모달 Esc/포커스 복귀·새 탭 링크·자막 속도 선택기 없음 등은 위젯 테스트로 확인했지만, 각 항목에 브라우저 실행 조건(새로고침·뒤로가기·새 탭 테마·실제 요청 0·`X-Robots-Tag`·콘솔 0·sticky·레일·장시간 재생)이 함께 있어 체크하지 않았다. 호스트 브라우저 QA는 Master 몫으로 남아 있다.
+- 테스트 엔진 화면 캡처(`flutter test test/tools/render_screens_test.dart --dart-define=RENDER_SCREENS=true` → `build/qa-screens/`)는 보조 자료이며 CanvasKit 결과와 글꼴 렌더링이 다를 수 있다.
 
 ## 이번 조사에서 확인한 누락·충돌 위험
 
@@ -79,3 +85,57 @@
 - 현재 `/workflow`는 구형 `src/workflow/model.js`의 7단계 UI가 아닌 `workflow-detail/*` 한 재생기다. 구형 테스트가 통과해도 상세 페이지 대체 근거가 아니다.
 - 원본 Voice to SRT Wiki 문서는 원본 데스크톱 앱 기능을 서술한다. React 상세 페이지는 그 사실을 설명하는 합성 6단계 미니 플레이어일 뿐이다. 원본 앱 전체 실행 기능으로 범위를 넓히지 않는다.
 - 데모의 일부 과거 AI-NOTE/AGENTS 문구는 최신 요청으로 대체됐다(예: 색 설정 시 재생 중단, 메인의 03·04 분리, 포트폴리오 외부 링크 없음). **최신 코드·테스트**의 현재 의미를 fixture로 동결한다.
+
+## 최종 인계 검증 (Codex, 2026-10-04)
+
+- Claude가 전체 UI·인터랙션을 작성했고 별도의 Claude 읽기 전용 시각 검토에서 수정 후 캡처 범위 내 모든 화면 PASS. Codex는 실제 브라우저 조작과 차등·빌드 검증을 수행했다.
+- flutter analyze 문제 0, flutter test 598개 통과, flutter build web --no-web-resources-cdn --no-wasm-dry-run 성공·컴파일 경고 0.
+- 기본 자동 연출 10분 56초 이상, 최종 이미지 수명 코드의 수동 설정 10분 4초 연속 재생·화면 크기 변경·콘솔 0. 프레임·팔레트·GIF·골격 갱신 확인. 99분 초과 재시험은 아직 하지 않았고 CanvasKit 잔류 바이트의 정확한 원인은 확정하지 못했다. 체크는 이번 검증 범위의 구현·인계 완료를 뜻하며 무한 시간 안정성 보장은 아니다.
+- 웹 엔진의 마우스 모드에서는 aria-valuetext가 늦거나 이전 값으로 남을 수 있다. 키보드만으로 Home→ArrowRight 했을 때 실제 DOM에서 걷기 2/8 · 110ms와 35%, AAP-64 100%를 확인했다. 화면의 현재 프레임 및 체크 상태는 정상이다. SDK 제약·실제 OS 모션 감소/터치 장비의 직접 검증 범위는 docs/qa/flutter-review-notes.md에 명시한다.
+- React fcdfc01 및 기술 Plan 8f853b3만 로컬 커밋. Flutter 코드·설정·검토 문서는 미커밋. 푸시·배포 없음. 사람이 화면을 검사할 단계다.
+
+## 후속 요청: 메인 대표 사례 (Claude, 2026-10-04)
+
+- [x] `assets/data/resume.json` ABOUT `highlightsHeading` 을 `대표 경험` → `대표 사례`로 변경
+- [x] `AI 개발 자동화` 바로 뒤에 `스프라이트 제작 도구`(#case-pixel)·`자동 자막 생성·교정`(#case-subtitles) 두 항목 추가, linkLabel `사례`. 문구는 site.json 의 해당 사례 요약에 근거. 기존 연구용 MLOps·현업 요청 대응·게임 서비스 항목은 그대로 유지
+- [x] 기존 배열 기반 렌더링 재사용(새 컴포넌트·연출 없음), `lib/core/json.dart` AI-NOTE 에 React 와 달라진 범위 기록
+- [x] `test/fixtures/asset-manifest.json` 에서 resume.json 의 크기·해시만 갱신
+- [x] flutter analyze · flutter test · flutter build web --no-web-resources-cdn --no-wasm-dry-run
+- [x] 브라우저 확인(Root Codex): 대표 사례 제목과 AI → 스프라이트 → SRT 순서, 두 링크의 기존 사례 앵커, 실제 목록 배치 확인. 다른 이력 데이터는 React 기준과 비교해 변경 없음.
+
+## 후속 요청: 개발 중 문구 삭제 (Claude, 2026-10-04)
+
+- [x] /subtitles 소개의 상태 표시(`개발 중 · 아래 기능은 구현되어 있습니다`)와 그 위 여백을 통째로 삭제, 대체 표시 없음. 사용처가 없어진 `subtitles.json` 의 `status` 값도 삭제
+- [x] 사례 03 모달 limits 의 첫 문장(`현재 개발 중인 도구이며, 품질·속도 수치는 제시하지 않습니다.`)만 삭제, 이어지는 오디오·데이터 처리 문구 유지
+- [x] 현재 Flutter 화면 문구 전체에서 제품 개발 진행 고지 추가 없음 확인(워크플로우 시뮬레이션의 개발 단계·실행 상태 표시와 경력 기간은 유지). `lib/core/json.dart` AI-NOTE 에 React 와 달라진 범위 기록
+- [x] `test/fixtures/asset-manifest.json` 에서 site.json·subtitles.json 의 크기·해시만 갱신
+- [x] flutter analyze · flutter test · flutter build web --no-web-resources-cdn --no-wasm-dry-run
+- [x] 브라우저 확인(Root): /subtitles 소개와 사례 03 모달 모두 개발 중 문구 없음, 배지·빈 여백 제거 확인.
+
+## 후속 요청: 빌드 배치 v3 타겟 (2026-10-04)
+
+- [x] 저장소 루트 build_flutter.bat의 빌드 프로젝트와 복사 원본을 mastprogs_v2에서 mastprogs_v3로 변경. 실제 기존 복사 대상 docs는 유지.
+- [x] 검증된 v3 로컬 리소스 빌드 옵션 --no-web-resources-cdn --no-wasm-dry-run 적용.
+- [x] 임시 격리 폴더의 flutter/xcopy 스텁으로 배치의 작업 디렉터리·인수·복사 경로 검증. 실제 docs 파일 복사는 실행하지 않음.
+- [x] 실제 v3 flutter build web --release --no-web-resources-cdn --no-wasm-dry-run 성공, 컴파일 경고 0. git diff --check 통과. 커밋·푸시 없음.
+
+## 후속 요청: React 삭제와 Flutter 전용 커밋 (2026-10-04)
+
+사용자가 React 코드 전체 삭제와 완성 Flutter 프로젝트 로컬 커밋(푸시 없음)을 승인했다.
+
+- [x] Root: 원본 미디어·폰트 38개를 `demo/public/{profile,cases,pixel,fonts}` → `assets/media/{profile,cases,pixel,fonts}`로 SHA256 동일 이동, `demo/AGENTS.md`를 `docs/reference/react-baseline-instructions.md`로 보존
+- [x] `pubspec.yaml` 자산 4항목을 `assets/media/`로 변경, `publicAsset`이 `assets/media` + 기존 공개 경로를 반환(API·바이트 동일)
+- [x] `test/guards_test.dart` 미디어 존재 검사가 `publicAsset` 재사용, `test/fixtures/asset-manifest.json`은 이동 파일 경로 접두사만 변경(해시·크기 유지). 차등 fixture와 출처 digest는 그대로
+- [x] README·AGENTS 갱신, `.gitignore`에 `ai-log/`·`.agent-workflow/` 추가
+- [x] Root: React 추적 소스를 Git으로 삭제. 남은 Node 의존성 캐시·로컬 설정과 참조 생성 도구는 임시 폴더로 이관하여 체크아웃에서 제거. 원본 미디어 38개 SHA 동일 보존.
+- [x] 삭제 후 flutter analyze 문제 0 · flutter test 598개 · flutter build web --release --no-web-resources-cdn --no-wasm-dry-run 성공. 자산 52개 크기·해시 확인. 런타임·빌드·테스트의 React·Node 의존 없음.
+- [x] 최종 staged diff·원본 자산 해시·자격증명 패턴·금지 설정 파일 검사 완료. React 삭제와 Flutter 소스 로컬 커밋(푸시 없음).
+
+## 후속 요청: 연락처 입력 (Claude, 2026-10-04)
+
+- [x] `assets/data/resume.json` CONTACT 의 email 값만 `contact@richpocket.net` 으로 변경, 사용자가 입력한 전화 값은 그대로 유지·포함 확인
+- [x] `test/fixtures/asset-manifest.json` 에서 resume.json 의 크기·해시만 갱신
+- [x] AGENTS·README·AI-NOTE(profile_section·portfolio_content·json) 를 입력된 연락처 기준으로 갱신. 빈 값 `준비 중` 대체와 포트폴리오 URL 단일 링크 규칙 유지(mailto/tel 없음)
+- [x] guards_test·widget_test 를 새 이메일·현재 전화(데이터에서 읽음)·빈 값 null·평문 유지 기준으로 갱신
+- [x] flutter analyze 문제 0 · flutter test 598개 · flutter build web 성공(컴파일 경고 0). 입력된 연락처의 SelectableText 표시도 기존 도우미로 실제 위젯 검증.
+- [x] 사용자 요청으로 로컬 서버는 종료 상태 유지. 위젯에서 현재 이메일·전화 표시와 포트폴리오 링크 검증. Flutter 소스만 로컬 커밋 대상, 루트 docs 배포 변경·v2 사진·환경 설정은 제외, 푸시 없음.

@@ -1,0 +1,434 @@
+{
+  "walkthrough": {
+    "durationMs": 7600,
+    "words": [
+      {
+        "text": "자",
+        "startMs": 300,
+        "endMs": 480,
+        "index": 0,
+        "risk": null
+      },
+      {
+        "text": "그럼",
+        "startMs": 520,
+        "endMs": 860,
+        "index": 1,
+        "risk": null
+      },
+      {
+        "text": "오늘",
+        "startMs": 900,
+        "endMs": 1180,
+        "index": 2,
+        "risk": null
+      },
+      {
+        "text": "일정부터",
+        "startMs": 1220,
+        "endMs": 1760,
+        "index": 3,
+        "risk": null
+      },
+      {
+        "text": "확인할게요",
+        "startMs": 1800,
+        "endMs": 2520,
+        "index": 4,
+        "risk": null
+      },
+      {
+        "text": "먼저",
+        "startMs": 3160,
+        "endMs": 3460,
+        "index": 5,
+        "risk": null
+      },
+      {
+        "text": "장비를",
+        "startMs": 3500,
+        "endMs": 3900,
+        "index": 6,
+        "risk": null
+      },
+      {
+        "text": "점검하고",
+        "startMs": 3940,
+        "endMs": 4520,
+        "index": 7,
+        "risk": null
+      },
+      {
+        "text": "광장애서",
+        "startMs": 4560,
+        "endMs": 5100,
+        "index": 8,
+        "risk": "광장에서"
+      },
+      {
+        "text": "모입시다",
+        "startMs": 5140,
+        "endMs": 5780,
+        "index": 9,
+        "risk": null
+      },
+      {
+        "text": "아",
+        "startMs": 6200,
+        "endMs": 6420,
+        "index": 10,
+        "risk": null
+      },
+      {
+        "text": "잠깐만요",
+        "startMs": 6460,
+        "endMs": 7180,
+        "index": 11,
+        "risk": null
+      }
+    ],
+    "rawText": "자 그럼 오늘 일정부터 확인할게요 먼저 장비를 점검하고 광장애서 모입시다 아 잠깐만요",
+    "vad": [
+      {
+        "startMs": 260,
+        "endMs": 2700
+      },
+      {
+        "startMs": 3100,
+        "endMs": 5900
+      },
+      {
+        "startMs": 6150,
+        "endMs": 7600
+      }
+    ],
+    "whole": {
+      "from": 0,
+      "to": 11,
+      "startMs": 300,
+      "endMs": 7180,
+      "spoken": "자 그럼 오늘 일정부터 확인할게요 먼저 장비를 점검하고 광장애서 모입시다 아 잠깐만요",
+      "displayStartMs": 260,
+      "displayEndMs": 7480
+    },
+    "pauses": [
+      {
+        "after": 4,
+        "startMs": 2520,
+        "endMs": 3160,
+        "ms": 640
+      },
+      {
+        "after": 9,
+        "startMs": 5780,
+        "endMs": 6200,
+        "ms": 420
+      }
+    ],
+    "levels": [
+      1,
+      0,
+      0,
+      7,
+      8,
+      7,
+      8,
+      4,
+      5,
+      4,
+      5,
+      6,
+      5,
+      6,
+      7,
+      8,
+      4,
+      5,
+      4,
+      5,
+      6,
+      7,
+      8,
+      4,
+      5,
+      0,
+      0,
+      1,
+      0,
+      0,
+      1,
+      0,
+      6,
+      7,
+      8,
+      7,
+      8,
+      4,
+      5,
+      4,
+      5,
+      6,
+      7,
+      8,
+      4,
+      1,
+      4,
+      5,
+      6,
+      7,
+      8,
+      7,
+      8,
+      4,
+      5,
+      6,
+      7,
+      8,
+      0,
+      0,
+      1,
+      0,
+      6,
+      7,
+      0,
+      7,
+      8,
+      4,
+      5,
+      6,
+      7,
+      8,
+      1,
+      0,
+      0,
+      1
+    ],
+    "split": {
+      "codexCuts": [
+        4,
+        9
+      ],
+      "claudeCuts": [
+        4
+      ],
+      "agreed": [
+        4
+      ],
+      "disputed": [
+        9
+      ],
+      "resolved": [
+        9
+      ],
+      "cuts": [
+        4,
+        9
+      ],
+      "debate": [
+        {
+          "round": 1,
+          "claude": "반대",
+          "reason": "'아'가 앞 문장 말끝에 붙어 들릴 수 있다"
+        },
+        {
+          "round": 2,
+          "claude": "동의",
+          "reason": "모입시다 뒤 0.42초 쉼과 앞뒤 1초 소리 크기 0~1 구간을 보면 새 발화가 시작된다"
+        }
+      ],
+      "codexReason": "0.64초·0.42초 쉼 뒤에서 말이 끊기고, '아'는 따로 떼는 외침이다",
+      "claudeReason": "0.64초 쉼에서 한 번 끊는다"
+    },
+    "cues": [
+      {
+        "from": 0,
+        "to": 4,
+        "startMs": 300,
+        "endMs": 2520,
+        "spoken": "자 그럼 오늘 일정부터 확인할게요",
+        "displayStartMs": 260,
+        "displayEndMs": 2700,
+        "id": "cue-1",
+        "text": "자, 그럼 오늘 일정부터 확인할게요."
+      },
+      {
+        "from": 5,
+        "to": 9,
+        "startMs": 3160,
+        "endMs": 5780,
+        "spoken": "먼저 장비를 점검하고 광장애서 모입시다",
+        "displayStartMs": 3100,
+        "displayEndMs": 5900,
+        "id": "cue-2",
+        "text": "먼저 장비를 점검하고 광장애서 모입시다."
+      },
+      {
+        "from": 10,
+        "to": 11,
+        "startMs": 6200,
+        "endMs": 7180,
+        "spoken": "아 잠깐만요",
+        "displayStartMs": 6150,
+        "displayEndMs": 7480,
+        "id": "cue-3",
+        "text": "아, 잠깐만요!"
+      }
+    ],
+    "proposals": [
+      {
+        "id": "cue-2",
+        "text": "먼저 장비를 점검하고 광장에서 모입시다.",
+        "reason": "장소 뒤에는 조사 '에서'가 자연스럽고, 비교 모델 후보도 '광장에서'로 들었다",
+        "source": "Whisper large-v3 후보 · 앞뒤 자막",
+        "uncertainty": "낮음",
+        "needsReview": true
+      }
+    ]
+  },
+  "states": [
+    {
+      "decision": "pending",
+      "decisions": {
+        "cue-2": "pending"
+      },
+      "cues": [
+        {
+          "from": 0,
+          "to": 4,
+          "startMs": 300,
+          "endMs": 2520,
+          "spoken": "자 그럼 오늘 일정부터 확인할게요",
+          "displayStartMs": 260,
+          "displayEndMs": 2700,
+          "id": "cue-1",
+          "text": "자, 그럼 오늘 일정부터 확인할게요.",
+          "decision": null,
+          "alignmentStale": false
+        },
+        {
+          "from": 5,
+          "to": 9,
+          "startMs": 3160,
+          "endMs": 5780,
+          "spoken": "먼저 장비를 점검하고 광장애서 모입시다",
+          "displayStartMs": 3100,
+          "displayEndMs": 5900,
+          "id": "cue-2",
+          "text": "먼저 장비를 점검하고 광장애서 모입시다.",
+          "decision": "pending",
+          "alignmentStale": false
+        },
+        {
+          "from": 10,
+          "to": 11,
+          "startMs": 6200,
+          "endMs": 7180,
+          "spoken": "아 잠깐만요",
+          "displayStartMs": 6150,
+          "displayEndMs": 7480,
+          "id": "cue-3",
+          "text": "아, 잠깐만요!",
+          "decision": null,
+          "alignmentStale": false
+        }
+      ],
+      "srt": "1\n00:00:00,260 --> 00:00:02,700\n자, 그럼 오늘 일정부터 확인할게요.\n\n2\n00:00:03,100 --> 00:00:05,900\n먼저 장비를 점검하고 광장애서 모입시다.\n\n3\n00:00:06,150 --> 00:00:07,480\n아, 잠깐만요!"
+    },
+    {
+      "decision": "accept",
+      "decisions": {
+        "cue-2": "accept"
+      },
+      "cues": [
+        {
+          "from": 0,
+          "to": 4,
+          "startMs": 300,
+          "endMs": 2520,
+          "spoken": "자 그럼 오늘 일정부터 확인할게요",
+          "displayStartMs": 260,
+          "displayEndMs": 2700,
+          "id": "cue-1",
+          "text": "자, 그럼 오늘 일정부터 확인할게요.",
+          "decision": null,
+          "alignmentStale": false
+        },
+        {
+          "from": 5,
+          "to": 9,
+          "startMs": 3160,
+          "endMs": 5780,
+          "spoken": "먼저 장비를 점검하고 광장애서 모입시다",
+          "displayStartMs": 3100,
+          "displayEndMs": 5900,
+          "id": "cue-2",
+          "text": "먼저 장비를 점검하고 광장애서 모입시다.",
+          "decision": "accept",
+          "alignmentStale": false
+        },
+        {
+          "from": 10,
+          "to": 11,
+          "startMs": 6200,
+          "endMs": 7180,
+          "spoken": "아 잠깐만요",
+          "displayStartMs": 6150,
+          "displayEndMs": 7480,
+          "id": "cue-3",
+          "text": "아, 잠깐만요!",
+          "decision": null,
+          "alignmentStale": false
+        }
+      ],
+      "srt": "1\n00:00:00,260 --> 00:00:02,700\n자, 그럼 오늘 일정부터 확인할게요.\n\n2\n00:00:03,100 --> 00:00:05,900\n먼저 장비를 점검하고 광장애서 모입시다.\n\n3\n00:00:06,150 --> 00:00:07,480\n아, 잠깐만요!"
+    },
+    {
+      "decision": "hold",
+      "decisions": {
+        "cue-2": "hold"
+      },
+      "cues": [
+        {
+          "from": 0,
+          "to": 4,
+          "startMs": 300,
+          "endMs": 2520,
+          "spoken": "자 그럼 오늘 일정부터 확인할게요",
+          "displayStartMs": 260,
+          "displayEndMs": 2700,
+          "id": "cue-1",
+          "text": "자, 그럼 오늘 일정부터 확인할게요.",
+          "decision": null,
+          "alignmentStale": false
+        },
+        {
+          "from": 5,
+          "to": 9,
+          "startMs": 3160,
+          "endMs": 5780,
+          "spoken": "먼저 장비를 점검하고 광장애서 모입시다",
+          "displayStartMs": 3100,
+          "displayEndMs": 5900,
+          "id": "cue-2",
+          "text": "먼저 장비를 점검하고 광장애서 모입시다.",
+          "decision": "hold",
+          "alignmentStale": false
+        },
+        {
+          "from": 10,
+          "to": 11,
+          "startMs": 6200,
+          "endMs": 7180,
+          "spoken": "아 잠깐만요",
+          "displayStartMs": 6150,
+          "displayEndMs": 7480,
+          "id": "cue-3",
+          "text": "아, 잠깐만요!",
+          "decision": null,
+          "alignmentStale": false
+        }
+      ],
+      "srt": "1\n00:00:00,260 --> 00:00:02,700\n자, 그럼 오늘 일정부터 확인할게요.\n\n2\n00:00:03,100 --> 00:00:05,900\n먼저 장비를 점검하고 광장애서 모입시다.\n\n3\n00:00:06,150 --> 00:00:07,480\n아, 잠깐만요!"
+    }
+  ]
+}

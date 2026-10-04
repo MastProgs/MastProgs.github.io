@@ -1,0 +1,2131 @@
+{
+  "baseline": "fcdfc01",
+  "workflow": [
+    {
+      "initial": {
+        "options": {
+          "route": "parallel",
+          "seed": true,
+          "planReject": false,
+          "qaFail": false
+        },
+        "status": "idle",
+        "cursor": 0,
+        "selectedPath": null,
+        "lastAction": null,
+        "speed": 1
+      },
+      "actions": [
+        {
+          "type": "setSpeed",
+          "speed": 2
+        },
+        {
+          "type": "play"
+        },
+        {
+          "type": "tick"
+        },
+        {
+          "type": "tick"
+        },
+        {
+          "type": "pause",
+          "reason": "hidden"
+        },
+        {
+          "type": "next"
+        },
+        {
+          "type": "prev"
+        },
+        {
+          "type": "seek",
+          "cursor": 33
+        },
+        {
+          "type": "play"
+        },
+        {
+          "type": "reset"
+        }
+      ],
+      "states": [
+        {
+          "options": {
+            "route": "parallel",
+            "seed": true,
+            "planReject": false,
+            "qaFail": false
+          },
+          "status": "idle",
+          "cursor": 0,
+          "selectedPath": null,
+          "lastAction": null,
+          "speed": 1
+        },
+        {
+          "options": {
+            "route": "parallel",
+            "seed": true,
+            "planReject": false,
+            "qaFail": false
+          },
+          "status": "idle",
+          "cursor": 0,
+          "selectedPath": null,
+          "lastAction": null,
+          "speed": 2
+        },
+        {
+          "options": {
+            "route": "parallel",
+            "seed": true,
+            "planReject": false,
+            "qaFail": false
+          },
+          "status": "running",
+          "cursor": 0,
+          "selectedPath": null,
+          "lastAction": "play",
+          "speed": 2
+        },
+        {
+          "options": {
+            "route": "parallel",
+            "seed": true,
+            "planReject": false,
+            "qaFail": false
+          },
+          "status": "running",
+          "cursor": 1,
+          "selectedPath": null,
+          "lastAction": "tick",
+          "speed": 2
+        },
+        {
+          "options": {
+            "route": "parallel",
+            "seed": true,
+            "planReject": false,
+            "qaFail": false
+          },
+          "status": "running",
+          "cursor": 2,
+          "selectedPath": null,
+          "lastAction": "tick",
+          "speed": 2
+        },
+        {
+          "options": {
+            "route": "parallel",
+            "seed": true,
+            "planReject": false,
+            "qaFail": false
+          },
+          "status": "paused",
+          "cursor": 2,
+          "selectedPath": null,
+          "lastAction": "hidden",
+          "speed": 2
+        },
+        {
+          "options": {
+            "route": "parallel",
+            "seed": true,
+            "planReject": false,
+            "qaFail": false
+          },
+          "status": "paused",
+          "cursor": 3,
+          "selectedPath": null,
+          "lastAction": "next",
+          "speed": 2
+        },
+        {
+          "options": {
+            "route": "parallel",
+            "seed": true,
+            "planReject": false,
+            "qaFail": false
+          },
+          "status": "paused",
+          "cursor": 2,
+          "selectedPath": null,
+          "lastAction": "prev",
+          "speed": 2
+        },
+        {
+          "options": {
+            "route": "parallel",
+            "seed": true,
+            "planReject": false,
+            "qaFail": false
+          },
+          "status": "done",
+          "cursor": 33,
+          "selectedPath": null,
+          "lastAction": "seek",
+          "speed": 2
+        },
+        {
+          "options": {
+            "route": "parallel",
+            "seed": true,
+            "planReject": false,
+            "qaFail": false
+          },
+          "status": "running",
+          "cursor": 0,
+          "selectedPath": null,
+          "lastAction": "play",
+          "speed": 2
+        },
+        {
+          "options": {
+            "route": "parallel",
+            "seed": true,
+            "planReject": false,
+            "qaFail": false
+          },
+          "status": "idle",
+          "cursor": 0,
+          "selectedPath": null,
+          "lastAction": "reset",
+          "speed": 2
+        }
+      ]
+    },
+    {
+      "initial": {
+        "options": {
+          "route": "parallel",
+          "seed": true,
+          "planReject": false,
+          "qaFail": false
+        },
+        "status": "idle",
+        "cursor": 0,
+        "selectedPath": null,
+        "lastAction": null,
+        "speed": 1
+      },
+      "actions": [
+        {
+          "type": "seek",
+          "cursor": 25
+        },
+        {
+          "type": "selectFile",
+          "path": "current.md"
+        },
+        {
+          "type": "seek",
+          "cursor": 9
+        },
+        {
+          "type": "followFiles"
+        },
+        {
+          "type": "setOption",
+          "key": "seed",
+          "value": false
+        },
+        {
+          "type": "setRoute",
+          "route": "sequential"
+        },
+        {
+          "type": "setOption",
+          "key": "planReject",
+          "value": false
+        },
+        {
+          "type": "setOption",
+          "key": "qaFail",
+          "value": false
+        },
+        {
+          "type": "setSpeed",
+          "speed": 0.5
+        },
+        {
+          "type": "setRoute",
+          "route": "direct"
+        },
+        {
+          "type": "setRoute",
+          "route": "sequential"
+        },
+        {
+          "type": "setRoute",
+          "route": "parallel"
+        }
+      ],
+      "states": [
+        {
+          "options": {
+            "route": "parallel",
+            "seed": true,
+            "planReject": false,
+            "qaFail": false
+          },
+          "status": "idle",
+          "cursor": 0,
+          "selectedPath": null,
+          "lastAction": null,
+          "speed": 1
+        },
+        {
+          "options": {
+            "route": "parallel",
+            "seed": true,
+            "planReject": false,
+            "qaFail": false
+          },
+          "status": "paused",
+          "cursor": 25,
+          "selectedPath": null,
+          "lastAction": "seek",
+          "speed": 1
+        },
+        {
+          "options": {
+            "route": "parallel",
+            "seed": true,
+            "planReject": false,
+            "qaFail": false
+          },
+          "status": "paused",
+          "cursor": 25,
+          "selectedPath": "current.md",
+          "lastAction": "seek",
+          "speed": 1
+        },
+        {
+          "options": {
+            "route": "parallel",
+            "seed": true,
+            "planReject": false,
+            "qaFail": false
+          },
+          "status": "paused",
+          "cursor": 9,
+          "selectedPath": "current.md",
+          "lastAction": "seek",
+          "speed": 1
+        },
+        {
+          "options": {
+            "route": "parallel",
+            "seed": true,
+            "planReject": false,
+            "qaFail": false
+          },
+          "status": "paused",
+          "cursor": 9,
+          "selectedPath": null,
+          "lastAction": "seek",
+          "speed": 1
+        },
+        {
+          "options": {
+            "route": "parallel",
+            "seed": false,
+            "planReject": false,
+            "qaFail": false
+          },
+          "status": "idle",
+          "cursor": 0,
+          "selectedPath": null,
+          "lastAction": "options",
+          "speed": 1
+        },
+        {
+          "options": {
+            "route": "sequential",
+            "seed": false,
+            "planReject": true,
+            "qaFail": true
+          },
+          "status": "idle",
+          "cursor": 0,
+          "selectedPath": null,
+          "lastAction": "route",
+          "speed": 1
+        },
+        {
+          "options": {
+            "route": "sequential",
+            "seed": false,
+            "planReject": false,
+            "qaFail": true
+          },
+          "status": "idle",
+          "cursor": 0,
+          "selectedPath": null,
+          "lastAction": "options",
+          "speed": 1
+        },
+        {
+          "options": {
+            "route": "sequential",
+            "seed": false,
+            "planReject": false,
+            "qaFail": false
+          },
+          "status": "idle",
+          "cursor": 0,
+          "selectedPath": null,
+          "lastAction": "options",
+          "speed": 1
+        },
+        {
+          "options": {
+            "route": "sequential",
+            "seed": false,
+            "planReject": false,
+            "qaFail": false
+          },
+          "status": "idle",
+          "cursor": 0,
+          "selectedPath": null,
+          "lastAction": "options",
+          "speed": 0.5
+        },
+        {
+          "options": {
+            "route": "direct",
+            "seed": false,
+            "planReject": false,
+            "qaFail": false
+          },
+          "status": "idle",
+          "cursor": 0,
+          "selectedPath": null,
+          "lastAction": "route",
+          "speed": 0.5
+        },
+        {
+          "options": {
+            "route": "sequential",
+            "seed": true,
+            "planReject": true,
+            "qaFail": true
+          },
+          "status": "idle",
+          "cursor": 0,
+          "selectedPath": null,
+          "lastAction": "route",
+          "speed": 0.5
+        },
+        {
+          "options": {
+            "route": "parallel",
+            "seed": true,
+            "planReject": false,
+            "qaFail": false
+          },
+          "status": "idle",
+          "cursor": 0,
+          "selectedPath": null,
+          "lastAction": "route",
+          "speed": 0.5
+        }
+      ]
+    },
+    {
+      "initial": {
+        "options": {
+          "route": "parallel",
+          "seed": true,
+          "planReject": false,
+          "qaFail": false
+        },
+        "status": "idle",
+        "cursor": 0,
+        "selectedPath": null,
+        "lastAction": null,
+        "speed": 1
+      },
+      "actions": [
+        {
+          "type": "prev"
+        },
+        {
+          "type": "seek",
+          "cursor": -90
+        },
+        {
+          "type": "seek",
+          "cursor": 2000
+        },
+        {
+          "type": "next"
+        },
+        {
+          "type": "pause"
+        },
+        {
+          "type": "tick"
+        },
+        {
+          "type": "setSpeed",
+          "speed": 7
+        },
+        {
+          "type": "setSpeed",
+          "speed": "2"
+        },
+        {
+          "type": "seek",
+          "cursor": "bad"
+        }
+      ],
+      "states": [
+        {
+          "options": {
+            "route": "parallel",
+            "seed": true,
+            "planReject": false,
+            "qaFail": false
+          },
+          "status": "idle",
+          "cursor": 0,
+          "selectedPath": null,
+          "lastAction": null,
+          "speed": 1
+        },
+        {
+          "options": {
+            "route": "parallel",
+            "seed": true,
+            "planReject": false,
+            "qaFail": false
+          },
+          "status": "idle",
+          "cursor": 0,
+          "selectedPath": null,
+          "lastAction": null,
+          "speed": 1
+        },
+        {
+          "options": {
+            "route": "parallel",
+            "seed": true,
+            "planReject": false,
+            "qaFail": false
+          },
+          "status": "idle",
+          "cursor": 0,
+          "selectedPath": null,
+          "lastAction": null,
+          "speed": 1
+        },
+        {
+          "options": {
+            "route": "parallel",
+            "seed": true,
+            "planReject": false,
+            "qaFail": false
+          },
+          "status": "done",
+          "cursor": 33,
+          "selectedPath": null,
+          "lastAction": "seek",
+          "speed": 1
+        },
+        {
+          "options": {
+            "route": "parallel",
+            "seed": true,
+            "planReject": false,
+            "qaFail": false
+          },
+          "status": "done",
+          "cursor": 33,
+          "selectedPath": null,
+          "lastAction": "seek",
+          "speed": 1
+        },
+        {
+          "options": {
+            "route": "parallel",
+            "seed": true,
+            "planReject": false,
+            "qaFail": false
+          },
+          "status": "done",
+          "cursor": 33,
+          "selectedPath": null,
+          "lastAction": "seek",
+          "speed": 1
+        },
+        {
+          "options": {
+            "route": "parallel",
+            "seed": true,
+            "planReject": false,
+            "qaFail": false
+          },
+          "status": "done",
+          "cursor": 33,
+          "selectedPath": null,
+          "lastAction": "seek",
+          "speed": 1
+        },
+        {
+          "options": {
+            "route": "parallel",
+            "seed": true,
+            "planReject": false,
+            "qaFail": false
+          },
+          "status": "done",
+          "cursor": 33,
+          "selectedPath": null,
+          "lastAction": "seek",
+          "speed": 1
+        },
+        {
+          "options": {
+            "route": "parallel",
+            "seed": true,
+            "planReject": false,
+            "qaFail": false
+          },
+          "status": "done",
+          "cursor": 33,
+          "selectedPath": null,
+          "lastAction": "seek",
+          "speed": 1
+        },
+        {
+          "options": {
+            "route": "parallel",
+            "seed": true,
+            "planReject": false,
+            "qaFail": false
+          },
+          "status": "done",
+          "cursor": 33,
+          "selectedPath": null,
+          "lastAction": "seek",
+          "speed": 1
+        }
+      ]
+    }
+  ],
+  "styles": [
+    {
+      "actions": [
+        {
+          "type": "showcase",
+          "presetId": "forest",
+          "outline": true
+        },
+        {
+          "type": "ratio",
+          "value": 35
+        },
+        {
+          "type": "showcase",
+          "presetId": "gold",
+          "outline": false
+        },
+        {
+          "type": "set",
+          "id": "source"
+        },
+        {
+          "type": "set",
+          "id": "aap64"
+        }
+      ],
+      "states": [
+        {
+          "state": {
+            "presetId": "original",
+            "customAccent": null,
+            "outlineOn": false,
+            "outlineMode": "auto",
+            "outlineManual": null,
+            "setId": "aap64",
+            "ratio": 100,
+            "touched": false
+          },
+          "light": "#1c1a2e",
+          "dark": "#fff1c9"
+        },
+        {
+          "state": {
+            "presetId": "forest",
+            "customAccent": null,
+            "outlineOn": true,
+            "outlineMode": "auto",
+            "outlineManual": null,
+            "setId": "aap64",
+            "ratio": 100,
+            "touched": false
+          },
+          "light": "#10291a",
+          "dark": "#f3ffd9"
+        },
+        {
+          "state": {
+            "presetId": "forest",
+            "customAccent": null,
+            "outlineOn": true,
+            "outlineMode": "auto",
+            "outlineManual": null,
+            "setId": "aap64",
+            "ratio": 35,
+            "touched": true
+          },
+          "light": "#10291a",
+          "dark": "#f3ffd9"
+        },
+        {
+          "state": {
+            "presetId": "forest",
+            "customAccent": null,
+            "outlineOn": true,
+            "outlineMode": "auto",
+            "outlineManual": null,
+            "setId": "aap64",
+            "ratio": 35,
+            "touched": true
+          },
+          "light": "#10291a",
+          "dark": "#f3ffd9"
+        },
+        {
+          "state": {
+            "presetId": "forest",
+            "customAccent": null,
+            "outlineOn": true,
+            "outlineMode": "auto",
+            "outlineManual": null,
+            "setId": "source",
+            "ratio": 35,
+            "touched": true
+          },
+          "light": "#10291a",
+          "dark": "#f3ffd9"
+        },
+        {
+          "state": {
+            "presetId": "forest",
+            "customAccent": null,
+            "outlineOn": true,
+            "outlineMode": "auto",
+            "outlineManual": null,
+            "setId": "aap64",
+            "ratio": 35,
+            "touched": true
+          },
+          "light": "#10291a",
+          "dark": "#f3ffd9"
+        }
+      ]
+    },
+    {
+      "actions": [
+        {
+          "type": "accent",
+          "hex": "#Ab12Cd"
+        },
+        {
+          "type": "outlineColor",
+          "hex": "#ABC123"
+        },
+        {
+          "type": "preset",
+          "id": "gold"
+        },
+        {
+          "type": "outlineAuto"
+        },
+        {
+          "type": "toggleOutline"
+        },
+        {
+          "type": "ratio",
+          "value": -70
+        },
+        {
+          "type": "ratio",
+          "value": 190
+        },
+        {
+          "type": "ratio",
+          "value": "bad"
+        }
+      ],
+      "states": [
+        {
+          "state": {
+            "presetId": "original",
+            "customAccent": null,
+            "outlineOn": false,
+            "outlineMode": "auto",
+            "outlineManual": null,
+            "setId": "aap64",
+            "ratio": 100,
+            "touched": false
+          },
+          "light": "#1c1a2e",
+          "dark": "#fff1c9"
+        },
+        {
+          "state": {
+            "presetId": "custom",
+            "customAccent": "#Ab12Cd",
+            "outlineOn": false,
+            "outlineMode": "auto",
+            "outlineManual": null,
+            "setId": "aap64",
+            "ratio": 100,
+            "touched": true
+          },
+          "light": "#1c1a2e",
+          "dark": "#fff1c9"
+        },
+        {
+          "state": {
+            "presetId": "custom",
+            "customAccent": "#Ab12Cd",
+            "outlineOn": true,
+            "outlineMode": "manual",
+            "outlineManual": "#abc123",
+            "setId": "aap64",
+            "ratio": 100,
+            "touched": true
+          },
+          "light": "#abc123",
+          "dark": "#abc123"
+        },
+        {
+          "state": {
+            "presetId": "gold",
+            "customAccent": "#Ab12Cd",
+            "outlineOn": true,
+            "outlineMode": "manual",
+            "outlineManual": "#abc123",
+            "setId": "aap64",
+            "ratio": 100,
+            "touched": true
+          },
+          "light": "#abc123",
+          "dark": "#abc123"
+        },
+        {
+          "state": {
+            "presetId": "gold",
+            "customAccent": "#Ab12Cd",
+            "outlineOn": true,
+            "outlineMode": "auto",
+            "outlineManual": "#abc123",
+            "setId": "aap64",
+            "ratio": 100,
+            "touched": true
+          },
+          "light": "#2a1b0a",
+          "dark": "#2a1b0a"
+        },
+        {
+          "state": {
+            "presetId": "gold",
+            "customAccent": "#Ab12Cd",
+            "outlineOn": false,
+            "outlineMode": "auto",
+            "outlineManual": "#abc123",
+            "setId": "aap64",
+            "ratio": 100,
+            "touched": true
+          },
+          "light": "#2a1b0a",
+          "dark": "#2a1b0a"
+        },
+        {
+          "state": {
+            "presetId": "gold",
+            "customAccent": "#Ab12Cd",
+            "outlineOn": false,
+            "outlineMode": "auto",
+            "outlineManual": "#abc123",
+            "setId": "aap64",
+            "ratio": 0,
+            "touched": true
+          },
+          "light": "#2a1b0a",
+          "dark": "#2a1b0a"
+        },
+        {
+          "state": {
+            "presetId": "gold",
+            "customAccent": "#Ab12Cd",
+            "outlineOn": false,
+            "outlineMode": "auto",
+            "outlineManual": "#abc123",
+            "setId": "aap64",
+            "ratio": 100,
+            "touched": true
+          },
+          "light": "#2a1b0a",
+          "dark": "#2a1b0a"
+        },
+        {
+          "state": {
+            "presetId": "gold",
+            "customAccent": "#Ab12Cd",
+            "outlineOn": false,
+            "outlineMode": "auto",
+            "outlineManual": "#abc123",
+            "setId": "aap64",
+            "ratio": 100,
+            "touched": true
+          },
+          "light": "#2a1b0a",
+          "dark": "#2a1b0a"
+        }
+      ]
+    }
+  ],
+  "playback": [
+    {
+      "hold": false,
+      "states": [
+        {
+          "motion": "walk",
+          "frame": 0,
+          "loop": 0,
+          "turn": 0
+        },
+        {
+          "motion": "walk",
+          "frame": 1,
+          "loop": 0,
+          "turn": 0
+        },
+        {
+          "motion": "walk",
+          "frame": 2,
+          "loop": 0,
+          "turn": 0
+        },
+        {
+          "motion": "walk",
+          "frame": 3,
+          "loop": 0,
+          "turn": 0
+        },
+        {
+          "motion": "walk",
+          "frame": 4,
+          "loop": 0,
+          "turn": 0
+        },
+        {
+          "motion": "walk",
+          "frame": 5,
+          "loop": 0,
+          "turn": 0
+        },
+        {
+          "motion": "walk",
+          "frame": 6,
+          "loop": 0,
+          "turn": 0
+        },
+        {
+          "motion": "walk",
+          "frame": 7,
+          "loop": 0,
+          "turn": 0
+        },
+        {
+          "motion": "walk",
+          "frame": 0,
+          "loop": 1,
+          "turn": 0
+        },
+        {
+          "motion": "walk",
+          "frame": 1,
+          "loop": 1,
+          "turn": 0
+        },
+        {
+          "motion": "walk",
+          "frame": 2,
+          "loop": 1,
+          "turn": 0
+        },
+        {
+          "motion": "walk",
+          "frame": 3,
+          "loop": 1,
+          "turn": 0
+        },
+        {
+          "motion": "walk",
+          "frame": 4,
+          "loop": 1,
+          "turn": 0
+        },
+        {
+          "motion": "walk",
+          "frame": 5,
+          "loop": 1,
+          "turn": 0
+        },
+        {
+          "motion": "walk",
+          "frame": 6,
+          "loop": 1,
+          "turn": 0
+        },
+        {
+          "motion": "walk",
+          "frame": 7,
+          "loop": 1,
+          "turn": 0
+        },
+        {
+          "motion": "run",
+          "frame": 0,
+          "loop": 0,
+          "turn": 1
+        },
+        {
+          "motion": "run",
+          "frame": 1,
+          "loop": 0,
+          "turn": 1
+        },
+        {
+          "motion": "run",
+          "frame": 2,
+          "loop": 0,
+          "turn": 1
+        },
+        {
+          "motion": "run",
+          "frame": 3,
+          "loop": 0,
+          "turn": 1
+        },
+        {
+          "motion": "run",
+          "frame": 4,
+          "loop": 0,
+          "turn": 1
+        },
+        {
+          "motion": "run",
+          "frame": 5,
+          "loop": 0,
+          "turn": 1
+        },
+        {
+          "motion": "run",
+          "frame": 6,
+          "loop": 0,
+          "turn": 1
+        },
+        {
+          "motion": "run",
+          "frame": 7,
+          "loop": 0,
+          "turn": 1
+        },
+        {
+          "motion": "run",
+          "frame": 0,
+          "loop": 1,
+          "turn": 1
+        },
+        {
+          "motion": "run",
+          "frame": 1,
+          "loop": 1,
+          "turn": 1
+        },
+        {
+          "motion": "run",
+          "frame": 2,
+          "loop": 1,
+          "turn": 1
+        },
+        {
+          "motion": "run",
+          "frame": 3,
+          "loop": 1,
+          "turn": 1
+        },
+        {
+          "motion": "run",
+          "frame": 4,
+          "loop": 1,
+          "turn": 1
+        },
+        {
+          "motion": "run",
+          "frame": 5,
+          "loop": 1,
+          "turn": 1
+        },
+        {
+          "motion": "run",
+          "frame": 6,
+          "loop": 1,
+          "turn": 1
+        },
+        {
+          "motion": "run",
+          "frame": 7,
+          "loop": 1,
+          "turn": 1
+        },
+        {
+          "motion": "attack",
+          "frame": 0,
+          "loop": 0,
+          "turn": 2
+        },
+        {
+          "motion": "attack",
+          "frame": 1,
+          "loop": 0,
+          "turn": 2
+        },
+        {
+          "motion": "attack",
+          "frame": 2,
+          "loop": 0,
+          "turn": 2
+        },
+        {
+          "motion": "attack",
+          "frame": 3,
+          "loop": 0,
+          "turn": 2
+        },
+        {
+          "motion": "attack",
+          "frame": 4,
+          "loop": 0,
+          "turn": 2
+        },
+        {
+          "motion": "attack",
+          "frame": 5,
+          "loop": 0,
+          "turn": 2
+        },
+        {
+          "motion": "attack",
+          "frame": 6,
+          "loop": 0,
+          "turn": 2
+        },
+        {
+          "motion": "attack",
+          "frame": 7,
+          "loop": 0,
+          "turn": 2
+        },
+        {
+          "motion": "attack",
+          "frame": 8,
+          "loop": 0,
+          "turn": 2
+        },
+        {
+          "motion": "attack",
+          "frame": 9,
+          "loop": 0,
+          "turn": 2
+        },
+        {
+          "motion": "attack",
+          "frame": 10,
+          "loop": 0,
+          "turn": 2
+        },
+        {
+          "motion": "attack",
+          "frame": 11,
+          "loop": 0,
+          "turn": 2
+        },
+        {
+          "motion": "walk",
+          "frame": 0,
+          "loop": 0,
+          "turn": 3
+        },
+        {
+          "motion": "walk",
+          "frame": 1,
+          "loop": 0,
+          "turn": 3
+        },
+        {
+          "motion": "walk",
+          "frame": 2,
+          "loop": 0,
+          "turn": 3
+        },
+        {
+          "motion": "walk",
+          "frame": 3,
+          "loop": 0,
+          "turn": 3
+        },
+        {
+          "motion": "walk",
+          "frame": 4,
+          "loop": 0,
+          "turn": 3
+        },
+        {
+          "motion": "walk",
+          "frame": 5,
+          "loop": 0,
+          "turn": 3
+        },
+        {
+          "motion": "walk",
+          "frame": 6,
+          "loop": 0,
+          "turn": 3
+        },
+        {
+          "motion": "walk",
+          "frame": 7,
+          "loop": 0,
+          "turn": 3
+        },
+        {
+          "motion": "walk",
+          "frame": 0,
+          "loop": 1,
+          "turn": 3
+        },
+        {
+          "motion": "walk",
+          "frame": 1,
+          "loop": 1,
+          "turn": 3
+        },
+        {
+          "motion": "walk",
+          "frame": 2,
+          "loop": 1,
+          "turn": 3
+        },
+        {
+          "motion": "walk",
+          "frame": 3,
+          "loop": 1,
+          "turn": 3
+        },
+        {
+          "motion": "walk",
+          "frame": 4,
+          "loop": 1,
+          "turn": 3
+        },
+        {
+          "motion": "walk",
+          "frame": 5,
+          "loop": 1,
+          "turn": 3
+        },
+        {
+          "motion": "walk",
+          "frame": 6,
+          "loop": 1,
+          "turn": 3
+        },
+        {
+          "motion": "walk",
+          "frame": 7,
+          "loop": 1,
+          "turn": 3
+        },
+        {
+          "motion": "run",
+          "frame": 0,
+          "loop": 0,
+          "turn": 4
+        },
+        {
+          "motion": "run",
+          "frame": 1,
+          "loop": 0,
+          "turn": 4
+        },
+        {
+          "motion": "run",
+          "frame": 2,
+          "loop": 0,
+          "turn": 4
+        }
+      ]
+    },
+    {
+      "hold": true,
+      "states": [
+        {
+          "motion": "walk",
+          "frame": 0,
+          "loop": 0,
+          "turn": 0
+        },
+        {
+          "motion": "walk",
+          "frame": 1,
+          "loop": 0,
+          "turn": 0
+        },
+        {
+          "motion": "walk",
+          "frame": 2,
+          "loop": 0,
+          "turn": 0
+        },
+        {
+          "motion": "walk",
+          "frame": 3,
+          "loop": 0,
+          "turn": 0
+        },
+        {
+          "motion": "walk",
+          "frame": 4,
+          "loop": 0,
+          "turn": 0
+        },
+        {
+          "motion": "walk",
+          "frame": 5,
+          "loop": 0,
+          "turn": 0
+        },
+        {
+          "motion": "walk",
+          "frame": 6,
+          "loop": 0,
+          "turn": 0
+        },
+        {
+          "motion": "walk",
+          "frame": 7,
+          "loop": 0,
+          "turn": 0
+        },
+        {
+          "motion": "walk",
+          "frame": 0,
+          "loop": 0,
+          "turn": 0
+        },
+        {
+          "motion": "walk",
+          "frame": 1,
+          "loop": 0,
+          "turn": 0
+        },
+        {
+          "motion": "walk",
+          "frame": 2,
+          "loop": 0,
+          "turn": 0
+        },
+        {
+          "motion": "walk",
+          "frame": 3,
+          "loop": 0,
+          "turn": 0
+        },
+        {
+          "motion": "walk",
+          "frame": 4,
+          "loop": 0,
+          "turn": 0
+        },
+        {
+          "motion": "walk",
+          "frame": 5,
+          "loop": 0,
+          "turn": 0
+        },
+        {
+          "motion": "walk",
+          "frame": 6,
+          "loop": 0,
+          "turn": 0
+        },
+        {
+          "motion": "walk",
+          "frame": 7,
+          "loop": 0,
+          "turn": 0
+        },
+        {
+          "motion": "walk",
+          "frame": 0,
+          "loop": 0,
+          "turn": 0
+        },
+        {
+          "motion": "walk",
+          "frame": 1,
+          "loop": 0,
+          "turn": 0
+        },
+        {
+          "motion": "walk",
+          "frame": 2,
+          "loop": 0,
+          "turn": 0
+        },
+        {
+          "motion": "walk",
+          "frame": 3,
+          "loop": 0,
+          "turn": 0
+        },
+        {
+          "motion": "walk",
+          "frame": 4,
+          "loop": 0,
+          "turn": 0
+        },
+        {
+          "motion": "walk",
+          "frame": 5,
+          "loop": 0,
+          "turn": 0
+        },
+        {
+          "motion": "walk",
+          "frame": 6,
+          "loop": 0,
+          "turn": 0
+        },
+        {
+          "motion": "walk",
+          "frame": 7,
+          "loop": 0,
+          "turn": 0
+        },
+        {
+          "motion": "walk",
+          "frame": 0,
+          "loop": 0,
+          "turn": 0
+        },
+        {
+          "motion": "walk",
+          "frame": 1,
+          "loop": 0,
+          "turn": 0
+        },
+        {
+          "motion": "walk",
+          "frame": 2,
+          "loop": 0,
+          "turn": 0
+        },
+        {
+          "motion": "walk",
+          "frame": 3,
+          "loop": 0,
+          "turn": 0
+        },
+        {
+          "motion": "walk",
+          "frame": 4,
+          "loop": 0,
+          "turn": 0
+        },
+        {
+          "motion": "walk",
+          "frame": 5,
+          "loop": 0,
+          "turn": 0
+        },
+        {
+          "motion": "walk",
+          "frame": 6,
+          "loop": 0,
+          "turn": 0
+        },
+        {
+          "motion": "walk",
+          "frame": 7,
+          "loop": 0,
+          "turn": 0
+        },
+        {
+          "motion": "walk",
+          "frame": 0,
+          "loop": 0,
+          "turn": 0
+        },
+        {
+          "motion": "walk",
+          "frame": 1,
+          "loop": 0,
+          "turn": 0
+        },
+        {
+          "motion": "walk",
+          "frame": 2,
+          "loop": 0,
+          "turn": 0
+        },
+        {
+          "motion": "walk",
+          "frame": 3,
+          "loop": 0,
+          "turn": 0
+        },
+        {
+          "motion": "walk",
+          "frame": 4,
+          "loop": 0,
+          "turn": 0
+        },
+        {
+          "motion": "walk",
+          "frame": 5,
+          "loop": 0,
+          "turn": 0
+        },
+        {
+          "motion": "walk",
+          "frame": 6,
+          "loop": 0,
+          "turn": 0
+        },
+        {
+          "motion": "walk",
+          "frame": 7,
+          "loop": 0,
+          "turn": 0
+        },
+        {
+          "motion": "walk",
+          "frame": 0,
+          "loop": 0,
+          "turn": 0
+        },
+        {
+          "motion": "walk",
+          "frame": 1,
+          "loop": 0,
+          "turn": 0
+        },
+        {
+          "motion": "walk",
+          "frame": 2,
+          "loop": 0,
+          "turn": 0
+        },
+        {
+          "motion": "walk",
+          "frame": 3,
+          "loop": 0,
+          "turn": 0
+        },
+        {
+          "motion": "walk",
+          "frame": 4,
+          "loop": 0,
+          "turn": 0
+        },
+        {
+          "motion": "walk",
+          "frame": 5,
+          "loop": 0,
+          "turn": 0
+        },
+        {
+          "motion": "walk",
+          "frame": 6,
+          "loop": 0,
+          "turn": 0
+        },
+        {
+          "motion": "walk",
+          "frame": 7,
+          "loop": 0,
+          "turn": 0
+        },
+        {
+          "motion": "walk",
+          "frame": 0,
+          "loop": 0,
+          "turn": 0
+        },
+        {
+          "motion": "walk",
+          "frame": 1,
+          "loop": 0,
+          "turn": 0
+        },
+        {
+          "motion": "walk",
+          "frame": 2,
+          "loop": 0,
+          "turn": 0
+        },
+        {
+          "motion": "walk",
+          "frame": 3,
+          "loop": 0,
+          "turn": 0
+        },
+        {
+          "motion": "walk",
+          "frame": 4,
+          "loop": 0,
+          "turn": 0
+        },
+        {
+          "motion": "walk",
+          "frame": 5,
+          "loop": 0,
+          "turn": 0
+        },
+        {
+          "motion": "walk",
+          "frame": 6,
+          "loop": 0,
+          "turn": 0
+        },
+        {
+          "motion": "walk",
+          "frame": 7,
+          "loop": 0,
+          "turn": 0
+        },
+        {
+          "motion": "walk",
+          "frame": 0,
+          "loop": 0,
+          "turn": 0
+        },
+        {
+          "motion": "walk",
+          "frame": 1,
+          "loop": 0,
+          "turn": 0
+        },
+        {
+          "motion": "walk",
+          "frame": 2,
+          "loop": 0,
+          "turn": 0
+        },
+        {
+          "motion": "walk",
+          "frame": 3,
+          "loop": 0,
+          "turn": 0
+        },
+        {
+          "motion": "walk",
+          "frame": 4,
+          "loop": 0,
+          "turn": 0
+        },
+        {
+          "motion": "walk",
+          "frame": 5,
+          "loop": 0,
+          "turn": 0
+        },
+        {
+          "motion": "walk",
+          "frame": 6,
+          "loop": 0,
+          "turn": 0
+        }
+      ]
+    }
+  ],
+  "showcase": [
+    {
+      "turn": 0,
+      "result": {
+        "presetId": "original",
+        "outline": false
+      }
+    },
+    {
+      "turn": 1,
+      "result": {
+        "presetId": "crimson",
+        "outline": false
+      }
+    },
+    {
+      "turn": 2,
+      "result": {
+        "presetId": "forest",
+        "outline": true
+      }
+    },
+    {
+      "turn": 3,
+      "result": {
+        "presetId": "gold",
+        "outline": true
+      }
+    },
+    {
+      "turn": 4,
+      "result": {
+        "presetId": "violet",
+        "outline": false
+      }
+    },
+    {
+      "turn": 5,
+      "result": {
+        "presetId": "original",
+        "outline": false
+      }
+    },
+    {
+      "turn": 6,
+      "result": {
+        "presetId": "crimson",
+        "outline": true
+      }
+    },
+    {
+      "turn": 7,
+      "result": {
+        "presetId": "forest",
+        "outline": true
+      }
+    },
+    {
+      "turn": 8,
+      "result": {
+        "presetId": "gold",
+        "outline": false
+      }
+    },
+    {
+      "turn": 9,
+      "result": {
+        "presetId": "violet",
+        "outline": false
+      }
+    },
+    {
+      "turn": 10,
+      "result": {
+        "presetId": "original",
+        "outline": true
+      }
+    },
+    {
+      "turn": 11,
+      "result": {
+        "presetId": "crimson",
+        "outline": true
+      }
+    },
+    {
+      "turn": 12,
+      "result": {
+        "presetId": "forest",
+        "outline": false
+      }
+    }
+  ],
+  "subtitle": {
+    "actions": [
+      {
+        "type": "prev"
+      },
+      {
+        "type": "play"
+      },
+      {
+        "type": "tick"
+      },
+      {
+        "type": "tick"
+      },
+      {
+        "type": "next"
+      },
+      {
+        "type": "seek",
+        "stage": 5
+      },
+      {
+        "type": "play"
+      },
+      {
+        "type": "tick"
+      },
+      {
+        "type": "pause"
+      },
+      {
+        "type": "seek",
+        "stage": 2.2
+      },
+      {
+        "type": "seek",
+        "stage": -1
+      },
+      {
+        "type": "reset"
+      }
+    ],
+    "states": [
+      {
+        "stage": 0,
+        "playing": false
+      },
+      {
+        "stage": 0,
+        "playing": false
+      },
+      {
+        "stage": 0,
+        "playing": true
+      },
+      {
+        "stage": 1,
+        "playing": true
+      },
+      {
+        "stage": 2,
+        "playing": true
+      },
+      {
+        "stage": 3,
+        "playing": false
+      },
+      {
+        "stage": 5,
+        "playing": false
+      },
+      {
+        "stage": 0,
+        "playing": true
+      },
+      {
+        "stage": 1,
+        "playing": true
+      },
+      {
+        "stage": 1,
+        "playing": false
+      },
+      {
+        "stage": 1,
+        "playing": false
+      },
+      {
+        "stage": 0,
+        "playing": false
+      },
+      {
+        "stage": 0,
+        "playing": false
+      }
+    ]
+  },
+  "geometry": [
+    {
+      "rect": {
+        "top": 160,
+        "bottom": 260,
+        "height": 100
+      },
+      "safeTop": 100,
+      "viewportHeight": 800,
+      "result": null
+    },
+    {
+      "rect": {
+        "top": 40,
+        "bottom": 140,
+        "height": 100
+      },
+      "safeTop": 100,
+      "viewportHeight": 800,
+      "result": -76
+    },
+    {
+      "rect": {
+        "top": 800,
+        "bottom": 900,
+        "height": 100
+      },
+      "safeTop": 100,
+      "viewportHeight": 800,
+      "result": 116
+    },
+    {
+      "rect": {
+        "top": 20,
+        "bottom": 1200,
+        "height": 1180
+      },
+      "safeTop": 100,
+      "viewportHeight": 800,
+      "result": -96
+    }
+  ],
+  "onion": [
+    {
+      "length": 8,
+      "frame": 0,
+      "loop": false,
+      "neighbors": {
+        "prev": null,
+        "next": 1
+      },
+      "prev": 0,
+      "next": 1
+    },
+    {
+      "length": 8,
+      "frame": 0,
+      "loop": true,
+      "neighbors": {
+        "prev": 7,
+        "next": 1
+      },
+      "prev": 7,
+      "next": 1
+    },
+    {
+      "length": 8,
+      "frame": 1,
+      "loop": false,
+      "neighbors": {
+        "prev": 0,
+        "next": 2
+      },
+      "prev": 0,
+      "next": 2
+    },
+    {
+      "length": 8,
+      "frame": 1,
+      "loop": true,
+      "neighbors": {
+        "prev": 0,
+        "next": 2
+      },
+      "prev": 0,
+      "next": 2
+    },
+    {
+      "length": 8,
+      "frame": 7,
+      "loop": false,
+      "neighbors": {
+        "prev": 6,
+        "next": null
+      },
+      "prev": 6,
+      "next": 7
+    },
+    {
+      "length": 8,
+      "frame": 7,
+      "loop": true,
+      "neighbors": {
+        "prev": 6,
+        "next": 0
+      },
+      "prev": 6,
+      "next": 0
+    },
+    {
+      "length": 12,
+      "frame": 0,
+      "loop": false,
+      "neighbors": {
+        "prev": null,
+        "next": 1
+      },
+      "prev": 0,
+      "next": 1
+    },
+    {
+      "length": 12,
+      "frame": 0,
+      "loop": true,
+      "neighbors": {
+        "prev": 11,
+        "next": 1
+      },
+      "prev": 11,
+      "next": 1
+    },
+    {
+      "length": 12,
+      "frame": 1,
+      "loop": false,
+      "neighbors": {
+        "prev": 0,
+        "next": 2
+      },
+      "prev": 0,
+      "next": 2
+    },
+    {
+      "length": 12,
+      "frame": 1,
+      "loop": true,
+      "neighbors": {
+        "prev": 0,
+        "next": 2
+      },
+      "prev": 0,
+      "next": 2
+    },
+    {
+      "length": 12,
+      "frame": 11,
+      "loop": false,
+      "neighbors": {
+        "prev": 10,
+        "next": null
+      },
+      "prev": 10,
+      "next": 11
+    },
+    {
+      "length": 12,
+      "frame": 11,
+      "loop": true,
+      "neighbors": {
+        "prev": 10,
+        "next": 0
+      },
+      "prev": 10,
+      "next": 0
+    }
+  ],
+  "shuffle": {
+    "rngValues": [
+      0.13,
+      0.81,
+      0.37,
+      0.94,
+      0.02,
+      0.62
+    ],
+    "first": [
+      "attack",
+      "run",
+      "walk",
+      "attack",
+      "walk",
+      "run",
+      "attack",
+      "walk",
+      "run",
+      "attack",
+      "walk",
+      "run"
+    ],
+    "afterResume": [
+      "run",
+      "attack",
+      "walk",
+      "run",
+      "walk",
+      "attack",
+      "run",
+      "walk",
+      "attack"
+    ]
+  },
+  "sourceTrace": {
+    "frameDurations": {
+      "walk": [
+        130,
+        110,
+        120,
+        110,
+        130,
+        110,
+        120,
+        110
+      ],
+      "run": [
+        90,
+        100,
+        80,
+        90,
+        90,
+        100,
+        80,
+        90
+      ],
+      "attack": [
+        60,
+        40,
+        60,
+        60,
+        120,
+        40,
+        40,
+        110,
+        90,
+        90,
+        90,
+        120
+      ]
+    },
+    "workflowDelays": [
+      {
+        "speed": 0.5,
+        "ms": 3000
+      },
+      {
+        "speed": 1,
+        "ms": 1500
+      },
+      {
+        "speed": 2,
+        "ms": 750
+      }
+    ],
+    "subtitleInterval": 2600,
+    "cacheLimits": {
+      "FRAME_CACHE_LIMIT": 96,
+      "MAP_CACHE_LIMIT": 12,
+      "NEAREST_CACHE_LIMIT": 10,
+      "NEAREST_ENTRY_LIMIT": 4096
+    },
+    "onionOpacityBounds": [
+      0.1,
+      1
+    ],
+    "observerThreshold": 0.2,
+    "observerCriterion": "entry.isIntersecting",
+    "motionSelectionPreservesPlaying": true,
+    "motionSelectionDisablesShuffle": true
+  }
+}

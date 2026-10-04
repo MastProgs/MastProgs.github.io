@@ -1,0 +1,312 @@
+{
+  "baseline": "fcdfc01",
+  "onion": [
+    {
+      "motion": "walk",
+      "step": 0,
+      "opacity": 0.1,
+      "neighbors": {
+        "prev": 7,
+        "next": 1
+      },
+      "sha256": "eb1460c5a99528947d72cbdee5477795ba60971046f95ca48a2e46d723ac9f7a",
+      "width": 86,
+      "height": 91
+    },
+    {
+      "motion": "walk",
+      "step": 0,
+      "opacity": 0.35,
+      "neighbors": {
+        "prev": 7,
+        "next": 1
+      },
+      "sha256": "950bb45e6f995b0b192273394b563bfb9345a1403bed14de97da341c2a414543",
+      "width": 86,
+      "height": 91
+    },
+    {
+      "motion": "walk",
+      "step": 0,
+      "opacity": 1,
+      "neighbors": {
+        "prev": 7,
+        "next": 1
+      },
+      "sha256": "78289ebd0a388109569bbde0b6ce2345dd751ddf8a340e5c169cbb3ae9744664",
+      "width": 86,
+      "height": 91
+    },
+    {
+      "motion": "walk",
+      "step": 7,
+      "opacity": 0.1,
+      "neighbors": {
+        "prev": 6,
+        "next": 0
+      },
+      "sha256": "5c178a5adfaf78880f569f30d3132686020882a68d13794fd99b7d060c9108b7",
+      "width": 86,
+      "height": 91
+    },
+    {
+      "motion": "walk",
+      "step": 7,
+      "opacity": 0.35,
+      "neighbors": {
+        "prev": 6,
+        "next": 0
+      },
+      "sha256": "b9d7c371d1c89e5332ea2fcc7bd0e62b726ed27e384970cbe926b65db7a7d67c",
+      "width": 86,
+      "height": 91
+    },
+    {
+      "motion": "walk",
+      "step": 7,
+      "opacity": 1,
+      "neighbors": {
+        "prev": 6,
+        "next": 0
+      },
+      "sha256": "e3d44b12355b9f33f985d99afe0e178c3d7766cd2ee9eeef34ad9a77af9c37c2",
+      "width": 86,
+      "height": 91
+    },
+    {
+      "motion": "run",
+      "step": 0,
+      "opacity": 0.1,
+      "neighbors": {
+        "prev": 7,
+        "next": 1
+      },
+      "sha256": "ee6fff24404c619e38328f433af777918a25fea5ae521af8386f5d6e5be5d32f",
+      "width": 86,
+      "height": 91
+    },
+    {
+      "motion": "run",
+      "step": 0,
+      "opacity": 0.35,
+      "neighbors": {
+        "prev": 7,
+        "next": 1
+      },
+      "sha256": "7545605d739d7b119a1e78b8ea4c401a3cb8361ce146007867c48a3ee586ba7d",
+      "width": 86,
+      "height": 91
+    },
+    {
+      "motion": "run",
+      "step": 0,
+      "opacity": 1,
+      "neighbors": {
+        "prev": 7,
+        "next": 1
+      },
+      "sha256": "d9348891ed90397bd37a4d80d8c0c7207a26a243a66e7694ad53fa77a1e5c674",
+      "width": 86,
+      "height": 91
+    },
+    {
+      "motion": "run",
+      "step": 7,
+      "opacity": 0.1,
+      "neighbors": {
+        "prev": 6,
+        "next": 0
+      },
+      "sha256": "667b3e0b1495186a77b2c086a4f0e59f0e976cbd08efc1edefb3f773084f7604",
+      "width": 86,
+      "height": 91
+    },
+    {
+      "motion": "run",
+      "step": 7,
+      "opacity": 0.35,
+      "neighbors": {
+        "prev": 6,
+        "next": 0
+      },
+      "sha256": "9362f4026a62d79077d7b3e1d9c7c4bd72bc546896b2215f644c92b04280ac23",
+      "width": 86,
+      "height": 91
+    },
+    {
+      "motion": "run",
+      "step": 7,
+      "opacity": 1,
+      "neighbors": {
+        "prev": 6,
+        "next": 0
+      },
+      "sha256": "b17c239030f5f34f3e7e7adf0daedad664dd876c0cf613ab086721b91c0287a5",
+      "width": 86,
+      "height": 91
+    },
+    {
+      "motion": "attack",
+      "step": 0,
+      "opacity": 0.1,
+      "neighbors": {
+        "prev": null,
+        "next": 1
+      },
+      "sha256": "814abd2c69f9feb550ea3501941fe37e5234b677dfde7395700c9fd0398c2c61",
+      "width": 86,
+      "height": 91
+    },
+    {
+      "motion": "attack",
+      "step": 0,
+      "opacity": 0.35,
+      "neighbors": {
+        "prev": null,
+        "next": 1
+      },
+      "sha256": "3bdc86c74b89522f34a708ffceaf4fa4304487af9eb777fe5cc8b34378667b8a",
+      "width": 86,
+      "height": 91
+    },
+    {
+      "motion": "attack",
+      "step": 0,
+      "opacity": 1,
+      "neighbors": {
+        "prev": null,
+        "next": 1
+      },
+      "sha256": "82972a1b8f38b366a52756823eafa183f3c757ccf842b84e1ac70308cad198a5",
+      "width": 86,
+      "height": 91
+    },
+    {
+      "motion": "attack",
+      "step": 11,
+      "opacity": 0.1,
+      "neighbors": {
+        "prev": 10,
+        "next": null
+      },
+      "sha256": "c0d97e4dd3d943b8e3bef8f9e1ddc9bb7ed1d5dc13176be47fd2294b9f572673",
+      "width": 86,
+      "height": 91
+    },
+    {
+      "motion": "attack",
+      "step": 11,
+      "opacity": 0.35,
+      "neighbors": {
+        "prev": 10,
+        "next": null
+      },
+      "sha256": "286de334682a1f141c65e505aab566ece18525e91bf325dae241a3b3c0edeefe",
+      "width": 86,
+      "height": 91
+    },
+    {
+      "motion": "attack",
+      "step": 11,
+      "opacity": 1,
+      "neighbors": {
+        "prev": 10,
+        "next": null
+      },
+      "sha256": "8c2876a11dfe9c16d0c088c873885a97fab67f08085d59c2ce936212635983c4",
+      "width": 86,
+      "height": 91
+    }
+  ],
+  "center": [
+    {
+      "frameIndex": 0,
+      "sha256": "b5ed17c35c55278fcd4f4eae2ac7a3fce87b783011eed00ccadb6cc548aded40",
+      "metadata": {
+        "dx": 5,
+        "dy": 0,
+        "box": {
+          "x": 16,
+          "y": 17,
+          "w": 38,
+          "h": 64
+        }
+      }
+    },
+    {
+      "frameIndex": 7,
+      "sha256": "e3942bfa3045a96d7eae6ac6246cd1017e6ee02c9fd83022ac08bb69441c3e9c",
+      "metadata": {
+        "dx": 4,
+        "dy": 0,
+        "box": {
+          "x": 16,
+          "y": 17,
+          "w": 39,
+          "h": 64
+        }
+      }
+    },
+    {
+      "frameIndex": 8,
+      "sha256": "b8a1a205c55ab2e8646a0fd094f58c0ba146dfbdf01cd1da1167c5446a2bea5e",
+      "metadata": {
+        "dx": 9,
+        "dy": 0,
+        "box": {
+          "x": 7,
+          "y": 19,
+          "w": 48,
+          "h": 62
+        }
+      }
+    },
+    {
+      "frameIndex": 15,
+      "sha256": "2ecd8b6d4f14f6ec7c28ed32265820236e4884950937caa9f2978ec4d8c6dae1",
+      "metadata": {
+        "dx": 8,
+        "dy": 5,
+        "box": {
+          "x": 7,
+          "y": 15,
+          "w": 49,
+          "h": 61
+        }
+      }
+    },
+    {
+      "frameIndex": 16,
+      "sha256": "7613ed59ac7731a2584f50913157bb49ff08080674113fcc07c8df2c982e32cf",
+      "metadata": {
+        "dx": 1,
+        "dy": 0,
+        "box": {
+          "x": 20,
+          "y": 17,
+          "w": 38,
+          "h": 64
+        }
+      }
+    },
+    {
+      "frameIndex": 27,
+      "sha256": "7613ed59ac7731a2584f50913157bb49ff08080674113fcc07c8df2c982e32cf",
+      "metadata": {
+        "dx": 1,
+        "dy": 0,
+        "box": {
+          "x": 20,
+          "y": 17,
+          "w": 38,
+          "h": 64
+        }
+      }
+    }
+  ],
+  "renderer": {
+    "pixelFormat": "rgba8888",
+    "alpha": "premultiplied",
+    "sdkEvidence": "Flutter3.41.9 sky_engine/lib/ui/painting.dart PixelFormat.rgba8888"
+  }
+}
