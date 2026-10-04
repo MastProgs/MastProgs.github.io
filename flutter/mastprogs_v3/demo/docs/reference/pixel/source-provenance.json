@@ -1,0 +1,31 @@
+{
+  "version": "hero-studio-v8-sword-tip",
+  "extracted": "2026-10-04",
+  "sourceHashes": {
+    "studio-data.json": "aa7059d4a2ad75b8de70a11d0df59efdd763dd8151760ea2dd3d1c3e38a32225",
+    "provenance/studio-src/data/palettes-data.js": "1e8ef3119f99ea38a29a4e66f3fdfe1fa80dd312daea0a9d63ac5e6ecc971bb4",
+    "provenance/studio-src/engine/palette.js": "5cae691e435ae013de6dd6faa879e60d1e82ce60ea2a65617d6d8b2eac1cb692",
+    "provenance/hero-side.skeleton.json": "7b8e4accd8de5e965ec9797bb3dc54fb7c93d49be502dae77d09c0e29e38db21",
+    "provenance/engine-motion/walk.json": "c02ca17c800bcd0d849a8304b2fad7b2c3b68cda5a6dc5b204ae0cf3813f4a3f",
+    "provenance/engine-motion/run.json": "4fa424fa800719019005d43ab6e4e5f35dcbf15577120b7ae8599aa41468583a",
+    "provenance/engine-motion/attack.json": "585e72f62cc94510ef1a5c6c0b13f1721bcbc4a3d8859ae0a78ab9505a187478",
+    "report.json": "e1f8babdd182fa71d7b28c2b2b55b5a792c3cc68aa28ff5e2a53bf64eb7c186d"
+  },
+  "selection": {
+    "resolution": 64,
+    "motions": [
+      "walk",
+      "run",
+      "attack"
+    ],
+    "frames": 28,
+    "layers": 20,
+    "paletteSets": 10,
+    "pivotX": 38,
+    "soleRow": 79
+  },
+  "verification": {
+    "recompositeVersusReferenceCel": "28/28 frames, zero differing master indices",
+    "pngReference": "Existing PNG/GIF are the original studio styled export; raw cel composite is the separately preserved source-layer view."
+  }
+}

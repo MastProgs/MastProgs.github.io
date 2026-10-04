@@ -1,0 +1,731 @@
+/* Résumé sections (01 소개, 02 학력·역량, 03 핵심 구현, 04 회사 경력): Gil-style dark index with hairlines. */
+.resume-section {
+  margin: 72px var(--stage-inset) 0;
+  padding: 28px 21px 0;
+  border-top: 1px solid var(--line);
+}
+
+.resume-section__head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 8px 32px;
+}
+
+.resume-section__lede {
+  color: var(--ink-3);
+  font-size: 15px;
+  letter-spacing: -0.01em;
+}
+
+/* AI-NOTE: 03 핵심 구현(CoreSection). 상위 h2 하나 아래에 하위 목차와 세 하위 항목(h3)이 모두 펼쳐져 이어진다(탭 아님).
+   하위 항목은 섹션 구분선보다 약한 점선 구분선과 "03.01" 같은 작은 번호로 상위 섹션과 위계를 나눈다. */
+.core__nav ol {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 18px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.core__nav a {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 44px;
+  padding: 0 16px;
+  border: 1px solid var(--tile-line);
+  border-radius: 999px;
+  background: var(--tile);
+  color: var(--ink);
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: border-color var(--dur-fast) var(--ease-out);
+}
+
+.core__nav a:hover {
+  border-color: var(--orange-text);
+}
+
+.core__nav-index {
+  color: var(--orange-text);
+  font-size: 12.5px;
+  font-variant-numeric: tabular-nums;
+}
+
+.core__items {
+  display: grid;
+  gap: 48px;
+  margin-top: 36px;
+}
+
+.core-item {
+  scroll-margin-top: 80px;
+}
+
+.core-item + .core-item {
+  padding-top: 40px;
+  border-top: 1px dashed var(--line);
+}
+
+.core-item__head {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: baseline;
+  gap: 6px 16px;
+}
+
+.core-item__index {
+  color: var(--orange-text);
+  font-size: 15px;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+
+.core-item__title {
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 1.3;
+  letter-spacing: -0.025em;
+}
+
+.core-item__lede {
+  grid-column: 2;
+  color: var(--ink-3);
+  font-size: 15px;
+  letter-spacing: -0.01em;
+}
+
+.srt-brief__stage {
+  min-width: 0;
+  padding: 16px;
+  border-radius: 18px;
+  background: var(--paper);
+}
+
+@media (max-width: 760px) {
+  .core__items {
+    gap: 36px;
+  }
+
+  .core-item + .core-item {
+    padding-top: 32px;
+  }
+
+  .core-item__head {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .core-item__lede {
+    grid-column: auto;
+  }
+
+  .core-item__title {
+    font-size: 19px;
+  }
+
+  .srt-brief__stage {
+    padding: 12px;
+  }
+
+  .srt-brief__stage .case-diagram__steps {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .srt-brief__stage .case-diagram__step:not(:nth-child(3n)):not(:last-child)::after {
+    content: none;
+  }
+}
+
+/* 01 소개: 사진은 섹션 왼쪽 기준선, 이름·연락처는 바로 오른쪽 한 열.
+   사진 위 = 이름 위, 사진 아래 = 연락처 아래(남는 높이는 두 행 사이로). */
+.profile__intro {
+  display: grid;
+  grid-template-columns: 180px minmax(0, 1fr);
+  grid-template-rows: auto 1fr;
+  grid-template-areas:
+    "photo name"
+    "photo contact";
+  align-items: start;
+  gap: 20px 40px;
+  margin-top: 32px;
+}
+
+.profile__intro .profile__name {
+  grid-area: name;
+  line-height: 1.2;
+}
+
+.profile__contact {
+  grid-area: contact;
+  align-self: end;
+  scroll-margin-top: 80px;
+}
+
+.profile__intro .profile__photo {
+  grid-area: photo;
+}
+
+.contact-slots--inline .contact-slots__list {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0 24px;
+}
+
+.profile__body {
+  margin-top: 40px;
+}
+
+.profile__photo {
+  width: 100%;
+  aspect-ratio: 1086 / 1448;
+  object-fit: cover;
+  object-position: 50% 30%;
+  border-radius: 16px;
+  background: #ffffff;
+}
+
+.profile__text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+  min-width: 0;
+}
+
+.profile__name {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 6px 14px;
+  font-size: 34px;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+}
+
+.profile__name span {
+  color: var(--ink-2);
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.profile__headline {
+  max-width: 760px;
+  color: var(--ink);
+  font-size: 22px;
+  font-weight: 600;
+  line-height: 1.4;
+  letter-spacing: -0.03em;
+}
+
+.profile__story {
+  display: grid;
+  gap: 12px;
+  max-width: 760px;
+}
+
+.profile__story p {
+  color: var(--ink-2);
+  font-size: 16.5px;
+  line-height: 1.75;
+}
+
+.profile__blocks {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 40px;
+  width: 100%;
+  margin-top: 16px;
+}
+
+.profile__block-title {
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--line);
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+.values-list__item {
+  display: grid;
+  grid-template-columns: 36px minmax(0, 1fr);
+  gap: 8px;
+  padding: 16px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.values-list__num {
+  color: var(--orange);
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 24px;
+  font-variant-numeric: tabular-nums;
+}
+
+.values-list__text {
+  display: grid;
+  gap: 4px;
+}
+
+.values-list__text strong {
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+.values-list__text span {
+  color: var(--ink-2);
+  font-size: 14.5px;
+  line-height: 1.65;
+}
+
+.highlights__row {
+  display: grid;
+  grid-template-columns: 112px minmax(0, 1fr);
+  gap: 12px;
+  padding: 16px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.highlights__row dt {
+  color: var(--ink);
+  font-size: 14.5px;
+  font-weight: 600;
+  line-height: 1.65;
+}
+
+.highlights__row dd {
+  display: grid;
+  justify-items: start;
+  gap: 2px;
+  color: var(--ink-2);
+  font-size: 14.5px;
+  line-height: 1.65;
+}
+
+.highlights__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 44px;
+  margin-bottom: -12px;
+  color: var(--ink);
+  font-size: 13.5px;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.highlights__link svg {
+  transition: transform var(--dur-fast) var(--ease-out);
+}
+
+.highlights__link:hover {
+  color: var(--orange);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .highlights__link:hover svg,
+  .highlights__link:focus-visible svg {
+    transform: translateX(3px);
+  }
+}
+
+/* Contact slots: intentionally empty until the owner fills resume.js. */
+.contact-slots__heading {
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--line);
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.contact-slot {
+  display: grid;
+  gap: 6px;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.contact-slot__label {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--ink-3);
+  font-size: 13.5px;
+}
+
+.contact-slot__value {
+  min-height: 32px;
+  color: var(--ink);
+  font-size: 15px;
+  overflow-wrap: anywhere;
+  user-select: all;
+}
+
+/* 포트폴리오 링크: 값 글자 크기·줄바꿈은 .contact-slot__value 를 그대로 따르고, 밑줄과 포커스 링만 더한다. */
+.contact-slot__link {
+  color: inherit;
+  text-decoration: underline;
+  text-decoration-color: var(--line-2);
+  text-underline-offset: 3px;
+  user-select: text;
+}
+
+.contact-slot__link:hover {
+  text-decoration-color: currentColor;
+}
+
+.contact-slot__link:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+.contact-slot__empty {
+  display: flex;
+  align-items: center;
+  height: 32px;
+  padding: 0 12px;
+  border: 1px dashed var(--line-2);
+  border-radius: 8px;
+  color: var(--ink-3);
+  font-size: 13.5px;
+  user-select: none;
+}
+
+.contact-slots__note {
+  margin-top: 12px;
+  color: var(--ink-3);
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+/* 04 회사 경력: 세로 색인 + 순서 연결선(UI).
+   AI-NOTE: 점·가로선·세로선이 같은 기하 토큰 하나에서 나온다(글자 위치로 눈대중하지 않음).
+   - 가로선 = 각 행의 border-top(두께 --career-rule). 위치 기준(top:0)은 그 선 바로 아래(padding 상자)이므로
+     선의 중심은 -rule/2 이다. 점 중심을 여기에 맞추려면 top = -(rule + dot) / 2.
+   - 세로선 = 각 행의 ::after. 자기 가로선 중심에서 시작해 다음 행 가로선 중심(bottom: -rule/2)까지 이어진다.
+     마지막 행은 다음 가로선이 없으므로 세로선이 없다 → 첫 점 위·마지막 점 아래로 선이 삐져나오지 않는다.
+   - 세로선 x = 점 중심 x(dot/2) - line/2. 데스크톱·태블릿·모바일 모두 같은 토큰을 쓴다(모바일은 글자 들여쓰기만 바뀜). */
+.career-list {
+  --career-dot: 11px;
+  --career-rule: 1px;
+  --career-line: 1px;
+  --career-indent: 36px;
+  position: relative;
+  margin-top: 28px;
+}
+
+.career-item {
+  position: relative;
+  display: grid;
+  grid-template-columns: 196px minmax(0, 300px) minmax(0, 1fr);
+  gap: 12px 32px;
+  padding: 26px 0 26px var(--career-indent);
+  border-top: var(--career-rule) solid var(--line);
+}
+
+.career-item::before {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  top: calc((var(--career-rule) + var(--career-dot)) / -2);
+  left: 0;
+  width: var(--career-dot);
+  height: var(--career-dot);
+  box-sizing: border-box;
+  border: 1.5px solid var(--line-4);
+  border-radius: 999px;
+  background: var(--bg);
+  transition:
+    border-color var(--dur-fast) var(--ease-out),
+    background-color var(--dur-fast) var(--ease-out);
+}
+
+.career-item::after {
+  content: "";
+  position: absolute;
+  top: calc(var(--career-rule) / -2);
+  bottom: calc(var(--career-rule) / -2);
+  left: calc((var(--career-dot) - var(--career-line)) / 2);
+  width: var(--career-line);
+  background: var(--tile-line);
+}
+
+.career-item:last-child::after {
+  content: none;
+}
+
+.career-item.is-current::before {
+  border-color: var(--orange);
+  background: var(--orange);
+}
+
+.career-item:hover::before {
+  border-color: var(--ink);
+}
+
+.career-item__period {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px 6px;
+  color: var(--ink-2);
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 22px;
+  font-variant-numeric: tabular-nums;
+  transition: color var(--dur-fast) var(--ease-out);
+}
+
+.career-item:hover .career-item__period {
+  color: var(--ink);
+}
+
+.career-item__badge {
+  margin-left: 4px;
+  padding: 1px 8px;
+  border: 1px solid var(--orange);
+  border-radius: 999px;
+  color: var(--orange-text);
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.career-item__company {
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.03em;
+}
+
+.career-item__role {
+  margin-top: 6px;
+  color: var(--ink);
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.career-item__note {
+  margin-top: 4px;
+  color: var(--ink-3);
+  font-size: 14px;
+}
+
+.career-item__body {
+  display: grid;
+  gap: 12px;
+}
+
+.career-item__duties li {
+  position: relative;
+  padding-left: 14px;
+  color: var(--ink-2);
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+.career-item__duties li::before {
+  content: "";
+  position: absolute;
+  top: 0.8em;
+  left: 0;
+  width: 5px;
+  height: 1px;
+  background: var(--ink-3);
+}
+
+.career-item__tags,
+.skill-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+/* 05 학력·역량 */
+.skills__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+  gap: 56px;
+  margin-top: 28px;
+}
+
+.edu-item {
+  display: grid;
+  grid-template-columns: 24px 76px minmax(0, 1fr);
+  align-items: start;
+  gap: 12px;
+  padding: 16px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.edu-item__icon {
+  margin-top: 1px;
+  color: var(--ink-3);
+}
+
+.edu-item__date {
+  color: var(--ink-2);
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 22px;
+  font-variant-numeric: tabular-nums;
+}
+
+.edu-item__text {
+  display: grid;
+  gap: 2px;
+}
+
+.edu-item__school {
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 22px;
+  letter-spacing: -0.02em;
+}
+
+.edu-item__major {
+  color: var(--ink-2);
+  font-size: 14.5px;
+}
+
+.skill-groups__row {
+  display: grid;
+  grid-template-columns: 112px minmax(0, 1fr);
+  gap: 12px;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.skill-groups__row dt {
+  color: var(--ink-2);
+  font-size: 14.5px;
+  font-weight: 600;
+  line-height: 28px;
+  transition: color var(--dur-fast) var(--ease-out);
+}
+
+.skill-groups__row:hover dt {
+  color: var(--ink);
+}
+
+.skill-chips .tag {
+  line-height: 20px;
+}
+
+/* 등장: 섹션 자체는 보이게 두고 항목만 60ms 간격으로 한 번 나타난다(동작 줄이기면 즉시 표시). */
+@media (prefers-reduced-motion: no-preference) {
+  .career[data-reveal="pending"],
+  .skills[data-reveal="pending"] {
+    opacity: 1;
+    transform: none;
+  }
+
+  .career-item,
+  .skill-groups__row,
+  .edu-item {
+    transition:
+      opacity var(--dur-slow) var(--ease-out),
+      transform var(--dur-slow) var(--ease-out);
+  }
+
+  .career-item {
+    transition-delay: calc(var(--i, 0) * 60ms);
+  }
+
+  .career[data-reveal="pending"] .career-item,
+  .skills[data-reveal="pending"] .skill-groups__row,
+  .skills[data-reveal="pending"] .edu-item {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+}
+
+@media (max-width: 1100px) {
+  .profile__blocks {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 28px;
+  }
+
+  .career-item {
+    grid-template-columns: 180px minmax(0, 1fr);
+  }
+
+  .career-item__body {
+    grid-column: 2;
+  }
+
+  .skills__grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 36px;
+  }
+}
+
+@media (max-width: 760px) {
+  .resume-section {
+    padding: 24px 8px 0;
+  }
+
+  /* 모바일: 왼쪽 기준선의 작은 사진 + 사진 아래선에 맞춘 이름, 그 아래 같은 기준선에서 연락처 전체 폭. */
+  .profile__intro {
+    grid-template-columns: 96px minmax(0, 1fr);
+    grid-template-rows: auto auto;
+    grid-template-areas:
+      "photo name"
+      "contact contact";
+    gap: 20px 16px;
+    margin-top: 20px;
+  }
+
+  .profile__intro .profile__name {
+    align-self: end;
+  }
+
+  .profile__intro .profile__photo {
+    border-radius: 12px;
+  }
+
+  .contact-slots--inline .contact-slots__list {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .contact-slots--inline .contact-slot {
+    grid-template-columns: 112px minmax(0, 1fr);
+    align-items: center;
+    padding: 8px 0;
+  }
+
+  .profile__body {
+    margin-top: 28px;
+  }
+
+  .profile__name {
+    font-size: 28px;
+  }
+
+  .profile__headline {
+    font-size: 19px;
+  }
+
+  .career-list {
+    --career-indent: 28px;
+  }
+
+  .career-item {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 8px;
+  }
+
+  .career-item__body {
+    grid-column: auto;
+    margin-top: 4px;
+  }
+
+  .highlights__row,
+  .skill-groups__row {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 4px;
+  }
+}

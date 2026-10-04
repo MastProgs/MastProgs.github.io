@@ -1,0 +1,1481 @@
+/* AgentWorkflow stage: light outer stage, near-black working panel, light detail/history foot. */
+.stage {
+  margin: 0 var(--stage-inset);
+  padding: 23px 24px 30px 25px;
+  border-radius: 22px;
+  background: var(--stage);
+  color: var(--stage-ink);
+}
+
+.stage__head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px 24px;
+  min-height: 43px;
+}
+
+.stage__title {
+  display: flex;
+  align-items: baseline;
+  gap: 30px;
+  font-size: 28px;
+  font-weight: 700;
+  line-height: 1.25;
+  letter-spacing: -0.03em;
+}
+
+.stage__index {
+  flex: none;
+  color: #2b2a27;
+  font-size: 20px;
+  font-weight: 400;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Segmented mode radiogroup */
+.segmented {
+  display: inline-flex;
+  padding: 3px;
+  border: 1px solid var(--stage-line);
+  border-radius: 10px;
+  background: #f3f1ed;
+}
+
+.segmented__item {
+  min-width: 95px;
+  height: 35px;
+  padding: 0 14px;
+  border: 0;
+  border-radius: 7px;
+  background: transparent;
+  color: #2a2926;
+  font-size: 15px;
+  letter-spacing: -0.02em;
+  cursor: pointer;
+  transition:
+    background-color var(--dur-fast) var(--ease-out),
+    color var(--dur-fast) var(--ease-out);
+}
+
+.segmented__item:hover {
+  background: rgba(0, 0, 0, 0.05);
+}
+
+.segmented__item.is-checked {
+  background: #141414;
+  color: #ffffff;
+  font-weight: 600;
+}
+
+/* Sliding indicator (계약: translateX 280ms). 측정이 끝나면 항목 배경 대신 표시기 하나가 움직인다. */
+.segmented {
+  position: relative;
+}
+
+.segmented__indicator {
+  position: absolute;
+  left: 0;
+  border-radius: 7px;
+  background: #141414;
+  pointer-events: none;
+  transition:
+    transform 280ms cubic-bezier(0.2, 0.8, 0.2, 1),
+    width 280ms cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.segmented.is-sliding .segmented__item {
+  position: relative;
+  z-index: 1;
+  transition:
+    background-color var(--dur-fast) var(--ease-out),
+    color 200ms var(--ease-out) 60ms;
+}
+
+.segmented.is-sliding .segmented__item.is-checked {
+  background: transparent;
+}
+
+.segmented.is-sliding .segmented__item.is-checked:hover {
+  background: rgba(255, 255, 255, 0.06);
+}
+
+/* Dark working panel */
+.stage__panel {
+  margin-top: 22px;
+  padding: 18px 40px 24px;
+  border-radius: 20px;
+  background: var(--panel);
+  color: var(--ink);
+}
+
+.transport {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  row-gap: 12px;
+}
+
+.transport__round {
+  display: inline-flex;
+  flex: none;
+  align-items: center;
+  justify-content: center;
+  width: 54px;
+  height: 54px;
+  margin-right: 30px;
+  padding: 0;
+  border: 1.5px solid var(--line-4);
+  border-radius: 999px;
+  background: transparent;
+  cursor: pointer;
+  transition:
+    background-color var(--dur-fast) var(--ease-out),
+    transform var(--dur-fast) var(--ease-out);
+}
+
+.transport__round--primary {
+  border-color: var(--ink-hi);
+}
+
+.transport__round:hover,
+.transport__next:hover {
+  background: var(--surface-3);
+}
+
+.transport__round:active,
+.transport__next:active {
+  transform: scale(0.96);
+}
+
+.transport__next {
+  display: inline-flex;
+  flex: none;
+  align-items: center;
+  gap: 10px;
+  height: 44px;
+  margin-right: 32px;
+  padding: 0 20px;
+  border: 1.5px solid var(--line-3);
+  border-radius: 999px;
+  background: transparent;
+  font-size: 16px;
+  cursor: pointer;
+  transition:
+    background-color var(--dur-fast) var(--ease-out),
+    transform var(--dur-fast) var(--ease-out);
+}
+
+[aria-disabled="true"].transport__round,
+[aria-disabled="true"].transport__next {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+[aria-disabled="true"].transport__round:hover,
+[aria-disabled="true"].transport__next:hover {
+  background: transparent;
+}
+
+.transport__counter {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  min-width: 182px;
+  white-space: nowrap;
+}
+
+.transport__counter-label,
+.transport__counter-value {
+  font-size: 17px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+.transport__counter-value {
+  font-variant-numeric: tabular-nums;
+}
+
+.transport__counter-note {
+  color: var(--ink-dim);
+  font-size: 13.5px;
+}
+
+.transport__divider {
+  width: 1px;
+  height: 32px;
+  margin: 0 48px;
+  background: var(--line-3);
+}
+
+.fail-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.fail-toggle__switch {
+  position: relative;
+  flex: none;
+  width: 50px;
+  height: 28px;
+  padding: 0;
+  border: 0;
+  border-radius: 999px;
+  background: var(--line-2);
+  cursor: pointer;
+  transition: background-color var(--dur-med) var(--ease-out);
+}
+
+.fail-toggle__knob {
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 22px;
+  height: 22px;
+  border-radius: 999px;
+  background: #ffffff;
+  transition: transform var(--dur-med) var(--ease-out);
+}
+
+.fail-toggle__switch[aria-checked="true"] {
+  background: var(--orange);
+}
+
+.fail-toggle__switch[aria-checked="true"] .fail-toggle__knob {
+  transform: translateX(22px);
+}
+
+.fail-toggle__label {
+  font-size: 15px;
+  letter-spacing: -0.02em;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.fail-toggle {
+  min-height: 44px;
+}
+
+/* 28px 스위치의 실제 터치 영역을 44px 이상으로 넓힌다. */
+.fail-toggle__switch::before {
+  content: "";
+  position: absolute;
+  inset: -8px -4px;
+}
+
+.fail-toggle__hint {
+  color: var(--ink-soft);
+  font-size: 12.5px;
+  white-space: nowrap;
+}
+
+.fail-toggle.is-disabled .fail-toggle__switch,
+.fail-toggle.is-disabled .fail-toggle__label {
+  opacity: 0.45;
+}
+
+.fail-toggle.is-disabled .fail-toggle__switch,
+.fail-toggle.is-disabled .fail-toggle__label {
+  cursor: not-allowed;
+}
+
+.run-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  height: 38px;
+  margin-left: 32px;
+  padding: 0 18px;
+  border: 1px solid var(--line-3);
+  border-radius: 999px;
+  font-size: 14.5px;
+  letter-spacing: -0.02em;
+  white-space: nowrap;
+}
+
+.run-pill__dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  background: #777777;
+  transition: background-color var(--dur-med) var(--ease-out);
+}
+
+.run-pill--running .run-pill__dot {
+  background: var(--orange);
+}
+
+.run-pill--paused .run-pill__dot {
+  background: #d9d7d2;
+}
+
+.run-pill--fault .run-pill__dot {
+  background: var(--fault);
+}
+
+.run-pill--ok .run-pill__dot {
+  background: var(--lime);
+}
+
+.transport__notice {
+  margin-left: auto;
+  padding-left: 16px;
+  color: var(--ink-dim);
+  font-size: 13px;
+  white-space: nowrap;
+}
+
+/* Timeline: ruler, return connector and tiles share one 7-column grid. */
+.timeline-area {
+  margin-top: 16px;
+}
+
+.route-caption {
+  margin: 0 0 12px;
+  color: var(--ink-soft);
+  font-size: 13.5px;
+  letter-spacing: -0.01em;
+}
+
+/* Direct route: three execution nodes, separate from the seven phases. */
+.direct-lane {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.direct-node {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  min-height: 72px;
+  padding: 12px 16px;
+  border: 1px solid var(--tile-line);
+  border-radius: 16px;
+  background: var(--tile);
+  transition:
+    border-color var(--dur-med) var(--ease-out),
+    background-color var(--dur-med) var(--ease-out);
+}
+
+.direct-node + .direct-node::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: -13px;
+  width: 13px;
+  height: 1px;
+  background: var(--line-4);
+}
+
+.direct-node__order {
+  display: inline-flex;
+  flex: none;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  border: 1px solid var(--line-3);
+  border-radius: 999px;
+  color: var(--ink-soft);
+  font-size: 13px;
+  font-variant-numeric: tabular-nums;
+}
+
+.direct-node__text {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.direct-node__label {
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.direct-node__role {
+  color: var(--ink-soft);
+  font-size: 13px;
+}
+
+.direct-node--pending .direct-node__label {
+  color: var(--ink-mute);
+}
+
+.direct-node__check {
+  flex: none;
+  color: var(--lime);
+}
+
+.direct-node.is-current {
+  border-color: var(--orange);
+  background: var(--orange-tint);
+}
+
+.direct-node.is-current .direct-node__order {
+  border-color: var(--orange);
+  background: var(--orange);
+  color: var(--orange-ink);
+}
+
+.timeline.is-dimmed .ruler,
+.timeline.is-dimmed .tile {
+  opacity: 0.3;
+}
+
+.timeline.is-dimmed .tile:focus-visible,
+.timeline.is-dimmed .tile.is-selected {
+  opacity: 0.75;
+}
+
+.lane-groups {
+  display: none;
+}
+
+.tiles-wrap {
+  position: relative;
+}
+
+.tile__order,
+.return-bracket {
+  display: none;
+}
+
+/* Parallel merge gate sits on the ruler between phase ticks 5 and 6. */
+.merge-gate {
+  position: relative;
+  z-index: 3;
+  display: inline-flex;
+  align-items: center;
+  align-self: start;
+  justify-self: center;
+  gap: 5px;
+  grid-row: 1;
+  height: 22px;
+  margin-top: -4px;
+  padding: 0 9px;
+  border: 1px solid var(--line-3);
+  border-radius: 999px;
+  background: var(--panel);
+  color: var(--ink-soft);
+  font-size: 12px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.merge-gate--waiting {
+  border-color: var(--warn-line);
+  color: var(--warn-text);
+}
+
+.merge-gate--done {
+  border-color: var(--ok-line);
+  color: var(--lime);
+}
+
+.merge-gate.is-current {
+  border-color: var(--orange);
+  color: var(--orange-text);
+}
+
+.timeline {
+  position: relative;
+  padding-inline: 7px;
+}
+
+.ruler,
+.tiles {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  column-gap: 7px;
+}
+
+.ruler {
+  position: relative;
+  height: 65px;
+}
+
+.ruler::before {
+  content: "";
+  position: absolute;
+  top: 7px;
+  right: -7px;
+  left: 27px;
+  height: 1px;
+  background: var(--line-3);
+}
+
+.ruler__label {
+  position: absolute;
+  top: 7px;
+  left: -7px;
+  color: var(--ink-soft);
+  font-size: 13px;
+  line-height: 1;
+  transform: translateY(-50%);
+}
+
+.ruler__mark {
+  position: relative;
+  grid-row: 1;
+  height: 100%;
+}
+
+.ruler__tick {
+  position: absolute;
+  top: 7px;
+  left: 50%;
+  width: 1px;
+  height: 14px;
+  background: var(--line-4);
+}
+
+.ruler__num {
+  position: absolute;
+  top: 34px;
+  left: 50%;
+  color: var(--ink-2);
+  font-size: 14px;
+  line-height: 16px;
+  font-variant-numeric: tabular-nums;
+  transform: translateX(-50%);
+}
+
+.ruler__mark.is-current .ruler__tick {
+  bottom: 11px;
+  width: 2px;
+  height: auto;
+  margin-left: -0.5px;
+  background: var(--orange);
+}
+
+.ruler__mark.is-current::before {
+  content: "";
+  position: absolute;
+  top: 3px;
+  left: calc(50% - 4px);
+  width: 9px;
+  height: 9px;
+  border-radius: 999px;
+  background: var(--orange);
+}
+
+.ruler__mark.is-current .ruler__num {
+  z-index: 1;
+  padding: 0 4px;
+  background: var(--panel);
+  color: var(--ink-max);
+}
+
+.connector {
+  position: relative;
+  z-index: 2;
+  grid-row: 1;
+  pointer-events: none;
+}
+
+.connector__label {
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  color: var(--fault);
+  font-size: 12.5px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+  transform: translateX(-50%);
+}
+
+.connector__arc {
+  position: absolute;
+  top: 27px;
+  right: 13%;
+  bottom: -4px;
+  left: 21%;
+  border: 2px dashed var(--fault);
+  border-bottom: 0;
+  border-radius: 50% 50% 0 0 / 100% 100% 0 0;
+}
+
+.connector__head {
+  position: absolute;
+  bottom: -9px;
+  left: -9px;
+  color: var(--fault);
+}
+
+.tile {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  min-width: 0;
+  min-height: 150px;
+  padding: 42px 14px 16px 18px;
+  border: 1px solid var(--tile-line);
+  border-radius: 14px;
+  background: var(--tile);
+  color: var(--ink);
+  text-align: left;
+  cursor: pointer;
+  transition:
+    transform var(--dur-med) var(--ease-out),
+    background-color var(--dur-med) var(--ease-out),
+    border-color var(--dur-med) var(--ease-out),
+    box-shadow var(--dur-med) var(--ease-out);
+}
+
+.tile:hover {
+  border-color: var(--line-3);
+  background: var(--surface-3);
+}
+
+.tile__title {
+  font-size: 21px;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  transition: color var(--dur-med) var(--ease-out);
+}
+
+.tile__role {
+  margin-top: 8px;
+  color: var(--ink-soft);
+  font-size: 14px;
+  letter-spacing: -0.02em;
+  transition: color var(--dur-med) var(--ease-out);
+}
+
+.tile__human,
+.tile__lanes,
+.tile__gate {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: auto;
+  color: var(--ink-hi);
+  font-size: 13.5px;
+  line-height: 1.3;
+  letter-spacing: -0.03em;
+}
+
+/* AI-NOTE: 기존 스크린샷(workflow-before)에서 "사람 판단 (필요 시)" 배지(약 124px)가 146px 타일의 좌우 여백을 넘어
+   첫·마지막 타일 오른쪽 밖으로 삐져나왔다. 줄바꿈을 허용하고 폭을 타일 안쪽으로 제한해 글자를 자르지 않고 모두 보인다.
+   레인 칩과 배지도 같은 이유로 줄바꿈을 허용한다. */
+.tile__human {
+  align-items: flex-start;
+  max-width: 100%;
+}
+
+.tile__human svg {
+  flex: none;
+  color: var(--info-text);
+}
+
+.tile__human-text {
+  min-width: 0;
+}
+
+.tile__lanes {
+  flex-wrap: wrap;
+  gap: 4px;
+  max-width: 100%;
+}
+
+.tile__gate {
+  color: var(--warn-text);
+}
+
+.tile__check {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  color: var(--lime);
+}
+
+.tile__badge {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  max-width: calc(100% - 24px);
+  min-height: 24px;
+  padding: 3px 10px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.25;
+  letter-spacing: -0.02em;
+}
+
+.tile__badge svg {
+  flex: none;
+}
+
+.tile__badge--fault {
+  background: #a3231a;
+  color: #fff2ec;
+}
+
+.tile__badge--muted {
+  border: 1px solid var(--line-3);
+  color: var(--ink-mute);
+}
+
+.tile__badge--gate {
+  background: var(--warn-tint);
+  color: var(--warn-text);
+}
+
+.tile__badge--repair {
+  border: 1px solid var(--orange);
+  color: var(--orange-text);
+}
+
+.tile__badge--next {
+  border: 1px solid var(--line-3);
+  color: var(--ink-soft);
+}
+
+.lane-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  height: 22px;
+  padding: 0 7px;
+  border: 1px solid var(--line-2);
+  border-radius: 999px;
+  color: var(--ink-dim);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.lane-chip--done {
+  border-color: var(--ok-line);
+  color: var(--lime);
+}
+
+.lane-chip--fault {
+  border-color: var(--fault);
+  background: var(--fault);
+  color: #ffffff;
+}
+
+.tile--pending .tile__title,
+.tile--gated .tile__title {
+  color: var(--ink-mute);
+}
+
+.tile--pending .tile__role,
+.tile--gated .tile__role {
+  color: var(--ink-dim);
+}
+
+.tile--skipped {
+  border-style: dashed;
+  border-color: var(--line-2);
+  background: transparent;
+}
+
+.tile--skipped .tile__title {
+  color: var(--ink-faint);
+}
+
+.tile--skipped .tile__role,
+.tile--skipped .tile__human {
+  color: var(--ink-faint);
+}
+
+.tile--gated {
+  border-color: var(--warn-line);
+}
+
+.tile--fault {
+  border-color: var(--orange);
+  background: var(--orange-tint);
+}
+
+.tile.is-current {
+  border-color: var(--orange);
+  box-shadow: 0 12px 30px rgba(255, 90, 31, 0.14);
+  transform: translateY(-11px);
+}
+
+.tile--fault.is-current {
+  background: var(--orange);
+  box-shadow: 0 16px 36px rgba(255, 90, 31, 0.32);
+}
+
+.tile--fault.is-current .tile__title {
+  color: var(--orange-ink);
+}
+
+.tile--fault.is-current .tile__role {
+  color: #5c2008;
+}
+
+.tile--fault.is-current .lane-chip {
+  border-color: transparent;
+  background: rgba(20, 8, 2, 0.82);
+}
+
+.tile--fault.is-current .lane-chip--fault {
+  background: #a3231a;
+  color: #ffffff;
+}
+
+.tile--fault.is-current:hover {
+  background: #ff6a33;
+}
+
+.tile.is-selected::after {
+  content: "";
+  position: absolute;
+  bottom: 6px;
+  left: 50%;
+  width: 28px;
+  height: 3px;
+  border-radius: 2px;
+  background: #f3f2ef;
+  transform: translateX(-50%);
+}
+
+/* 현재 단계는 주황 강조로 이미 구분되므로, 선택 막대는 현재가 아닌 타일을 볼 때만 표시한다(기준 화면과 일치). */
+.tile.is-current.is-selected::after {
+  content: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .connector {
+    animation: connector-in var(--dur-med) var(--ease-out) both;
+  }
+
+  .history__item {
+    animation: history-in var(--dur-med) var(--ease-out) both;
+  }
+
+  /* AI-NOTE: 결함 강조는 현재 타일이 결함 상태가 되는 순간 한 번만 2px 흔들린다(240ms). transform(들림)과 겹치지 않도록
+     개별 translate 속성으로 흔든다. 복구 배지("재작업 1회")는 나타날 때 한 번 튀어나온다. 반복 애니메이션 없음. */
+  .tile--fault.is-current {
+    animation: tile-shake 240ms ease-in-out 1;
+  }
+
+  .tile__badge--fault,
+  .tile__badge--repair {
+    animation: badge-pop 220ms cubic-bezier(0.3, 1.4, 0.5, 1) both;
+  }
+}
+
+@keyframes tile-shake {
+  25% {
+    translate: -2px 0;
+  }
+
+  75% {
+    translate: 2px 0;
+  }
+}
+
+@keyframes badge-pop {
+  from {
+    opacity: 0;
+    scale: 0.6;
+  }
+}
+
+@keyframes connector-in {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+}
+
+@keyframes history-in {
+  from {
+    opacity: 0;
+    transform: translateX(-8px);
+  }
+}
+
+/* Light foot: selected phase detail and run history */
+.stage-foot {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  padding: 30px 9px 0 34px;
+}
+
+.stage-foot__heading {
+  color: var(--stage-ink);
+  font-size: 17px;
+  font-weight: 700;
+  line-height: 25px;
+  letter-spacing: -0.02em;
+}
+
+.phase-detail {
+  min-height: 130px;
+  padding-right: 40px;
+  border-right: 1px solid var(--stage-line);
+  border-radius: 2px;
+}
+
+.phase-detail:focus-visible {
+  outline-offset: 6px;
+}
+
+.phase-detail__head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px 16px;
+}
+
+.phase-detail__follow {
+  min-height: 44px;
+  margin-block: -10px;
+  padding: 0 4px;
+  border: 0;
+  background: none;
+  color: var(--stage-ink);
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  cursor: pointer;
+}
+
+.stage-foot :focus-visible {
+  outline-color: var(--stage-ink);
+  outline-offset: 2px;
+}
+
+.phase-detail__lines {
+  margin-top: 13px;
+  color: #2f2d29;
+  font-size: 16px;
+  line-height: 25px;
+  letter-spacing: -0.02em;
+}
+
+.history {
+  display: grid;
+  grid-template-columns: 142px minmax(0, 1fr);
+  align-items: start;
+  padding-left: 64px;
+}
+
+.history__list {
+  max-height: 180px;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+
+.history__empty {
+  color: var(--stage-ink-3);
+  font-size: 15px;
+  line-height: 25px;
+}
+
+.history__item {
+  display: grid;
+  grid-template-columns: 30px 22px minmax(0, 1fr);
+  align-items: center;
+  color: #2f2d29;
+  font-size: 15.5px;
+  line-height: 24.5px;
+  letter-spacing: -0.02em;
+}
+
+.history__num {
+  color: #3c3a36;
+  font-variant-numeric: tabular-nums;
+}
+
+.history__dot {
+  width: 11px;
+  height: 11px;
+  border-radius: 999px;
+  background: #86d24a;
+}
+
+.history__item--fault .history__dot {
+  background: var(--fault);
+}
+
+.history__item--repair .history__dot {
+  background: var(--orange);
+}
+
+@media (max-width: 1340px) {
+  .transport__divider {
+    margin: 0 28px;
+  }
+
+  .run-pill {
+    margin-left: 24px;
+  }
+}
+
+@media (max-width: 1100px) {
+  .stage__title {
+    gap: 18px;
+    font-size: 24px;
+  }
+
+  .transport__notice {
+    margin-left: 0;
+    padding-left: 0;
+    flex-basis: 100%;
+  }
+
+  .stage-foot {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 28px;
+    padding: 28px 8px 0;
+  }
+
+  .phase-detail {
+    min-height: 0;
+    padding: 0 0 24px;
+    border-right: 0;
+    border-bottom: 1px solid var(--stage-line);
+  }
+
+  .history {
+    padding-left: 0;
+  }
+}
+
+/* AI-NOTE: 좁은 화면에서는 눈금·연결선·타일이 함께 들어 있는 timeline 만 가로로 스크롤한다. 페이지 스크롤은 가로채지 않는다. */
+@media (max-width: 960px) {
+  .stage__panel {
+    padding: 16px 16px 20px;
+  }
+
+  .timeline-scroll {
+    margin-inline: -16px;
+    padding: 0 16px 10px;
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    scroll-snap-type: x proximity;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* 계약: 태블릿에서는 타일 폭(약 148px)을 유지하고 눈금과 함께 가로 스크롤한다. */
+  .timeline {
+    min-width: 1100px;
+  }
+
+  .tile {
+    scroll-snap-align: center;
+  }
+
+  .transport__divider {
+    display: none;
+  }
+
+  .run-pill {
+    margin-left: 0;
+  }
+
+  .transport {
+    column-gap: 12px;
+  }
+
+  .transport__round,
+  .transport__next {
+    margin-right: 0;
+  }
+}
+
+@media (max-width: 760px) {
+  .stage {
+    padding: 18px 12px 24px;
+    border-radius: 18px;
+  }
+
+  .stage__title {
+    flex-direction: column;
+    gap: 4px;
+    font-size: 21px;
+  }
+
+  .segmented {
+    width: 100%;
+  }
+
+  .segmented__item {
+    flex: 1 1 0;
+    min-width: 0;
+    height: 44px;
+    padding: 0 6px;
+  }
+
+  .stage__panel {
+    margin-top: 16px;
+    border-radius: 16px;
+  }
+
+  .transport__round {
+    width: 48px;
+    height: 48px;
+  }
+
+  .transport__counter {
+    min-width: 0;
+  }
+
+  .history {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 10px;
+  }
+}
+
+/* AI-NOTE: 600px 이하에서는 같은 탭 DOM 을 세로 7행(각 64px)으로 재배치한다. 왼쪽 눈금선과 번호가 가로 눈금을 대신하고,
+   QA→개발 반환은 왼쪽 점선 괄호(.return-bracket)로 그린다. 가로 스크롤이 없으므로 선택된 QA 가 화면 밖으로 밀리지 않는다.
+   행 간격(64px + 8px)을 바꾸면 .return-bracket 의 72px 계산도 함께 바꿔야 한다. */
+@media (max-width: 600px) {
+  /* 고정 섹션 바 아래에 붙도록 바 높이만큼 내려서 고정한다. */
+  .transport {
+    position: sticky;
+    top: var(--sticky-bar-h);
+    z-index: 5;
+    margin: -16px -16px 0;
+    padding: 12px 16px 10px;
+    border-radius: 16px 16px 0 0;
+    background: var(--panel);
+  }
+
+  .transport__counter {
+    margin-left: auto;
+    gap: 6px;
+  }
+
+  .transport__notice {
+    flex-basis: auto;
+    margin-left: auto;
+  }
+
+  .timeline-area {
+    margin-top: 12px;
+  }
+
+  .timeline-scroll {
+    margin: 0;
+    padding: 0;
+    overflow: visible;
+  }
+
+  .timeline {
+    min-width: 0;
+    padding-inline: 0;
+  }
+
+  .ruler {
+    display: block;
+    height: auto;
+  }
+
+  .ruler::before,
+  .ruler__label,
+  .ruler__mark,
+  .merge-gate,
+  .connector__arc {
+    display: none;
+  }
+
+  .connector {
+    position: static;
+    margin: 0 0 10px 44px;
+  }
+
+  .connector__label {
+    position: static;
+    display: block;
+    white-space: normal;
+    transform: none;
+  }
+
+  .tiles {
+    position: relative;
+    grid-template-columns: minmax(0, 1fr);
+    row-gap: 8px;
+    padding-left: 44px;
+  }
+
+  .tiles::before {
+    content: "";
+    position: absolute;
+    top: 32px;
+    bottom: 32px;
+    left: 12px;
+    width: 1px;
+    background: var(--line-3);
+  }
+
+  .tile {
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+    height: 64px;
+    min-height: 64px;
+    padding: 0 12px 0 16px;
+    scroll-snap-align: none;
+  }
+
+  .tile.is-current {
+    transform: none;
+  }
+
+  .tile__title {
+    order: 1;
+    flex: none;
+    min-width: 48px;
+    font-size: 17px;
+  }
+
+  .tile__role {
+    order: 2;
+    flex: 1 1 auto;
+    min-width: 0;
+    margin-top: 0;
+    overflow: hidden;
+    font-size: 13px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .tile__human,
+  .tile__lanes,
+  .tile__gate {
+    order: 3;
+    margin: 0;
+  }
+
+  .tile__lanes {
+    gap: 3px;
+  }
+
+  .lane-chip {
+    padding: 0 5px;
+  }
+
+  /* AI-NOTE: 390px 에서 "사람 판단 (필요 시)" 을 1px clip 으로 숨기던 처리를 폐기하고 전체 문구를 보인다.
+     행 높이 64px(되돌림 괄호 72px 간격 계산)는 유지하고, 역할 문구가 먼저 줄어들어(말줄임) 공간을 내준다. */
+  .tile__human {
+    flex: none;
+    gap: 4px;
+  }
+
+  .tile__human-text {
+    font-size: 12px;
+    white-space: nowrap;
+  }
+
+  .tile__badge,
+  .tile__check {
+    position: static;
+    order: 4;
+    flex: none;
+  }
+
+  .tile__check {
+    width: 24px;
+    height: 24px;
+  }
+
+  .tile__order {
+    position: absolute;
+    top: 50%;
+    left: -44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 25px;
+    height: 25px;
+    border: 1px solid var(--line-3);
+    border-radius: 999px;
+    background: var(--panel);
+    color: var(--ink-2);
+    font-size: 12px;
+    font-variant-numeric: tabular-nums;
+    transform: translateY(-50%);
+  }
+
+  .tile--done .tile__order {
+    border-color: var(--ok-line);
+    color: var(--lime);
+  }
+
+  .tile.is-current .tile__order {
+    border-color: var(--orange);
+    background: var(--orange);
+    color: var(--orange-ink);
+  }
+
+  .tile.is-selected::after {
+    top: 50%;
+    bottom: auto;
+    left: 5px;
+    width: 3px;
+    height: 26px;
+    transform: translateY(-50%);
+  }
+
+  .return-bracket {
+    position: absolute;
+    top: calc((var(--from) - 1) * 72px + 32px);
+    left: 29px;
+    display: block;
+    width: 10px;
+    height: calc((var(--to) - var(--from)) * 72px);
+    border: 2px dashed var(--fault);
+    border-right: 0;
+    border-radius: 8px 0 0 8px;
+    pointer-events: none;
+  }
+
+  .return-bracket__head {
+    position: absolute;
+    top: -8px;
+    right: -11px;
+    color: var(--fault);
+  }
+
+  .direct-lane {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 8px;
+  }
+
+  .direct-node {
+    min-height: 64px;
+  }
+
+  .direct-node + .direct-node::before {
+    top: -9px;
+    left: 28px;
+    width: 1px;
+    height: 8px;
+  }
+
+  .lane-groups {
+    display: grid;
+    gap: 8px;
+    margin-bottom: 14px;
+  }
+
+  .lane-group {
+    border: 1px solid var(--tile-line);
+    border-radius: 14px;
+    background: var(--tile);
+  }
+
+  .lane-group__summary {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    min-height: 48px;
+    padding: 0 14px;
+    list-style: none;
+    cursor: pointer;
+  }
+
+  .lane-group__summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .lane-group__caret {
+    flex: none;
+    transition: transform var(--dur-fast) var(--ease-out);
+  }
+
+  .lane-group[open] .lane-group__caret {
+    transform: rotate(90deg);
+  }
+
+  .lane-group__name {
+    font-size: 15px;
+    font-weight: 700;
+  }
+
+  .lane-group__status,
+  .lane-row__status {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    margin-left: auto;
+    color: var(--ink-soft);
+    font-size: 13px;
+  }
+
+  .lane-group--done .lane-group__status,
+  .lane-row--done .lane-row__status {
+    color: var(--lime);
+  }
+
+  .lane-group--fault .lane-group__status,
+  .lane-row--fault .lane-row__status {
+    color: var(--fault);
+  }
+
+  .lane-group--gated .lane-group__status {
+    color: var(--warn-text);
+  }
+
+  .lane-group__rows {
+    padding: 0 14px 12px 40px;
+  }
+
+  .lane-row {
+    display: flex;
+    align-items: center;
+    min-height: 30px;
+    font-size: 14px;
+  }
+
+  .lane-merge {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    min-height: 44px;
+    padding: 0 14px;
+    border: 1px dashed var(--line-3);
+    border-radius: 12px;
+    color: var(--ink-soft);
+    font-size: 14px;
+  }
+
+  .lane-merge--waiting {
+    border-color: var(--warn-line);
+    color: var(--warn-text);
+  }
+
+  .lane-merge--done {
+    border-color: var(--ok-line);
+    color: var(--lime);
+  }
+
+  .lane-merge.is-current {
+    border-color: var(--orange);
+    color: var(--orange-text);
+  }
+
+  .lane-shared {
+    color: var(--ink-soft);
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 600px) and (prefers-reduced-motion: reduce) {
+  .lane-group__caret {
+    transition: none;
+  }
+}
