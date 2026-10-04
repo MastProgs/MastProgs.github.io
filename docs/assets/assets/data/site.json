@@ -1,0 +1,368 @@
+{
+  "CASES": [
+    {
+      "id": "case-agentworkflow",
+      "index": "01",
+      "title": "AgentWorkflow",
+      "summary": "Master AI가 경로를 정하고 역할별 AI가 기획·검수·개발·QA·Wiki·통합을 거치는 구조",
+      "tags": [
+        "멀티 에이전트",
+        "검수·QA",
+        "복구와 재개"
+      ],
+      "image": {
+        "src": "/cases/master_overview.png",
+        "width": 2200,
+        "height": 650,
+        "alt": "Master AI가 Seed AI, 기획, 검수, 개발, 검수, QA, Wiki, 통합 단계를 감독하는 원본 구조도"
+      },
+      "fit": "contain",
+      "problem": "AI 한 번의 응답을 그대로 쓰면 검토되지 않은 결함이 결과물에 남습니다.",
+      "role": [
+        "사용자는 Master AI 하나와 대화하고, Master AI가 경로와 모델을 고르도록 구조를 설계",
+        "기획 → 검수 → 개발 → 검수 → QA → Wiki → 통합 단계와 단계별 감독·중재 규칙 정의",
+        "QA 결함은 개발로 되돌려 검수·QA를 다시 거치게 하는 복구·재개 흐름 설계"
+      ],
+      "evidence": "원본 구조도: 단계 감독/중재, 오류 복구와 재개, 최종 보고까지 포함된 전체 lane 구성"
+    },
+    {
+      "id": "case-pixel",
+      "index": "02",
+      "title": "Hero Pixel Studio",
+      "summary": "32·64·128px 해상도와 5가지 모션을 비교하고 편집 가능한 Aseprite로 저장하는 도구",
+      "tags": [
+        "32·64·128px",
+        "5가지 모션",
+        "Aseprite 저장"
+      ],
+      "image": {
+        "src": "/cases/hero_pixel_studio_screen.png",
+        "width": 1005,
+        "height": 1578,
+        "alt": "용사 픽셀 스튜디오 편집기 화면. 대기, 걷기, 달리기, 내려베기, 점프 모션을 해상도별로 비교"
+      },
+      "fit": "cover",
+      "problem": "픽셀 캐릭터를 해상도와 모션마다 같은 기준으로 비교하고 수정할 수 있어야 했습니다.",
+      "role": [
+        "32·64·128px 해상도를 같은 높이로 나란히 비교하는 화면 구성",
+        "대기·걷기·달리기·내려베기·점프 5가지 모션 지원",
+        "편집 가능한 Aseprite 파일로 저장하는 흐름 구현"
+      ],
+      "evidence": "편집기 화면 캡처: 해상도·모션 비교 격자와 팔레트·저장 패널",
+      "limits": "위 이미지는 편집기 화면 캡처입니다. 스프라이트 상세 페이지의 라이브 미리보기는 원본 프로젝트의 레이어·셀·팔레트 세트·골격 데이터로 걷기·달리기·공격 프레임을 다시 그리며, 편집·저장 기능은 포함하지 않습니다."
+    },
+    {
+      "id": "case-subtitles",
+      "index": "03",
+      "title": "Voice to SRT",
+      "summary": "로컬 음성 인식·단어 정렬로 자막 시간을 잡고, AI 교차 검토와 사람의 승인으로 SRT를 완성하는 한국어 자막 도구",
+      "tags": [
+        "로컬 ASR·강제 정렬",
+        "AI 교차 검토",
+        "사람 승인 편집"
+      ],
+      "mediaKind": "diagram",
+      "diagram": {
+        "label": "Voice to SRT 처리 원리 도식: 원본 오디오에서 SRT 까지",
+        "steps": [
+          {
+            "id": "audio",
+            "label": "원본 오디오",
+            "note": "FFmpeg PCM · VAD"
+          },
+          {
+            "id": "asr",
+            "label": "음성 인식",
+            "note": "Qwen 한국어 / Whisper"
+          },
+          {
+            "id": "align",
+            "label": "단어 정렬",
+            "note": "단어마다 시작·끝 ms"
+          },
+          {
+            "id": "split",
+            "label": "AI 문장 나누기",
+            "note": "단어 시각에서만 끊음"
+          },
+          {
+            "id": "review",
+            "label": "교차 검토",
+            "note": "Codex ↔ Claude"
+          },
+          {
+            "id": "human",
+            "label": "사람 승인 → SRT",
+            "note": "수락 · 보류 · 되돌리기"
+          }
+        ]
+      },
+      "problem": "긴 영상의 한국어 대사를 자막으로 만들 때, 인식 문구와 시간을 매번 손으로 맞추고 읽기 좋은 길이로 다시 나누는 일이 반복됐습니다.",
+      "role": [
+        "FFmpeg 음성 추출 → Qwen 한국어·faster-whisper 인식 → Qwen 강제 정렬로 단어 시각을 잡는 로컬 CUDA 파이프라인 구성",
+        "AI는 정렬된 단어 시각·쉼·0.1초 소리 크기를 보고 끊을 위치만 고르고, 시간은 단어 시각에서 가져오도록 응답 형식을 제한",
+        "Codex·Claude 교차 검토(의견이 갈리면 최대 2회 토론)와 이유가 붙은 교정 제안을 사람이 수락·보류하는 검토 흐름 구현",
+        "파형·타임라인·자막 편집(나누기·합치기·실행 취소·찾아 바꾸기)과 SRT 가져오기·내보내기를 갖춘 Go + Electron 편집기 구현"
+      ],
+      "evidence": "원본 저장소의 README·설계 문서·소스 코드를 읽고 정리한 처리 원리 도식입니다. 원본 앱 화면 캡처는 아닙니다.",
+      "limits": "오디오는 외부로 보내지 않고, AI 교정에는 자막 텍스트·모델 후보·용어·영상 설명과 켜 둔 경우의 영상 화면 몇 장만 전달됩니다.",
+      "detail": {
+        "label": "처리 과정 자세히 보기"
+      }
+    },
+    {
+      "id": "case-keti",
+      "index": "04",
+      "title": "KETI 연구 데이터",
+      "summary": "반도체 측정 장비 데이터를 수집해 연구와 엣지 적용으로 잇는 흐름",
+      "tags": [
+        "기본 서버",
+        "데이터 전처리",
+        "연구자 인계"
+      ],
+      "image": {
+        "src": "/cases/mlops_flow.png",
+        "width": 2200,
+        "height": 410,
+        "alt": "엣지 수집, 데이터레이크, 연구 활용, 엣지 적용 네 단계로 이어지는 원본 흐름도"
+      },
+      "fit": "contain",
+      "problem": "현장 장비에서 나온 데이터를 연구자가 바로 쓸 수 있는 형태로 모으고 관리할 기반이 필요했습니다.",
+      "role": [
+        "기본 서버와 관리 흐름을 구축하고 연구자에게 인계",
+        "TXT 전처리 기능을 실제 서비스에 배포",
+        "외주 업체와 협업해 전체 흐름을 맞춤"
+      ],
+      "evidence": "원본 흐름도: 엣지 수집 → 데이터레이크(수집·적재, 기본 서버) → 연구 활용 → 엣지 적용",
+      "limits": "데이터레이크·학습·모델 관리 전체를 단독으로 만든 것은 아니며, 외주 업체와 협업한 범위입니다."
+    },
+    {
+      "id": "case-intake",
+      "index": "05",
+      "title": "현장 요청 처리",
+      "summary": "현장 요청을 받아 AI가 초기 작업을 하고 사람이 최종 검토·배포하는 운영 구조",
+      "tags": [
+        "요청 접수",
+        "AI 초기 작업",
+        "사람 최종 검토"
+      ],
+      "image": {
+        "src": "/cases/intake_flow.png",
+        "width": 2200,
+        "height": 410,
+        "alt": "요청 접수, 개인 서버, AI 초기 작업, 최종 검토 네 단계로 이어지는 원본 흐름도"
+      },
+      "fit": "contain",
+      "problem": "이메일·Teams로 들어오는 현장 요청을 놓치지 않고 빠르게 첫 작업까지 진행해야 했습니다.",
+      "role": [
+        "요청 접수 → 개인 서버 알림 → AI 초기 작업 → 사람 최종 검토로 이어지는 흐름 운영",
+        "AI는 내용 확인과 기초 작업까지만 맡도록 범위를 정함",
+        "설정 확인과 배포는 직접 검토 후 수행"
+      ],
+      "evidence": "원본 흐름도: 최종 판단과 배포는 사람이 수행하는 운영 구조",
+      "limits": "AI 결과를 검토 없이 배포하지 않습니다. 처리량이나 절감 시간은 측정해 제시하지 않습니다."
+    }
+  ],
+  "CASES_RAIL": {
+    "index": "05",
+    "heading": "작업 사례",
+    "indexLabel": "작업 사례 바로가기",
+    "railLabel": "작업 사례 목록",
+    "prev": "이전 사례",
+    "next": "다음 사례",
+    "more": "자세히 보기"
+  },
+  "CORE": {
+    "index": "03",
+    "title": "핵심 구현",
+    "lede": "직접 설계하고 구현한 워크플로우와 도구입니다.",
+    "navLabel": "핵심 구현 항목",
+    "items": [
+      {
+        "id": "workflow",
+        "index": "01",
+        "label": "AgentWorkflow"
+      },
+      {
+        "id": "sprite",
+        "index": "02",
+        "label": "Sprite 파이프라인"
+      },
+      {
+        "id": "subtitles",
+        "index": "03",
+        "label": "Voice to SRT"
+      }
+    ]
+  },
+  "HEADER_COLUMNS": [
+    {
+      "heading": "하는 일",
+      "items": [
+        "AI 업무 워크플로우 설계",
+        "멀티 에이전트 검수·QA 체계",
+        "서버·라이브 운영"
+      ]
+    },
+    {
+      "heading": "배경",
+      "items": [
+        "QA 엔지니어 출신",
+        "게임 서버·라이브 운영",
+        "AI 석사",
+        "창업·서비스·계약 수행"
+      ]
+    }
+  ],
+  "HERO": {
+    "arc": [
+      "게임 QA",
+      "게임 서버·라이브 운영",
+      "인공지능학 석사",
+      "1인 창업·장기 계약 외주"
+    ],
+    "arcLabel": "경력 흐름",
+    "lines": [
+      "불필요하게 반복하는 일을",
+      "검증된 자동화 AI 워크플로우로"
+    ]
+  },
+  "IDENTITY": {
+    "name": "김형준"
+  },
+  "NAV_LINKS": [
+    {
+      "href": "#about",
+      "label": "소개"
+    },
+    {
+      "href": "#skills",
+      "label": "학력·역량"
+    },
+    {
+      "href": "#core",
+      "label": "핵심 구현"
+    },
+    {
+      "href": "#career",
+      "label": "회사 경력"
+    },
+    {
+      "href": "#cases",
+      "label": "작업 사례"
+    }
+  ],
+  "RESUME_LINKS": [
+    {
+      "href": "#about",
+      "label": "소개"
+    },
+    {
+      "href": "#skills",
+      "label": "학력·역량"
+    },
+    {
+      "href": "#career",
+      "label": "회사 경력"
+    }
+  ],
+  "RESUME_NAV_HEADING": "이력",
+  "SECTION_IDS": {
+    "core": "core",
+    "workflow": "workflow",
+    "sprite": "sprite",
+    "subtitles": "subtitles",
+    "cases": "cases",
+    "about": "about",
+    "contact": "contact",
+    "career": "career",
+    "skills": "skills"
+  },
+  "SPRITE_BRIEF": {
+    "title": "Sprite 파이프라인 — 원본 레이어로 다시 그리는 용사 스프라이트",
+    "lede": "직접 만든 용사 프로젝트의 레이어·셀·팔레트·골격 데이터를 브라우저에서 그대로 합성합니다.",
+    "previewLabel": "원본 용사 모션",
+    "points": [
+      {
+        "label": "레이어 합성",
+        "text": "레이어 19개와 셀(걷기 8 · 달리기 8 · 공격 12)을 원본 규칙으로 합성"
+      },
+      {
+        "label": "색 파이프라인",
+        "text": "포인트 색 · 추가 외곽선 → 팔레트 세트 10종(OKLab 최근접) · 적용 비율 0–100%"
+      },
+      {
+        "label": "프레임 점검",
+        "text": "레이어 × 프레임 타임라인, 어니언 스킨, 기준점·발바닥 줄 비교"
+      },
+      {
+        "label": "골격",
+        "text": "원본 골격 좌표와 프레임별 각도, 걷기 · 달리기 · 공격 무작위 재생"
+      }
+    ],
+    "linkLabel": "스프라이트 작업 화면 보기",
+    "linkHint": "(새 탭에서 열림)"
+  },
+  "SPRITE_ROUTE": "/sprite",
+  "SRT_BRIEF": {
+    "title": "Voice to SRT — 단어 시각으로 시간을 잡는 한국어 자막",
+    "lede": "로컬 음성 인식과 단어 정렬로 시간을 잡고, AI는 끊을 위치와 문구만 제안하며, 사람이 승인해 SRT를 만듭니다.",
+    "points": [
+      {
+        "label": "시간",
+        "text": "자막 시간은 강제 정렬된 단어 시각에서 가져오고, AI 응답의 시간 필드는 받지 않습니다."
+      },
+      {
+        "label": "AI 역할",
+        "text": "끊을 위치와 이유가 붙은 교정 제안만 돌려주며, Codex·Claude 의견이 갈리면 최대 2회 토론합니다."
+      },
+      {
+        "label": "사람 승인",
+        "text": "교정 제안을 수락·보류하고 되돌릴 수 있으며, 편집한 자막을 SRT로 내보냅니다."
+      }
+    ],
+    "linkLabel": "처리 과정 자세히 보기",
+    "linkHint": "(새 탭에서 열림)"
+  },
+  "STAGE": {
+    "index": "03",
+    "title": "AgentWorkflow — 요청 하나가 검증된 결과가 되기까지",
+    "rulerLabel": "단계",
+    "failToggle": "QA 실패 시나리오",
+    "failDisabledHint": "QA 단계가 없는 경로",
+    "reworkHint": "재작업 포함",
+    "humanLabel": "사람 판단 (필요 시)",
+    "detailHeading": "선택한 단계",
+    "followCursor": "실행 위치로",
+    "historyHeading": "실행 기록",
+    "historyEmpty": "재생하거나 다음 단계를 누르면 실행 기록이 쌓입니다.",
+    "directLaneLabel": "직접 처리 경로",
+    "laneGroupsLabel": "레인별 진행",
+    "sharedLabel": "공유 단계: Wiki → 통합"
+  },
+  "STICKY_BAR": {
+    "label": "섹션 바로가기",
+    "revealAfter": 400
+  },
+  "SUBTITLES_ROUTE": "/subtitles",
+  "WORKFLOW_SUMMARY": {
+    "steps": [
+      {
+        "label": "사람 ↔ Master AI",
+        "text": "사람은 Master AI 한 곳에 요청하고, Master AI가 경로를 정해 작업을 나눕니다."
+      },
+      {
+        "label": "독립 파이프라인",
+        "text": "서로 의존하지 않는 작업은 레인마다 기획·검수·개발·검수·QA를 따로 거칩니다."
+      },
+      {
+        "label": "병합 게이트 → 통합 · Wiki",
+        "text": "모든 레인이 QA를 통과해야 병합하고, 통합 검증 뒤 Wiki에 기록합니다."
+      }
+    ],
+    "returnNote": "검수 반려·QA 실패는 그 레인만 앞 단계로 되돌려 고칩니다.",
+    "humanNote": "사람은 범위와 권한이 걸린 지점에서만 결정합니다.",
+    "linkLabel": "상세 흐름 보기",
+    "linkHint": "(새 탭에서 열림)"
+  }
+}

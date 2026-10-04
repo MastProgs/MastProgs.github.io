@@ -139,3 +139,10 @@
 - [x] guards_test·widget_test 를 새 이메일·현재 전화(데이터에서 읽음)·빈 값 null·평문 유지 기준으로 갱신
 - [x] flutter analyze 문제 0 · flutter test 598개 · flutter build web 성공(컴파일 경고 0). 입력된 연락처의 SelectableText 표시도 기존 도우미로 실제 위젯 검증.
 - [x] 사용자 요청으로 로컬 서버는 종료 상태 유지. 위젯에서 현재 이메일·전화 표시와 포트폴리오 링크 검증. Flutter 소스만 로컬 커밋 대상, 루트 docs 배포 변경·v2 사진·환경 설정은 제외, 푸시 없음.
+
+## 후속 요청: GitHub Pages 배포용 루트 docs 커밋 (2026-10-04)
+
+- [x] 사용자 명시 확인: 여기서 docs는 Wiki가 아닌 GitHub Pages 배포 폴더. 최신 v3 결과물을 커밋하며 푸시하지 않는다.
+- [x] flutter clean 후 릴리스 빌드 재생성 성공, --no-web-resources-cdn --no-wasm-dry-run 적용. 오래된 assets/demo 잔여 제거.
+- [x] 루트 docs를 새 빌드 86개 파일과 일치하게 갱신. 기존 결과는 임시 폴더 보관. 원본 미디어·현재 이메일·noindex 확인. 제3자 NOTICES의 줄 끝 공백만 정리하고 양쪽 파일 동일 유지.
+- [x] 이전 아이콘·PWA manifest·v2 자산 잔여 제거. 자격증명 패턴 검사·staged diff 점검 후 배포 폴더 로컬 커밋. 푸시 없음.
