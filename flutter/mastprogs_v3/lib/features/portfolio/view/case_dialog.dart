@@ -10,6 +10,7 @@ import 'package:flutter/services.dart';
 import 'package:phosphor_flutter/phosphor_flutter.dart';
 
 import '../../../app/app_scope.dart';
+import '../../../app/route_links.dart';
 import '../../../app/layout.dart';
 import '../../../app/theme/palette.dart';
 import '../../../app/theme/typography.dart';
@@ -249,12 +250,12 @@ class _CaseDetail extends StatelessWidget {
           const SizedBox(height: 22),
           PillButton(
             label: item.detailLabel!,
-            icon: PhosphorIconsRegular.arrowSquareOut,
+            icon: PhosphorIconsRegular.arrowRight,
             iconSize: 16,
             tone: PillTone.primarySmall,
-            semanticLabel: '${item.detailLabel!} (새 탭에서 열림)',
-            linkUrl: Uri.parse(detailRoute!),
-            onPressed: () => navigator.openNewTab(detailRoute!),
+            semanticLabel: item.detailLabel!,
+            linkUrl: routeLink(detailRoute!),
+            onPressed: () => navigator.go(detailRoute!),
           ),
         ],
       ],

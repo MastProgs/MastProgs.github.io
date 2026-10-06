@@ -1,14 +1,16 @@
-// 앱 전체 위젯 테스트: 네 경로·끝 슬래시·미지 경로·문서 제목, 메인 이력서 구성, 테마 전환·저장, 새 탭 링크, 사례 대화상자.
+// 앱 전체 위젯 테스트: 네 경로·끝 슬래시·미지 경로·문서 제목, 메인 이력서 구성, 테마 전환·저장, 내부 이동, 사례 대화상자.
 // AI-NOTE: 브라우저 경계는 MemoryHostPlatform 으로 바꿔 끼운다(새 탭·저장 요청을 기록). 실제 브라우저 QA 는 별도로 한다.
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mastprogs_v3/app/app.dart';
+import 'package:mastprogs_v3/app/route_links.dart';
 import 'package:mastprogs_v3/app/routes.dart';
 import 'package:mastprogs_v3/core/constants.dart';
 import 'package:mastprogs_v3/features/portfolio/portfolio_content.dart';
 import 'package:mastprogs_v3/features/portfolio/view/case_dialog.dart';
 import 'package:mastprogs_v3/platform/host_platform.dart';
+import 'package:mastprogs_v3/widgets/pdf_download_button.dart';
 
 import 'support/finders.dart';
 import 'support/fixtures.dart';
@@ -60,10 +62,14 @@ void main() {
       expect(resolvePage('/Workflow'), AppPage.main, reason: 'pathname match is exact like React');
       expect(AppLocation.parse('/?state=target').isTarget, isTrue);
       expect(AppLocation.parse('/#cases').fragment, 'cases');
+      expect(AppLocation.parse('/?anchor=cases').fragment, 'cases');
+      expect(AppLocation.parse('/?state=target').withFragment('cases').uri.toString(), '/?state=target&anchor=cases');
+      expect(routeLink(spriteRoutePath).toString(), '/#/sprite');
+      expect(anchorLink('cases').toString(), '/#/?anchor=cases');
     });
 
     test('document titles match the React pages', () {
-      expect(AppPage.main.documentTitle, '김형준 · AgentWorkflow 데모');
+      expect(AppPage.main.documentTitle, '김형준 · 이력서');
       expect(AppPage.workflow.documentTitle, 'AgentWorkflow 상세 · 김형준');
       expect(AppPage.sprite.documentTitle, 'Sprite 파이프라인 상세 · 김형준');
       expect(AppPage.subtitles.documentTitle, 'Voice to SRT 상세 · 김형준');
@@ -90,6 +96,31 @@ void main() {
     expect(findTextContaining(RegExp('워크플로(?!우)')), findsNothing);
     expect(findText('불필요하게 반복하는 일을'), findsOneWidget);
     expect(findText('검증된 자동화 AI 워크플로우로'), findsOneWidget);
+  });
+
+  testWidgets('the first three representative cases open their detail pages in the same tab', (tester) async {
+    for (final (label, route, title) in [
+      ('AI 개발 자동화', workflowRoutePath, workflowDocumentTitle),
+      ('스프라이트 제작 도구', spriteRoutePath, spriteDocumentTitle),
+      ('자동 자막 생성·교정', subtitlesRoutePath, subtitlesDocumentTitle),
+    ]) {
+      final host = await pumpApp(tester, '/');
+      final link = find.bySemanticsLabel('사례 보기: $label');
+      await tapVisible(tester, link);
+      expect(documentTitle(tester), title, reason: route);
+      expect(host.openedTabs, isEmpty, reason: route);
+      await tester.pumpWidget(const SizedBox.shrink());
+    }
+  });
+
+  testWidgets('PDF download is available on all four routes', (tester) async {
+    for (final route in ['/', workflowRoutePath, spriteRoutePath, subtitlesRoutePath]) {
+      final host = await pumpApp(tester, route);
+      await tester.tap(find.byType(PdfDownloadButton));
+      await tester.pump();
+      expect(host.downloads, [(portfolioPdfPath, portfolioPdfFilename)], reason: route);
+      await tester.pumpWidget(const SizedBox.shrink());
+    }
   });
 
   testWidgets('unknown path keeps the résumé', (tester) async {

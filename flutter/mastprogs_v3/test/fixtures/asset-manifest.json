@@ -42,13 +42,13 @@
       "path": "assets/data/pixelStudio.json"
     },
     {
-      "bytes": 9742,
-      "sha256": "4b1f6d71f20bb4748a9747c7b4329cc579f424cdf1bc492705e2d51904ce31a5",
+      "bytes": 9724,
+      "sha256": "78d97cf79d01dfbbab6a574660a46da1d4130355ea19c183f69a1ddb94bc6d1f",
       "path": "assets/data/resume.json"
     },
     {
-      "bytes": 14504,
-      "sha256": "bf71ee141fe3e37a9a1c9da8d97ef7816a9e1544c7688a74e7a04b6f2463a654",
+      "bytes": 14511,
+      "sha256": "9ceaedfb207d8ef50ad379f68c05a16241a03435cc802ae2271a30a5cf79e987",
       "path": "assets/data/site.json"
     },
     {

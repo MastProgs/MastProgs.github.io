@@ -301,7 +301,7 @@
       }
     ],
     "linkLabel": "스프라이트 작업 화면 보기",
-    "linkHint": "(새 탭에서 열림)"
+    "linkHint": "(같은 탭에서 열림)"
   },
   "SPRITE_ROUTE": "/sprite",
   "SRT_BRIEF": {
@@ -322,7 +322,7 @@
       }
     ],
     "linkLabel": "처리 과정 자세히 보기",
-    "linkHint": "(새 탭에서 열림)"
+    "linkHint": "(같은 탭에서 열림)"
   },
   "STAGE": {
     "index": "03",
@@ -363,6 +363,6 @@
     "returnNote": "검수 반려·QA 실패는 그 레인만 앞 단계로 되돌려 고칩니다.",
     "humanNote": "사람은 범위와 권한이 걸린 지점에서만 결정합니다.",
     "linkLabel": "상세 흐름 보기",
-    "linkHint": "(새 탭에서 열림)"
+    "linkHint": "(같은 탭에서 열림)"
   }
 }

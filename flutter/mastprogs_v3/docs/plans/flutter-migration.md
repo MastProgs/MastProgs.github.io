@@ -146,3 +146,12 @@
 - [x] flutter clean 후 릴리스 빌드 재생성 성공, --no-web-resources-cdn --no-wasm-dry-run 적용. 오래된 assets/demo 잔여 제거.
 - [x] 루트 docs를 새 빌드 86개 파일과 일치하게 갱신. 기존 결과는 임시 폴더 보관. 원본 미디어·현재 이메일·noindex 확인. 제3자 NOTICES의 줄 끝 공백만 정리하고 양쪽 파일 동일 유지.
 - [x] 이전 아이콘·PWA manifest·v2 자산 잔여 제거. 자격증명 패턴 검사·staged diff 점검 후 배포 폴더 로컬 커밋. 푸시 없음.
+
+## 후속 요청: GitHub Pages 내부 경로와 이력서 PDF (2026-10-06)
+
+- [x] GitHub Pages의 `/sprite` 직접 진입 404를 확인하고, Flutter 해시 URL(`/#/workflow`, `/#/sprite`, `/#/subtitles`)로 전환. 상세 링크는 같은 탭에서 열고 실제 href도 해시 URL로 제공한다.
+- [x] 소개의 대표 사례 첫 3개를 각각 워크플로우·스프라이트·자막 상세로 직접 연결. 나머지 앵커 링크는 유지한다.
+- [x] 메인 브라우저 제목을 `김형준 · 이력서`로 변경한다.
+- [x] Claude가 승인한 흰 배경 문서형 PDF에 이력서와 상세 사례 3개를 각 1쪽으로 구성한다. 핵심 사실·표·도식 중심으로 작성하고 스프라이트는 원본 프레임·팔레트·외곽선·어니언 스킨 도식을 사용한다.
+- [x] 네 경로에 공통 플로팅 PDF 다운로드 버튼을 두고, `robots.txt`로 PDF 크롤링을 차단한다.
+- [x] PDF 시각 검토(Claude PASS)와 글꼴·링크·콘텐츠 해시 확인, Flutter 분석·전체 테스트·웹 빌드, GitHub Pages와 같은 정적 서버 경로 검증, 배포 폴더 `docs/` 갱신, 최종 diff 점검.

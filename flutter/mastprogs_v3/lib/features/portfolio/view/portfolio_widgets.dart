@@ -2,6 +2,7 @@
 import 'package:flutter/material.dart';
 
 import '../../../app/app_scope.dart';
+import '../../../app/route_links.dart';
 import '../../../app/layout.dart';
 import '../../../app/theme/palette.dart';
 import '../../../app/theme/typography.dart';
@@ -132,7 +133,7 @@ class AnchorTextLink extends StatelessWidget {
     final scope = PortfolioScope.of(context);
     return Pressable(
       isLink: true,
-      linkUrl: Uri(fragment: anchor),
+      linkUrl: anchorLink(anchor),
       semanticLabel: label,
       excludeChildSemantics: true,
       radius: BorderRadius.circular(4),

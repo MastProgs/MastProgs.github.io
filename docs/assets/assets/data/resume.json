@@ -28,19 +28,19 @@
       {
         "label": "AI 개발 자동화",
         "text": "Master AI 기반 작업 분배·교차 검토·실사용 QA·오류 복구 절차 구축",
-        "href": "#case-agentworkflow",
+        "href": "/workflow",
         "linkLabel": "사례"
       },
       {
         "label": "스프라이트 제작 도구",
         "text": "32·64·128px 해상도와 5가지 모션을 비교하고 편집 가능한 Aseprite로 저장하는 픽셀 캐릭터 도구",
-        "href": "#case-pixel",
+        "href": "/sprite",
         "linkLabel": "사례"
       },
       {
         "label": "자동 자막 생성·교정",
         "text": "로컬 음성 인식·단어 정렬로 자막 시간을 잡고 AI 교차 검토와 사람 승인으로 SRT 완성",
-        "href": "#case-subtitles",
+        "href": "/subtitles",
         "linkLabel": "사례"
       },
       {

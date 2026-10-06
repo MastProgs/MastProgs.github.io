@@ -6,10 +6,13 @@
 // 대표 주제("불필요하게 반복하는 일을 검증된 자동화 AI 워크플로우로")는 사진·연락처 줄 바로 아래, 자기소개 앞에 둔다. 두 줄 사이는 실제 공백(낭독용)이다.
 // 이메일·전화는 사용자가 직접 입력하고 공개를 확인한 값을 일반 텍스트로 보인다. 값이 비면 점선 칸에 "준비 중"으로 돌아간다.
 // 포트폴리오 칸의 정확한 주소 하나만 새 탭 링크다(mailto/tel 없음).
+// AI-NOTE: 소개의 대표 사례 첫 세 링크는 사용자가 바로 상세 화면을 볼 수 있도록 같은 탭의 내부 경로로 연다.
+// 나머지 사례·경력 링크는 메인 안의 앵커를 유지한다.
 import 'package:flutter/material.dart';
 import 'package:phosphor_flutter/phosphor_flutter.dart';
 
 import '../../../app/app_scope.dart';
+import '../../../app/route_links.dart';
 import '../../../app/layout.dart';
 import '../../../app/theme/palette.dart';
 import '../../../app/theme/typography.dart';
@@ -442,6 +445,8 @@ class _HighlightRow extends StatelessWidget {
   Widget build(BuildContext context) {
     final palette = context.palette;
     final scope = PortfolioScope.of(context);
+    final navigator = AppServices.of(context).navigator;
+    final isDetailRoute = item.href.startsWith('/');
     final label = KText(
       item.label,
       style: textStyle(size: 14.5, weight: FontWeight.w600, color: palette.ink, height: 1.65),
@@ -455,11 +460,11 @@ class _HighlightRow extends StatelessWidget {
           offset: const Offset(0, 0),
           child: Pressable(
             isLink: true,
-            linkUrl: Uri.parse(item.href),
+            linkUrl: isDetailRoute ? routeLink(item.href) : anchorLink(item.href.substring(1)),
             semanticLabel: '${item.linkLabel} 보기: ${item.label}',
             excludeChildSemantics: true,
             radius: BorderRadius.circular(6),
-            onPressed: () => scope.onAnchor(item.href.substring(1)),
+            onPressed: () => isDetailRoute ? navigator.go(item.href) : scope.onAnchor(item.href.substring(1)),
             builder: (context, state) {
               final color = state.hovered ? palette.orange : palette.ink;
               final reduced = ReducedMotion.of(context);

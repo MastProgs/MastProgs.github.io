@@ -1,5 +1,5 @@
 // 앱 뿌리: 테마(어두운 기본/밝은), 공용 서비스, 경로 라우터를 한곳에서 묶는다.
-// AI-NOTE: 테마 상태는 ThemeController 하나뿐이고 메인·상세 페이지가 같은 상태를 쓴다. 새 탭은 저장된 같은 테마로 열린다.
+// AI-NOTE: 테마 상태는 ThemeController 하나뿐이고 같은 탭의 메인·상세 페이지가 같은 상태를 쓴다.
 // 동작 줄이기(prefers-reduced-motion)와 탭 가림(document.hidden)은 브라우저 경계(HostPlatform)에서 받아 위젯에 알린다.
 import 'dart:async';
 

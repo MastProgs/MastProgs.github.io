@@ -7,6 +7,7 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:mastprogs_v3/app/route_links.dart';
 import 'package:mastprogs_v3/core/constants.dart';
 
 import 'support/finders.dart';
@@ -77,18 +78,30 @@ void main() {
         expect(url.startsWith('#') || url.startsWith('/') || url == portfolioUrl, isTrue, reason: 'unexpected href $url');
         urls.add(url);
       }
-      expect(urls, containsAll(<String>[portfolioUrl, '#workflow', '#sprite', '#subtitles', workflowRoutePath, spriteRoutePath, subtitlesRoutePath]));
+      expect(
+        urls,
+        containsAll(<String>[
+          portfolioUrl,
+          anchorLink('workflow').toString(),
+          anchorLink('sprite').toString(),
+          anchorLink('subtitles').toString(),
+          routeLink(workflowRoutePath).toString(),
+          routeLink(spriteRoutePath).toString(),
+          routeLink(subtitlesRoutePath).toString(),
+        ]),
+      );
       expect(urls.where((url) => url.startsWith('http')), [portfolioUrl], reason: 'the only external href');
 
-      // 보조 기술의 실행(tap 동작) 한 번 = 새 탭 한 번.
+      // 포트폴리오만 새 탭, 내부 상세 링크는 같은 탭의 라우터에서 한 번 실행한다.
       final portfolio = links.firstWhere((node) => node.getSemanticsData().linkUrl.toString() == portfolioUrl);
       _activate(tester, portfolio);
       await tester.pump();
       expect(host.openedTabs, [portfolioUrl]);
-      final workflowCta = links.firstWhere((node) => node.getSemanticsData().linkUrl.toString() == workflowRoutePath);
+      final workflowCta = links.firstWhere((node) => node.getSemanticsData().linkUrl.toString() == routeLink(workflowRoutePath).toString());
       _activate(tester, workflowCta);
       await tester.pump();
-      expect(host.openedTabs, [portfolioUrl, workflowRoutePath]);
+      expect(host.openedTabs, [portfolioUrl]);
+      expect(documentTitle(tester), workflowDocumentTitle);
       handle.dispose();
     });
 

@@ -12,6 +12,7 @@ import 'package:flutter/material.dart';
 import 'package:phosphor_flutter/phosphor_flutter.dart';
 
 import '../../../app/app_scope.dart';
+import '../../../app/route_links.dart';
 import '../../../app/layout.dart';
 import '../../../app/theme/palette.dart';
 import '../../../app/theme/typography.dart';
@@ -28,7 +29,7 @@ import 'case_dialog.dart';
 import 'portfolio_scope.dart';
 import 'portfolio_widgets.dart';
 
-/// 사례 id → 상세 페이지 경로. 상세 페이지가 있는 사례만 대화상자 아래에 새 탭 링크를 둔다.
+/// 사례 id → 상세 페이지 경로. 상세 페이지가 있는 사례만 대화상자 아래에 같은 탭 링크를 둔다.
 const Map<String, String> caseDetailRoutes = {'case-subtitles': subtitlesRoutePath};
 
 // ── 레일 계산(원본 lib/rail.js, 순수 함수) ─────────────────────────
@@ -211,7 +212,7 @@ class _CasesSectionState extends State<CasesSection> {
                         ),
                   child: Pressable(
                     isLink: true,
-                    linkUrl: Uri(fragment: item.id),
+                    linkUrl: anchorLink(item.id),
                     selected: i == active,
                     semanticLabel: '${item.index} ${item.title}',
                     excludeChildSemantics: true,

@@ -7,13 +7,17 @@ const String workflowRoutePath = '/workflow';
 const String spriteRoutePath = '/sprite';
 const String subtitlesRoutePath = '/subtitles';
 
-const String mainDocumentTitle = '김형준 · AgentWorkflow 데모';
+const String mainDocumentTitle = '김형준 · 이력서';
 const String workflowDocumentTitle = 'AgentWorkflow 상세 · 김형준';
 const String spriteDocumentTitle = 'Sprite 파이프라인 상세 · 김형준';
 const String subtitlesDocumentTitle = 'Voice to SRT 상세 · 김형준';
 
-/// 테마 저장 키(값은 "dark" | "light" 만). 메인과 새 탭 상세 페이지가 같은 키를 읽는다.
+/// 테마 저장 키(값은 "dark" | "light" 만). 메인과 상세 페이지가 같은 키를 읽는다.
 const String themeStorageKey = 'mastprogs-theme';
 
 /// 메인 비교 화면 진입점(?state=target): 섹션 등장 애니메이션만 끈다.
 const String targetStateQuery = 'target';
+
+/// 네 화면을 문서 형식으로 묶은 다운로드 파일(웹 루트에 번들).
+const String portfolioPdfPath = '/portfolio.pdf';
+const String portfolioPdfFilename = 'Kim_Hyeongjun_Resume.pdf';

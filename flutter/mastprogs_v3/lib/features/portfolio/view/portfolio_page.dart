@@ -1,6 +1,6 @@
 // 메인 이력서 페이지(React App.jsx 메인 + SiteHeader·StickyBar·SiteFooter 이식).
 // AI-NOTE: 사용자 최신 지시에 따른 섹션 순서: 01 소개 → 02 학력·역량 → 03 핵심 구현(AgentWorkflow → Sprite 파이프라인 → Voice to SRT 요약,
-// 상세는 각각 /workflow·/sprite·/subtitles 새 탭) → 04 회사 경력 → 05 작업 사례 → 푸터. 페이지의 유일한 h1 은 소개의 이름이다.
+// 상세는 각각 같은 탭의 /workflow·/sprite·/subtitles) → 04 회사 경력 → 05 작업 사례 → 푸터. 페이지의 유일한 h1 은 소개의 이름이다.
 // 헤더·고정 바·모바일 메뉴에는 이름과 "연락"이 없다(이름·사진·항상 보이는 연락처 칸은 01 소개, 이름은 푸터).
 // 고정 바는 400px 아래로 내려가면 나타나고, 숨김 상태에서는 포커스·보조기기 트리에서 빠진다(중복 내비게이션 방지).
 import 'package:flutter/foundation.dart';
@@ -10,6 +10,7 @@ import 'package:flutter/services.dart';
 import 'package:phosphor_flutter/phosphor_flutter.dart';
 
 import '../../../app/app_scope.dart';
+import '../../../app/route_links.dart';
 import '../../../app/layout.dart';
 import '../../../app/theme/palette.dart';
 import '../../../app/theme/typography.dart';
@@ -349,7 +350,7 @@ class _SiteHeaderState extends State<SiteHeader> {
                     for (final link in site.navLinks)
                       Pressable(
                         isLink: true,
-                        linkUrl: Uri(fragment: link.anchor),
+                        linkUrl: anchorLink(link.anchor),
                         semanticLabel: link.label,
                         excludeChildSemantics: true,
                         radius: BorderRadius.circular(6),
@@ -433,7 +434,7 @@ class StickyBar extends StatelessWidget {
                                         for (final link in site.navLinks)
                                           Pressable(
                                             isLink: true,
-                                            linkUrl: Uri(fragment: link.anchor),
+                                            linkUrl: anchorLink(link.anchor),
                                             semanticLabel: link.label,
                                             excludeChildSemantics: true,
                                             radius: BorderRadius.circular(6),

@@ -7,12 +7,12 @@ import '../content/content_repository.dart';
 import '../platform/host_platform.dart';
 import 'theme/theme_controller.dart';
 
-/// 페이지 이동 요청(같은 탭의 메인·앵커, 새 탭 상세).
+/// 페이지 이동 요청(같은 탭의 메인·상세·앵커, 외부 링크만 새 탭).
 abstract class AppNavigator {
   /// 같은 탭에서 경로로 이동(예: 상세 → '/').
   void go(String path);
 
-  /// 메인 안 앵커로 이동(주소의 #fragment 도 함께 바뀐다).
+  /// 메인 안 앵커로 이동(해시 경로 안의 ?anchor 값도 함께 바뀐다).
   void goToAnchor(String id);
 
   /// 새 탭으로 연다(noopener, noreferrer).

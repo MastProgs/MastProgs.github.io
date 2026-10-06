@@ -2,6 +2,9 @@
 // AI-NOTE: React tests/privacy.test.mjs·rail.test.mjs·roving.test.mjs·theme.test.mjs 의 의미를 Flutter 소스·번들 데이터에 그대로 건다.
 // 원본 모델 상수는 test/fixtures 가 아닌 assets/data/constants.json(원본 모듈의 내보낸 값)과 비교한다.
 import 'dart:io';
+import 'dart:convert';
+
+import 'package:crypto/crypto.dart';
 
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -96,11 +99,26 @@ void main() {
       final html = File('web/index.html').readAsStringSync();
       expect(html, contains('<html lang="ko">'));
       expect(html, contains('<meta name="robots" content="noindex, noarchive">'));
-      expect(html, contains('<title>김형준 · AgentWorkflow 데모</title>'));
+      expect(html, contains('<title>김형준 · 이력서</title>'));
       expect(html, isNot(matches(RegExp(r'og:|twitter:|name="description"|name="keywords"|rel="canonical"|ld\+json|manifest', caseSensitive: false))));
       final bootstrap = File('web/flutter_bootstrap.js').readAsStringSync();
       expect(bootstrap, contains("fontFallbackBaseUrl: '/fonts/'"));
       expect(File('web/manifest.json').existsSync(), isFalse);
+    });
+
+    test('portfolio PDF exists and matches the current source data', () {
+      final pdf = File('web/portfolio.pdf');
+      expect(pdf.existsSync(), isTrue);
+      final bytes = pdf.readAsBytesSync();
+      expect(latin1.decode(bytes.take(5).toList()), '%PDF-');
+      final source = <int>[];
+      for (final name in ['resume.json', 'site.json', 'workflowDetail.json', 'pixelStudio.json', 'subtitles.json', 'pixel-palette-sets.json']) {
+        source
+          ..addAll(utf8.encode(name))
+          ..addAll(File('assets/data/$name').readAsBytesSync());
+      }
+      expect(latin1.decode(bytes).contains('${sha256.convert(source)}'), isTrue, reason: 'regenerate the PDF after source data changes');
+      expect(File('web/robots.txt').readAsStringSync(), contains('Disallow: /portfolio.pdf'));
     });
 
     test('contact: user-supplied email/phone stay plain text, only the exact portfolio URL becomes a link', () {

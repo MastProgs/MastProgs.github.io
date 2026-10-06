@@ -1,7 +1,7 @@
 // 03 핵심 구현(React CoreSection.jsx + CoreItem.jsx + WorkflowSummary.jsx + SpriteBrief.jsx + SubtitlesBrief.jsx 이식).
 // AI-NOTE: 사용자 최신 지시로 예전 03 AgentWorkflow·04 스프라이트를 이 묶음 하나(#core, h2)로 합쳤다. 하위 순서: AgentWorkflow → Sprite → Voice to SRT.
 // 세 항목은 탭·아코디언 없이 위에서 아래로 모두 보이고, 각자 #workflow·#sprite·#subtitles 앵커와 h3 를 가진다. 하위 번호는 CORE.items 가 정한다.
-// 메인에는 요약만 있고 상세는 각 요약의 새 탭 링크(/workflow·/sprite·/subtitles)가 연다.
+// 메인에는 요약만 있고 상세는 각 요약에서 같은 탭의 해시 경로(/workflow·/sprite·/subtitles)로 연다.
 // SpriteBrief 는 원본 GIF 세 개(걷기·달리기·공격)만 보여 준다(동작 줄이기면 같은 원본의 첫 프레임 PNG). 레이어 합성·타이머·무거운 데이터 없음.
 // SubtitlesBrief 는 사례 03 의 처리 도식을 그대로 쓰고 시간·AI·사람 경계 세 줄만 덧붙인다(자막 예시·모델 데이터 없음).
 import 'package:flutter/material.dart';
@@ -9,6 +9,7 @@ import 'package:phosphor_flutter/phosphor_flutter.dart';
 
 import '../../../app/app_scope.dart';
 import '../../../app/layout.dart';
+import '../../../app/route_links.dart';
 import '../../../app/theme/palette.dart';
 import '../../../app/theme/typography.dart';
 import '../../../core/constants.dart';
@@ -77,7 +78,7 @@ class _CoreNavChip extends StatelessWidget {
     final scope = PortfolioScope.of(context);
     return Pressable(
       isLink: true,
-      linkUrl: Uri(fragment: item.id),
+      linkUrl: anchorLink(item.id),
       semanticLabel: '${item.index} ${item.label}',
       excludeChildSemantics: true,
       onPressed: () => scope.onAnchor(item.id),
@@ -317,12 +318,12 @@ class _WorkflowSummary extends StatelessWidget {
 
     final button = PillButton(
       label: summary['linkLabel']!,
-      icon: PhosphorIconsRegular.arrowSquareOut,
+      icon: PhosphorIconsRegular.arrowRight,
       tone: PillTone.dark,
       expand: metrics.mobile,
       semanticLabel: '${summary['linkLabel']!} ${summary['linkHint']!}',
-      linkUrl: Uri.parse(workflowRoutePath),
-      onPressed: () => navigator.openNewTab(workflowRoutePath),
+      linkUrl: routeLink(workflowRoutePath),
+      onPressed: () => navigator.go(workflowRoutePath),
     );
 
     return _CoreItem(
@@ -515,7 +516,7 @@ class _BriefSide extends StatelessWidget {
   final String linkLabel;
   final String linkHint;
 
-  /// 새 탭으로 여는 상세 경로(링크 목적지와 실제 이동이 같은 값).
+  /// 같은 탭으로 여는 상세 경로(링크 목적지와 실제 이동이 같은 값).
   final String path;
 
   @override
@@ -525,11 +526,11 @@ class _BriefSide extends StatelessWidget {
     final navigator = AppServices.of(context).navigator;
     final button = PillButton(
       label: linkLabel,
-      icon: PhosphorIconsRegular.arrowSquareOut,
+      icon: PhosphorIconsRegular.arrowRight,
       expand: metrics.mobile,
       semanticLabel: '$linkLabel $linkHint',
-      linkUrl: Uri.parse(path),
-      onPressed: () => navigator.openNewTab(path),
+      linkUrl: routeLink(path),
+      onPressed: () => navigator.go(path),
     );
     return Container(
       padding: metrics.mobile ? const EdgeInsets.all(16) : const EdgeInsets.fromLTRB(22, 20, 22, 22),

@@ -129,6 +129,20 @@ class WebHostPlatform implements HostPlatform {
   }
 
   @override
+  void downloadFile(String path, String filename) {
+    // AI-NOTE: 임시 앵커는 사용자 클릭 핸들러 안에서 동기적으로 누른다. iOS Safari가 download를
+    // 무시하면 PDF 뷰어로 열리며, 그곳의 공유/저장 기능으로 파일을 받을 수 있다.
+    _safe(() {
+      final link = web.HTMLAnchorElement()
+        ..href = path
+        ..download = filename;
+      web.document.body?.append(link);
+      link.click();
+      link.remove();
+    });
+  }
+
+  @override
   bool pickColor({required String initial, required void Function(String hex) onInput}) {
     final input = _colorInput ??= _createColorInput();
     if (input == null) return false;

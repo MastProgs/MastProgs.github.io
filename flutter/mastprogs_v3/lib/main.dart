@@ -1,6 +1,6 @@
-// 앱 진입점. 해시(#) 대신 경로 URL(/workflow 등)을 쓰고, 메인 앵커 주소(/#cases)도 첫 진입부터 그대로 읽는다.
-// AI-NOTE: PathUrlStrategy(includeHash) 는 usePathUrlStrategy() 와 같은 경로 전략에 #fragment 보존만 더한 비 deprecated API 다.
-// 로컬·배포 서버는 History API 경로를 index.html 로 재작성해야 직접 진입·새로 고침이 된다(없는 정적 자산은 실제 404).
+// 앱 진입점. GitHub Pages가 제공하는 루트 문서 하나에서 해시 경로를 읽는다.
+// AI-NOTE: GitHub Pages는 /workflow 등의 요청을 index.html로 재작성하지 않는다. HashUrlStrategy는
+// /#/workflow처럼 루트만 요청하므로 상세 화면의 직접 진입·새로고침도 동작한다.
 import 'package:flutter/widgets.dart';
 import 'package:flutter_web_plugins/url_strategy.dart';
 
@@ -8,6 +8,6 @@ import 'app/app.dart';
 import 'platform/host_platform.dart';
 
 void main() {
-  setUrlStrategy(PathUrlStrategy(BrowserPlatformLocation(), true));
+  setUrlStrategy(const HashUrlStrategy());
   runApp(PortfolioApp(platform: createHostPlatform()));
 }

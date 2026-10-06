@@ -71,7 +71,7 @@ class Pressable extends StatefulWidget {
   final String? tooltip;
   final bool isLink;
 
-  /// 링크의 실제 목적지(href). 같은 출처 경로('/workflow'), 앵커('#about'), 허용된 외부 주소만 넘긴다.
+  /// 링크의 실제 목적지(href). 같은 출처 해시 경로('/#/workflow'), 앵커('/#/?anchor=about'), 허용된 외부 주소만 넘긴다.
   final Uri? linkUrl;
 
   /// aria-pressed.

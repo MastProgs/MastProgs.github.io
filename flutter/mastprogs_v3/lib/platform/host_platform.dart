@@ -1,7 +1,7 @@
 // 브라우저와 맞닿는 최소 경계(테마 저장, 탭 가림, 동작 줄이기 설정, 새 탭 열기, 기본 색 선택 창).
 // AI-NOTE: 앱 로직·모델은 브라우저 API 를 직접 부르지 않고 이 인터페이스만 쓴다. 웹 구현은 dart:js_interop + package:web(platform_web.dart),
 // 테스트·VM 은 메모리 구현(MemoryHostPlatform)이다. React 설정과 같이 저장하는 값은 테마("dark" | "light") 하나뿐이다.
-// 경로 판정·문서 제목은 Flutter 라우터(usePathUrlStrategy)와 Title 위젯이 맡으므로 여기에 두지 않는다.
+// 경로 판정·문서 제목은 Flutter 라우터(HashUrlStrategy)와 Title 위젯이 맡으므로 여기에 두지 않는다.
 import 'dart:async';
 
 import 'platform_stub.dart' if (dart.library.js_interop) 'platform_web.dart' as impl;
@@ -30,6 +30,9 @@ abstract class HostPlatform {
   /// 같은 출처 경로나 허용된 외부 주소를 새 탭으로 연다(noopener, noreferrer).
   void openNewTab(String url);
 
+  /// 같은 출처 PDF를 지정된 파일명으로 내려받는다.
+  void downloadFile(String path, String filename);
+
   /// 브라우저 기본 색 선택 창을 연다. 고르는 동안 onInput 이 값을 보낸다(형식 '#rrggbb'). 창을 쓸 수 없으면 false.
   bool pickColor({required String initial, required void Function(String hex) onInput});
 
@@ -50,6 +53,7 @@ class MemoryHostPlatform implements HostPlatform {
   bool _reduced;
   final bool storageThrows;
   final List<String> openedTabs = [];
+  final List<(String, String)> downloads = [];
   final List<String> colorRequests = [];
   void Function(String hex)? lastColorInput;
   final StreamController<String?> _themeController = StreamController<String?>.broadcast();
@@ -101,6 +105,9 @@ class MemoryHostPlatform implements HostPlatform {
 
   @override
   void openNewTab(String url) => openedTabs.add(url);
+
+  @override
+  void downloadFile(String path, String filename) => downloads.add((path, filename));
 
   @override
   bool pickColor({required String initial, required void Function(String hex) onInput}) {
